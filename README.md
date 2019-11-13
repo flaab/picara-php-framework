@@ -133,7 +133,7 @@ Develop your application in the testing environment and when you are finished, g
 
 ## Deployment
 ### 1. Create a VirtualHost in your production server
-Create and activate an Apache VirtualHost that points to the htdocs/ folder in your server.
+Create an Apache VirtualHost that points to the htdocs/ folder of the framework project.
 ```
 <VirtualHost _default_:80>
         ServerAdmin you@yourdomain.com
@@ -175,6 +175,8 @@ To serve the page via HTTPS, define your VirtualHosts as follows instead.
 </VirtualHost>
 
 ```
+Make sure the VirtualHost is serving the htdocs folder and not the parent folder.
+
 ### 2. Secure your deployment
 - Delete the phpinfo.php file located at htdocs/webroot/phpinfo.php
 - Delete or rename the PhpLiteAdmin folder located at htdocs/webroot/phpliteadmin
