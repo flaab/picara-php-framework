@@ -62,14 +62,15 @@ Open a terminal in your Apache DocumentRoot folder and clone the repository.
 git clone https://github.com/flaab/picara-php-framework.git
 ```
 
-## Check Installation
+### Check the installation
 
-Point your browser to http://localhost/picara-php-framework/htdocs and check if it loads properly. If some required PHP or Apache modules are missing, you'll informed and asked to install or enabled them. 
+Point your browser to http://localhost/picara-php-framework/htdocs.
+If some modules or libraries are missing, you'll be informed.
 
 
 ## Deployment
 
-Create and activate an Apache VirtualHost that points to the htdocs/ folder, and you are ready to go. 
+Create and activate an Apache VirtualHost that points to the htdocs/ folder in your server.
 ```
 <VirtualHost _default_:80>
         ServerAdmin you@yourdomain.com
@@ -86,7 +87,7 @@ Create and activate an Apache VirtualHost that points to the htdocs/ folder, and
 	ErrorLog /home/you/path/to/error.log
 </VirtualHost>
 ```
-If you are using HTTPS, define the Apache VirtualHost as follows instead.
+To serve the page via SSH, define your VirtualHosts as follows instead.
 ```
 <VirtualHost _default_:443>
         ServerAdmin you@yourdomain.com
@@ -111,7 +112,7 @@ If you are using HTTPS, define the Apache VirtualHost as follows instead.
 </VirtualHost>
 
 ```
-Lastly, don't forget to switch to the production environment.
+Lastly, switch to the production environment before going public by running.
 
 ```
 php scripts/picara environment change production
