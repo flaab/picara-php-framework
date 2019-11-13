@@ -72,8 +72,6 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 That's it. You are ready to start coding.
 
-![](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZWGUGRD3EDFE7DHCSS5ZRQP4)
-
 
 ## The command line scripts
 The framework ships with command line scripts to perform the following tasks.
@@ -203,6 +201,12 @@ php scripts/picara environment change production
 
 These vendor libraries are included in this repository and shipped with the framework.
 
+## Todo and Roadmap
+Next iterations of the framework will include:
+- Ability of grouping models, controllers and views into modules (or apps)
+- Migrations
+
+Feel free to contribute on the development of this framework.
 
 ## Authors
 **Arturo Lopez Perez** - Main and sole developer (so far).
