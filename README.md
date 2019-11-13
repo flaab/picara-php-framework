@@ -55,19 +55,18 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - PDO
 
 
-## Install Instructions
-Open a terminal in your Apache DocumentRoot folder and clone the repository.
+## Installation
+
+- Open a terminal
+- Go to your Apache DocumentRoot Directory
+- Execute the following command to clone the repository
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
+- Point your browser to http://localhost/picara-php-framework/htdocs.
+- Install any missing libraries of prompted
 
-### That's it!
-Point your browser to http://localhost/picara-php-framework/htdocs.<br />
-![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZSLWSGRDSXID6BN6PC5ZRL6E)
-
-### Install any missing libraries
-If some modules or libraries are missing, you'll be informed.<br />
-![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZXAYC2PBH733YKJLIC5ZRL6E)
+That's it. You are ready to go.
 
 
 ## Command line interface
