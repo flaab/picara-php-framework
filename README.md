@@ -33,6 +33,60 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - HTTP Controllers have built-in session and IP controls
 - Create as many logs as you need in your application
 
+## Command line interface
+The framework ships with a command line interface to perform the following tasks.
+
+- Create or delete logs
+```
+php scripts/picara create log logname
+php scripts/picara destroy log logname
+```
+- Create or delete models
+```
+php scripts/picara create model modelname
+php scripts/picara create model modelname --table="table_name" --display="Users"
+php scripts/picara destroy model modelname
+```
+- Create or delete http controllers
+```
+php scripts/picara create controller controllername
+php scripts/picara destroy controller controllername
+```
+- Create or delete cli controllers
+```
+php scripts/picara create shell controllername
+php scripts/picara destroy shell controllername
+```
+- Create admin controllers
+```
+php scripts/picara create admincontroller controllername
+```
+- Create or delete database connections
+```
+php scripts/picara create connection main
+php scripts/picara create connection main -adapter=mysql -host=localhost -db=db_name -user=my_user -password=mypassword
+php scripts/picara destroy connection main
+```
+- Get or change the execution environment
+```
+php scripts/picara environment
+php scripts/picara environment change (production|development|testing)
+```
+- List one or all the application components
+```
+php scripts/picara list all
+php scripts/picara list models
+php scripts/picara list controllers
+php scripts/picara list shells
+php scripts/picara list connections
+php scripts/picara list logs
+```
+- Scaffold one or all models
+```
+php scripts/picara scaffold model modelname
+php scripts/picara scaffold all
+```
+
 
 ## Requirements
 - Apache Server > 2.2
@@ -75,7 +129,6 @@ Develop your application in the testing environment and when you are finished, g
 
 
 ## Deployment
-
 Create and activate an Apache VirtualHost that points to the htdocs/ folder in your server.
 ```
 <VirtualHost _default_:80>
@@ -93,7 +146,7 @@ Create and activate an Apache VirtualHost that points to the htdocs/ folder in y
 	ErrorLog /home/you/path/to/error.log
 </VirtualHost>
 ```
-To serve the page via SSH, define your VirtualHosts as follows instead.
+To serve the page via HTTPS, define your VirtualHosts as follows instead.
 ```
 <VirtualHost _default_:443>
         ServerAdmin you@yourdomain.com
@@ -130,17 +183,14 @@ php scripts/picara environment change production
 ```
 
 ## Built With
-
 * [ADODB](https://github.com/ADOdb/ADOdb) - PHP Database Abstraction Layer 
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 * [PhpLiteAdmin](https://www.phpliteadmin.org/) - PHP Admin tool to manage SQLite databases
 
 
 ## Authors
-
 **Arturo Lopez Perez** - Main and sole developer (so far).
 
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
