@@ -1,0 +1,48 @@
+################################################################
+#                                                              #
+#       PROJECT:    PICARA PHP WEB DEVELOPMENT FRAMEWORK       #
+#       WEBSITE:    https://git.io/Je8zR                       #
+#       COPYRIGHT:  Arturo Lopez Perez                         #
+#       AUTHOR:     Arturo Lopez Perez                         #
+#       LICENSE:    MIT License                                #
+#                                                              #
+################################################################
+#                                                              #
+# This document outlines the files that git should ignore.     #
+# Some folders need to be created so an empty .gitkeep file    #    
+# has been created inside them, but everything inside that     #
+# folder is to be ignored.                                     #
+#                                                              #
+# This way all the dir structure is created on pull requests.  #
+#                                                              #
+################################################################
+
+# MacOsX Files
+.DS_Store
+**/.DS_Store
+
+# Log files
+**/*.log
+
+# Old and new files
+**/*.old
+**/*.new
+
+# Databases
+db/*
+!db/.gitkeep 
+!db/example.sqlite3 
+
+# Cache
+cache/*
+!cache/.gitkeep
+
+# Temp files
+tmp/layout/*
+tmp/view/*
+!tmp/layout/.gitkeep
+!tmp/view/.gitkeep
+
+# Model images and files
+htdocs/webroot/model_files/*
+!htdocs/webroot/model_files/.gitkeep

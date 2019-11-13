@@ -1,0 +1,65 @@
+<?php
+
+################################################################
+#                                                              #
+#       PROJECT:    PICARA PHP WEB DEVELOPMENT FRAMEWORK       #
+#       WEBSITE:    https://git.io/Je8zR                       #
+#       COPYRIGHT:  Arturo Lopez Perez                         #
+#       AUTHOR:     Arturo Lopez Perez                         #
+#       LICENSE:    MIT License                                #
+#                                                              #
+################################################################
+
+/*
+* Paths and config
+*/
+if(!@include_once('core/config/paths.php'))
+    trigger_error('Picara scripts must be run from the root application directory', E_USER_ERROR);
+
+require_once(CONFIG . 'config.php');
+require_once(USERCONFIG . 'application.php');
+require_once(USERCONFIG . 'environment.php');
+
+/*
+* Error Handler
+*/
+require_once(SYSTEM . 'Pi_shell_error_handler.php');
+
+
+/*
+* Basic system libraries are included 
+*/
+
+require_once(SYSTEM  . 'Pi_error_store.php');
+require_once(SYSTEM  . 'Pi_uri.php');
+require_once(SYSTEM  . 'Pi_web_dispatcher.php');
+require_once(SYSTEM  . 'Pi_overloadable.php');
+require_once(SYSTEM  . 'Pi_object.php');
+require_once(SYSTEM  . 'Pi_callbacks.php');
+require_once(SYSTEM  . 'Pi_db.php');
+require_once(SYSTEM  . 'Pi_metadata.php');
+require_once(SYSTEM  . 'Pi_config.php');
+require_once(SYSTEM  . 'Pi_core.php');
+require_once(SYSTEM  . 'Pi_loader.php');
+require_once(SYSTEM  . 'Pi_logs.php'); 
+require_once(SYSTEM  . 'Pi_validation.php');
+require_once(SYSTEM  . 'Pi_querybridge.php');
+require_once(SYSTEM  . 'Pi_query.php');
+require_once(SYSTEM  . 'Pi_session.php');
+require_once(SYSTEM  . 'Pi_controller.php'); 
+require_once(USERLIB . 'MyController.php');
+require_once(SYSTEM  . 'Pi_shell_controller.php'); 
+require_once(USERLIB . 'MyShellController.php');
+require_once(SYSTEM  . 'Pi_shell_dispatcher.php');
+
+/*
+* Autoload
+*/
+require_once(SYSTEM . 'Pi_autoload.php');
+
+/*
+* Dispatcher
+*/
+$dispatcher = new Pi_shell_dispatcher($argv);
+ 
+?>

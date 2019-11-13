@@ -1,0 +1,18 @@
+usage: php scripts/picara scaffold (model|all) [name]
+
+This script generates scaffold controllers for desired models.
+
+Scaffolding a model
+------------------
+ - php scripts/picara scaffold model Article
+
+ A scaffold controller might be replaced using the -replace assertion.
+
+ - php scripts/picara scaffold model Article -replace
+
+
+Scaffolding all existing models
+-------------------------------
+ - php scripts/picara/scaffold all
+
+ All existing models in the application will be scaffolded.

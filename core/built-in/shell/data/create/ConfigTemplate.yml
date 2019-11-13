@@ -1,0 +1,481 @@
+###
+# Config file for model:    <modelname>
+#
+# All properties are available inside the model
+#
+# Example:
+#
+# $this->config->table
+# $this->config->connection
+# $this->config->callbacks->before->insert
+#
+# @note       Comments are self-explanatory
+# @note       Don't forget you can also add your own stuff
+# @warning    Do not delete any built-in property
+##
+
+#===================================================
+#   Basic information
+#===================================================
+#
+# > Connection
+#   Connection name for this model
+#
+# > Table            
+#   Table of the database this model represents
+#
+# > Display          
+#   Nice display name for this model
+#
+# > Autoincrement    
+#   True if this is an auto-incremented model
+#
+# > Population
+#   Auto-population for fields 'date_created' and 'date_modified'
+#  
+# Example:
+#
+# connection: main
+# table: user
+# display: Registered users
+# autoincrement: true
+# population: true
+#===================================================
+
+connection: <connection>
+table: <table>
+display: <displayname>
+autoincrement: true
+population: true
+
+#========================================================
+#   Integrity information
+#========================================================
+#
+# > Ignored
+#   List of ignored fields at construction time.
+#
+# > Forbidden
+#   List of forbidden fields at construction time.
+#   Errors will arise if we try to set these.
+#
+# > Hidden
+#   List of ignored fields at scaffolding lists
+#
+# Example:
+# 
+# integrity:
+#   ignored:
+#     - times_logged
+#     - request_ip
+#   forbidden:
+#     - date_created
+#     - date_modified
+#========================================================
+
+integrity:
+  ignored:
+  forbidden: 
+    - date_created
+    - date_modified
+    - datetime_created
+    - datetime_modified
+  hidden:
+
+#========================================================
+# Validation
+#========================================================
+#
+# > Rules
+#   Each model field might have associated a validation
+#   token and a message to throw if it fails.
+#   The validation function can be one of the following:
+#    
+#    - A PCRE regular expression
+#      Example: /^[A-Za-z\s_\-]{10,20}$/
+#
+#    - A Php function
+#      Example: is_numeric
+#
+#    - A Pi_validation class function
+#      Example: alphanumeric_with_spaces_length_10_to_20
+#
+# > Auto
+#   True will cause each object to validate himself at
+#   construction time
+#
+# Example:
+#
+# validation:
+#   auto: true
+#   rules:
+#     mail: [valid_mail, Provided mail is not valid]
+#     birthdate: [valid_date, Your birthdate must be valid]
+#     website: [valid_url, Your website URL must be valid]
+#     nick:
+#       - alphanumeric_length_5_to_32
+#       - Provided nick is not valid
+#     full_name:
+#       - alphanumeric_with_spaces_length_6_to_60
+#       - Your name is not valid
+#     age: # Php function
+#       - is_numeric
+#       - Your age must be numeric
+#     description:
+#       - /^[a-z0-9\s\-_'@\.;:]{20,250}$/u
+#       - Your description is not valid
+#========================================================
+
+validation:
+  auto: true
+  rules:
+
+#========================================================
+# Manual relationships
+#========================================================
+#
+# The framework detects relationships using foreign
+# keys and table naming conventions. However, declaring 
+# them below significantly speeds up these requests. 
+#
+# Also, declaring them below is needed if your tables and 
+# foreign keys do not follow the naming conventions.
+# 
+# Cascading delete is also enabled by declaring has_many.
+# Between models, but this task is encouraged to be
+# implemented in the database system.
+#
+# > has_one (Example: A dog has one owner, remote foreign key)
+# > has_many (Example: A post has many comments, remote foreign key)
+# > belongs_to (Example: A post belongs to a category, local foreign key)
+# > has_and_belongs_to_many (Example: A post has many tags associated)
+#
+# Example for a blog post:
+# 
+# relationships:
+#   has_many:
+#      - {class_name: "Comment", foreign_key: "post_id", cascade: true}
+#   has_one:
+#   belongs_to:
+#      - {class_name: "Category", foreign_key: "category_id"}
+#      - {class_name: "User", foreign_key: "user_id"}
+#   has_and_belongs_to_many:
+#      - {class_name: "Tag", through: "Rel_post_tag", my_key: "post_id", foreign_key: "tag_id"}
+#
+#========================================================
+
+relationships:
+  has_many:
+  belongs_to:
+  has_one:
+  has_and_belongs_to_many:
+
+#========================================================
+# Search engine
+#========================================================
+#
+# > Strict
+#   List of strict search fields for this model.
+#   Only exact matches will return results.
+#   Proper for nicknames or email addresses.
+#
+# > Non_strict
+#   List of non-strict search fields for this model.
+#   No need for exact matching.
+#   Proper for big paragraphs or text bodies.
+#
+# > Related
+#   Related models to extend the search over. For instance,
+#   this means we can extend our 'articles' search over
+#   the 'authors' model, so if we search 'John Doe', all
+#   articles containing 'John doe' will be retrieved,
+#   and also all articles written by the author 'John Doe'.
+#   Of course, this needs both models to have search fields
+#   declared on their config files.
+#   A unique SQL query will be created by the framework
+#   to retrieve results to your application.
+#
+# Example for a standard 'article' model related to an
+# author and a category.
+#
+# search:
+#   fields:
+#     strict: 
+#       - title
+#     non_strict:
+#       - tags
+#       - body
+#   related: [Author,Category]
+#========================================================
+
+search: 
+  fields:
+    strict:
+    non_strict:
+  related:
+
+#========================================================
+# Callbacks
+#========================================================
+#
+# Callbacks are application-level triggers that allows 
+# you to execute any number of desired functions before
+# or after certain model events like construction, insert,
+# update or delete.
+#
+# A list of model function names can be appended to each
+# event and moment. 
+#
+# Those functions executed before any sql query (insert,
+# update or delete) have the capability of prevent it from
+# being executed by saving an error into the object using
+# the storeError() function. Like the following:
+#
+# $this->storeError("This user cannot be deleted yet");
+#
+# If so, false will be returned and a message logged.
+#
+# Example:
+#
+# callbacks:
+#   before: 
+#     insert: [encrypt_user_password]
+#     update: 
+#     delete: [check_pendant_payments]
+#     validate:
+#   after:
+#     insert:
+#       - send_welcome_mail_to_user
+#       - generate_cached_profile
+#     update: [generate_cached_profile]
+#     delete: [destroy_user_uploaded_files]
+#     validate:
+#     construct: [whatever_model_function_you_want]
+#========================================================
+
+callbacks:
+  before:
+    insert:
+    update:
+    delete:
+    validate:
+  after:
+    insert:
+    update:
+    delete:
+    validate:
+    construct:
+
+#========================================================
+#   Image association
+#========================================================
+#
+#   Models can have one or more associated images,
+#   like a main product image and some extra images.
+#   Enabling this feature makes it automatically
+#   reflected in the scaffolding. A thumbnail is
+#   created for each uploaded image.
+##
+#   > Main
+#     A model can store a main image, like a category picture
+#
+#     > Enabled [bool]
+#       Enables scaffolding to display the main image input
+#
+#     > Default [false|string]
+#       Returned value if no main image exists for an object.
+#       You can create a default image to be displayed.
+###
+#   > Extra
+#     A model can also store an unlimited set of images, like product pictures
+#
+#     > Enabled [bool]
+#       Enables scaffolding to show the extra image editor for this model
+#
+#     > Rename  [bool]
+#       False will cause uploaded images to mantein their original name, and
+#       in consequence, existing files can be overriden.
+#       If not, the image will be renamed to avoid file overriding.
+#
+#     > Max [int]
+#       Sets up a limit of storable images (zero means no limit).
+#       Please note this is only applied to extra images.
+###
+#   > Thumbnails
+#     > Width
+#       Desired max-width for thumbnails
+#
+#     > Height
+#       Desired heigh for thumbnails
+###
+#  > Validation
+#    Specific validation rules for all original uploaded images.
+#    Validation errors will be stored in the object.
+#    Zero value for a rule means it isn't applied.
+#    Each rule has a value and a message to throw if it fails.
+#
+#    > Max_size [int, string]
+#      Max size in bytes
+#
+#    > Max_width  [int, string]
+#      Max width in pixels
+#
+#    > Max_height [int, string]
+#      Max height in pixels
+#
+#    > Min_width  [int, string]
+#      Min width in pixels
+#
+#    > Min_height [int, string]
+#      Min height in pixels
+###
+#  > Messages
+#    Default message for built-in validation rules
+#
+#    > Wrong_mime [string]
+#      Message to throw if mime-type isn't correct
+#
+#    > Wrong_ext  [string]
+#      Message to throw if mime-type isn't correct
+###
+# Example:
+#
+# images:
+#   main:
+#     enabled: true
+#     default: webroot/images/category_no_image.gif
+#   extra:
+#     enabled: true
+#     rename: true
+#     max: 5
+#   thumbnails:
+#     width: 200
+#     height: 150
+#     quality: 85
+#   validation:
+#     max_size: [500000, Submitted image exceeds allowed max size]
+#     max_width: [800, Submitted image exceeds allowed max width]
+#     max_height: [600, Submitted image exceeds allowed max height]
+#     min_width: [0, Submitted image does not fit allowed min size]
+#     min_height: [0, Submitted image does not fit allowed min size]
+#   messages:
+#     wrong_mime: Submitted image does not have a valid mime-type
+#     wrong_ext: Submitted image does not have a valid extension
+#========================================================
+
+images:
+  main:
+    enabled: true
+    default: false
+  extra:
+    enabled: true
+    rename: true
+    max_images: 0
+  thumbnails:
+    width: 200
+    height: 0
+    quality: 85
+  validation:
+    max_size: [500000, Submitted image exceeds allowed max size]
+    max_width: [1920, Submitted image exceeds allowed max width]
+    max_height: [1080, Submitted image exceeds allowed max height]
+    min_width: [0, Submitted image does not fit allowed min size]
+    min_height: [0, Submitted image does not fit allowed min size]
+  messages:
+    wrong_mime: Submitted image does not have a valid mime-type
+    wrong_ext: Submitted image does not have a valid extension
+    max_images: Too many extra images are already stored
+
+#========================================================
+#   File blocks
+#========================================================
+# 
+#   A file block is a set of files that can be associated to
+#   any element of this model. For instance, we can create a
+#   block that allows our client to upload one or more PDF
+#   files for each product store in the database, and make
+#   them available for download.
+###
+#   > Enabled
+#     Enables the file blocks feature for this model
+###
+#   > Blocks
+#     Stores all available blocks for this model
+# 
+# An unlimited set of blocks can be appended, but it might
+# also be blank, like the following example:
+#
+# files
+#   enabled: false
+#   blocks:
+###
+#  A block must be declared using the following attributes
+#
+# > Rename  [bool]
+#   False will cause uploaded images to mantein their original name, and
+#   in consequence, existing files can be overriden.
+#   If not, the image will be renamed to avoid file overriding.
+#
+# > Validation
+#   Stores validation rules for this type of file. Any zero value means
+#   that validation rule should not be applied.
+#
+#   > Valid_mimes  [value, message]
+#     Valid mime-types for this file block
+#
+#   > Valid_ext    [value, message]
+#     Valid extensions for this file block
+#
+#   > Max_size     [value, message]
+#     Max size in bytes for this file block
+#
+#   > Max_files    [value, message]
+#     Max amount of files allowed to exist in the file block
+#
+# Example:
+#
+# files:
+#   enabled: true
+#   blocks:
+#     drivers:
+#       rename: true
+#       validation:
+#         valid_mimes: [[application/zip], Submitted file is not a ZIP file]
+#         valid_ext: [[zip, ZIP], Submitted file does not have .zip extension]
+#         max_size: [0, Submitted file exceeds allowed max size]
+#         max_files: [1, A product can only have one driver]
+#     details:
+#       rename: false
+#       validation:
+#         valid_mimes: [[application/pdf], Submitted file does not have a valid mime-type]
+#         valid_ext: [[pdf, PDF], Submitted file does not have a valid extension]
+#         max_size: [0, Submitted file exceeds allowed max size]
+#         max_files: [0, Too many files have been uploaded for this object]
+#========================================================
+
+files:
+  enabled: true
+  blocks:
+
+#========================================================
+#   Default pagination settings
+#========================================================
+#
+# > Elements
+#   Number of modelsnaps or elements displayed for each page
+#
+# > Pagelinks
+#   Amount of links displayed to other pages on each page
+#
+# > Order
+#   Field in which results are ordered
+#
+# > Direction
+#   ASC or DESC
+#========================================================
+
+pagination:
+  elements: 20
+  pagelinks: 9
+  order: id
+  direction: DESC

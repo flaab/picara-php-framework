@@ -1,0 +1,46 @@
+###
+# Connection:   secondary
+#
+# @note         Generated using create connection script
+# @note         Supported adapters are:
+#               - mysql: MySql
+#               - postgres: PostgreSql
+#               - oci8: Oracle
+#               - sqlite: SQLite3 
+###
+
+###
+# Production environment
+##
+
+production: 
+  host: localhost
+  user: 
+  db: 
+  password: 
+  adapter: mysql
+  port: 3306
+
+###
+# Development environment
+##
+
+development: 
+  host: localhost
+  user: 
+  db: 
+  password: 
+  adapter: mysql
+  port: 3306 
+
+###
+# Testing environment
+##
+
+testing: 
+  host: localhost
+  user: 
+  db:   
+  password: 
+  adapter: mysql
+  port: 3306 

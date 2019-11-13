@@ -1,0 +1,9 @@
+usage: php scripts/picara picara environment (change [production|development|testing])
+
+Display current environment
+---------------------------
+ - php scripts/picara environment
+
+Changing the environment
+------------------------
+ - php scripts/picara environment change (production|development|testing)

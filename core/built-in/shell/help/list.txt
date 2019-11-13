@@ -1,0 +1,33 @@
+usage: php scripts/picara list (models|controllers|connections|logs)
+
+This script allows you to have a general and fast glance of all application elements,
+or just an specific one.
+
+List all application elements
+-----------------------------
+ - php scripts/picara list all
+
+
+List all models
+---------------
+- php scripts/picara list models
+
+
+List all database connections
+-----------------------------
+- php scripts/picara list connections
+
+
+List all controllers
+--------------------
+ - php scripts/picara list controllers
+
+
+List all shell controllers
+--------------------------
+ - php scripts/picara list shells
+
+
+List all logs
+-------------
+ - php scripts/picara list log clients

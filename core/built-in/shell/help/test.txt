@@ -1,0 +1,3 @@
+usage: php scripts/picara test (connection)
+
+This script allows you to test created application database connections

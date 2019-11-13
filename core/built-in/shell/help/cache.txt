@@ -1,0 +1,31 @@
+usage: php scripts/picara cache (create|delete|restore|purge) (request/expression)
+
+Available actions:
+ - create:    A new static file will be created                   [B]
+ - delete:    Current static file will be removed                 [B] 
+ - restore:   Last version of file will be restored             
+ - purge:     All files related to a request will be destroyed
+
+ [B] Backup is created is another one is replaced
+
+Basic examples:
+ - php scripts/picara cache generate Articles/view/5
+ - php scripts/picara cache delete Articles/view/5
+ - php scripts/picara cache restore Articles/view/5
+ - php scripts/picara cache purge Articles/view/5
+
+You can treat more than one document using lists and ranges. Unexisting combinations are ommited.
+ - php scripts/picara cache generate Articles/[edit,view,delete]/[1-150]
+ - php scripts/picara cache delete [Articles,Categories]/[index,edit,view,delete,list]/[1-150]
+
+You can also generate documents from code. Basic example:
+<?
+    $cache = new Cache('Articles/view/5');
+    $cache->create()
+?>
+
+All cache functions are:
+ - create()
+ - delete()
+ - restore()
+ - purge()

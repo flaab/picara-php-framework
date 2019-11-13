@@ -1,0 +1,42 @@
+###
+#
+# Routes config file
+#
+# Regular expressions can be used to redirect a request (fake or not)
+# to another request. This is specially useful to create nice 
+# looking urls, shut down the whole site for manteinance or 
+# prevent losing user's bookmarks.
+#
+# A regular expression is used to match the original url. Then,
+# a new request is written. One or more of the following
+# tokens can be used.
+#
+# Valid tokens:
+#
+#    :controler -> requested controller
+#    :action    -> requested action
+#    :p1        -> requested parameter 1
+#    :pn        -> requested parameter n
+#    :p10       -> requested parameter 10
+#
+# Each rule is written like this:
+#
+# [PCRE Regular expression]: [Redirection]
+##
+
+###
+# Shortcut for the built-in static pages controller
+#
+# Request: 		Pages / {page}
+# Redirect: 	Pages / view / {page}
+# Example:		Pages/foo -> Pages/view/foo
+##
+# /^(Pages)\/[^\/]+$/i: Pages/view/:action
+
+###
+# Shuts down all website controllers, making the whole website unavailable
+#
+# Request: All requests
+# Redirect: Down for maintenance page
+###
+# /^.*$/: Pages/view/down-for-maintenance

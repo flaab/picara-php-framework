@@ -1,0 +1,38 @@
+###
+# Connection:   example
+# @note         Generated using create connection script
+# @note         Connects to db/db.sqlite3             
+##
+
+###
+# Production environment
+##
+
+production: 
+  host: localhost
+  user: root 
+  db:   example.sqlite3
+  password: 
+  adapter: sqlite
+
+###
+# Development environment
+##
+
+development: 
+  host: localhost
+  user: root 
+  db:   example.sqlite3
+  password: 
+  adapter: sqlite
+
+###
+# Testing environment
+##
+
+testing: 
+  host: localhost
+  user: root 
+  db:   example.sqlite3
+  password: 
+  adapter: sqlite

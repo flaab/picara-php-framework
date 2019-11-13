@@ -1,0 +1,40 @@
+#
+# Picara Framework example lang file
+# Yml format
+#
+
+###########################################
+# Standard messages
+###########################################
+
+# Text message with no line breaks
+welcome: Welcome to Picara Framework
+
+# Long message in multiple lines, but line breaks ignored when parsing
+long_line: > 
+ Lorem ipsum dolor sit amet consectetuer
+ adiscipling elit concurvis.
+
+# Paragraph preserving line breaks
+paragraph: |
+ Duis consectetuer diam nec massa. etiam dignissim arcu nec purus. aliquam viverra. nam aliquet, lectus ut malesuada placerat.
+ aenean tortor. suspendisse ultrices, justo id condimentum vestibulum, mi risus eleifend pede, in malesuada mi augue ut enim.
+ ut pulvinar, felis eu facilisis pretium, nisi enim vestibulum sem, eu tincidunt nisi tortor a velit.
+
+########################################
+# Associations of messages
+########################################
+
+messages:
+  first: This is a standard message
+  second: >
+     Lorem ipsum dolor sit amet consectetuer
+     adiscipling elit concurvis.
+  third: |
+     Duis consectetuer diam nec massa. etiam dignissim arcu nec purus. aliquam viverra. nam aliquet, lectus ut malesuada placerat.
+     aenean tortor. suspendisse ultrices, justo id condimentum vestibulum, mi risus eleifend pede, in malesuada mi augue ut enim.
+     ut pulvinar, felis eu facilisis pretium, nisi enim vestibulum sem, eu tincidunt nisi tortor a velit.
+  fourth:
+      - This is the first part of the fourth message
+      - This is the second part of the fourth message
+      - Perfect to concatenate lang messages with view variables

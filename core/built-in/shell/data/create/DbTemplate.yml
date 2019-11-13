@@ -1,0 +1,50 @@
+###
+# Connection:   <name>
+#
+# @note         Generated using create connection script
+# @note         Supported adapters are:
+#               - mysql: MySql
+#               - postgres: PostgreSql
+#               - oci8: Oracle
+#               - sqlite: SQLite3
+# @             Default port for MySql is 3306
+# @             Default port for PostgreSQL is 1521
+# @             Default port for Oracle is 1521
+# @             Leave port as zero to use default.
+###
+
+###
+# Production environment
+##
+
+production: 
+  host: <host>
+  user: <user>
+  db: <db>
+  password: <password>
+  adapter: <adapter>
+  port: <port>          
+
+###
+# Development environment
+##
+
+development: 
+  host: <host>
+  user: <user>
+  db: <db>
+  password: <password>
+  adapter: <adapter>
+  port: <port>
+
+###
+# Testing environment
+##
+
+testing: 
+  host: <host>
+  user: <user>
+  db: <db>
+  password: <password>
+  adapter: <adapter>
+  port: <port>

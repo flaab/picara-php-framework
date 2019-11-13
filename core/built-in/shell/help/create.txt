@@ -1,0 +1,49 @@
+usage: php scripts/picara create (model|controller|shell|connection|log) name [options] [assertions]
+
+This script allows you to create or replace complex framework elements.
+
+Any element can be replaced using the -replace assertion in the command line.
+
+Creating models
+---------------
+- php scripts/picara create model Article
+
+ Connection, related table and display name might be specified like the following example does
+
+- php scripts/picara create model Article -connection=main -table=article -display='Our articles'
+
+
+Creating a database connection
+---------------------------------
+- php scripts/picara create connection admin
+
+ The previous command is the simplest connection creation command and will create the file 
+ /app/config/connection/admin.php, which must be edited to fill the connection information
+ for each environment.
+
+ You might speed up the process by specifying all connection information in the command itself.
+ 
+ - php scripts/picara create connection admin -adapter=mysql -host=localhost -db=admin -user=my_user -password=mypassword
+
+ Connection might be tested from command line as well executing the following statement:
+
+ - php scripts/picara test connection admin
+
+
+Creating a controller
+---------------------
+ - php scripts/picara create controller Articles
+
+  Any controller might be replaced using the -replace assertion, like all elements.
+
+ - php scripts/picara crete controller Articles -replace
+
+
+Creating a shell controller
+---------------------------
+ - php scripts/picara create shell Test
+
+
+Creating a log
+--------------
+ - php scripts/picara create log clients
