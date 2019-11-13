@@ -64,11 +64,11 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 ### That's it!
 Point your browser to http://localhost/picara-php-framework/htdocs.
-![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZTLDEGIEDOKJ2S2GZC5ZRLGW)
+![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZSLWSGRDSXID6BN6PC5ZRL6E)
 
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
-![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZRDH3A6MR7IWZ4OAYC5ZRLN4)
+![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZXAYC2PBH733YKJLIC5ZRL6E)
 
 ## Start your development
 Develop your application in the testing environment and when you are finished, go to the next step.
