@@ -65,8 +65,9 @@ git clone https://github.com/flaab/picara-php-framework.git
 ### Check the installation
 
 Point your browser to http://localhost/picara-php-framework/htdocs.
-If some modules or libraries are missing, you'll be informed.
 
+### Install any missing libraries
+If some modules or libraries are missing, you'll be informed.
 
 ## Deployment
 
