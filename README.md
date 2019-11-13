@@ -71,6 +71,8 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 That's it. You are ready to start coding.
 
+![](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZWGUGRD3EDFE7DHCSS5ZRQP4)
+
 
 ## The command line scripts
 The framework ships with command line scripts to perform the following tasks.
