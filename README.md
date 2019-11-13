@@ -33,6 +33,43 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - HTTP Controllers have built-in session and IP controls
 - Create as many logs as you need in your application
 
+## Requirements
+- Apache Server > 2.2
+- PHP > 7.0 
+
+### Apache Modules required
+- mod_rewrite
+
+### PHP Modules required
+- pcre
+- mbstring
+- cur
+- gd
+- Reflection
+- json
+- yaml
+- libxml3
+- sqlite3
+- pdo_sqlite
+- session
+- PDO
+
+
+## Install Instructions
+Open a terminal in your Apache DocumentRoot folder and clone the repository.
+```
+git clone https://github.com/flaab/picara-php-framework.git
+```
+
+### That's it!
+Point your browser to http://localhost/picara-php-framework/htdocs.<br />
+![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZSLWSGRDSXID6BN6PC5ZRL6E)
+
+### Install any missing libraries
+If some modules or libraries are missing, you'll be informed.<br />
+![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZXAYC2PBH733YKJLIC5ZRL6E)
+
+
 ## Command line interface
 The framework ships with a command line interface to perform the following tasks.
 
@@ -86,43 +123,6 @@ php scripts/picara list logs
 php scripts/picara scaffold model modelname
 php scripts/picara scaffold all
 ```
-
-
-## Requirements
-- Apache Server > 2.2
-- PHP > 7.0 
-
-### Apache Modules required
-- mod_rewrite
-
-### PHP Modules required
-- pcre
-- mbstring
-- cur
-- gd
-- Reflection
-- json
-- yaml
-- libxml3
-- sqlite3
-- pdo_sqlite
-- session
-- PDO
-
-
-## Install Instructions
-Open a terminal in your Apache DocumentRoot folder and clone the repository.
-```
-git clone https://github.com/flaab/picara-php-framework.git
-```
-
-### That's it!
-Point your browser to http://localhost/picara-php-framework/htdocs.
-![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZSLWSGRDSXID6BN6PC5ZRL6E)
-
-### Install any missing libraries
-If some modules or libraries are missing, you'll be informed.
-![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZXAYC2PBH733YKJLIC5ZRL6E)
 
 ## Start your development
 Develop your application in the testing environment and when you are finished, go to the next step.
