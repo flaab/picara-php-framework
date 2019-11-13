@@ -16,70 +16,62 @@ PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can
 - Apache Server > 2.2 + mod_rewrite
 - PHP > 7.0 + pcre + mbstring + curl + gd + Reflection + json + yaml + libxml3 + sqlite3 + pdo_sqlite + session + PDO
 
-## Getting Started
+## Install
 
 Open a terminal in your apache document root folder and clone the repository.
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
 
-### Installing
+## Check Installation
 
-A step by step series of examples that tell you how to get a development env running
+Point your browser to http://localhost/picara-php-framework/htdocs and check if it loads properly. 
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
-Create and activate an Apache VirtualHost that points to the htdocs/ folder, and you are ready to go.
+Create and activate an Apache VirtualHost that points to the htdocs/ folder, and you are ready to go. 
 ```
 <VirtualHost _default_:80>
         ServerAdmin you@yourdomain.com
         ServerName yourdomain.com
         ServerAlias www.yourdomain.com
         DocumentRoot /home/you/www/picara-php-framework/htdocs/
-        <Directory //home/you/www/picara-php-framework/htdocs/>
+        <Directory /home/you/www/picara-php-framework/htdocs/>
                 Options -Indexes +FollowSymLinks +MultiViews
                 AllowOverride All
                 Order allow,deny
                 allow from all
-		          Require all granted
+		Require all granted
         </Directory>
+	ErrorLog /home/you/path/to/error.log
 </VirtualHost>
 ```
+If you are using HTTPS, define the Apache VirtualHost as follows instead.
+```
+<VirtualHost _default_:443>
+        ServerAdmin you@yourdomain.com
+        ServerName yourdomain.com
+        ServerAlias www.yourdomain.com
+        DocumentRoot /home/you/www/picara-php-framework/htdocs/
 
+        SSLEngine on
+        SSLProtocol -all +TLSv1.2        
+        SSLCertificateKeyFile   /home/you/path/to/yourdomain_com.key
+        SSLCertificateFile      /home/you/path/to/yourdomain_com.crt
+        SSLCertificateChainFile /home/you/path/to/yourdomain_com.ca-bundle
+
+        <Directory /home/you/www/picara-php-framework/htdocs/>
+                Options -Indexes +FollowSymLinks +MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+		Require all granted
+        </Directory>
+        ErrorLog /home/you/path/to/error.log
+</VirtualHost>
+
+```
 ## Built With
 
 * [ADODB](https://github.com/ADOdb/ADOdb) - Database Abstraction Layer 
@@ -88,7 +80,7 @@ Create and activate an Apache VirtualHost that points to the htdocs/ folder, and
 
 ## Authors
 
-* **Arturo Lopez Perez** - The only developer so far.
+**Arturo Lopez Perez** - Main and sole developer (so far).
 
 ## License
 
