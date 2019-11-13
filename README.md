@@ -56,21 +56,22 @@ It can be used to build anything. Simple relational websites such as as blogs or
 
 
 ## Installation
+No composer or package manager needed. Follow these simple steps.
 
-- Open a terminal
-- Go to your Apache DocumentRoot Directory
-- Execute the following command to clone the repository
+1. Open a terminal
+2. Go to your Apache DocumentRoot Directory
+3. Execute the following command to clone the repository
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
-- Point your browser to http://localhost/picara-php-framework/htdocs.
-- Install any missing libraries of prompted
+4. Point your browser to http://localhost/picara-php-framework/htdocs.
+5. Install any missing libraries of prompted
 
-That's it. You are ready to go.
+That's it! You are ready to go.
 
 
-## Command line interface
-The framework ships with a command line interface to perform the following tasks.
+## The command line scripts
+The framework ships with command line scripts to perform the following tasks.
 
 - Create or delete logs
 ```
@@ -171,12 +172,12 @@ To serve the page via HTTPS, define your VirtualHosts as follows instead.
 
 ```
 ### Test your deployment
-Switch to the development environment to test your application in the new server.
+1. Switch to the development environment to test your application in the new server.
 ```
 php scripts/picara environment change development
 ```
 
-And finally, switch to the production environment before going public.
+2. finally, switch to the production environment before going public.
 ```
 php scripts/picara environment change production
 ```
@@ -189,7 +190,6 @@ php scripts/picara environment change production
 
 ## Authors
 **Arturo Lopez Perez** - Main and sole developer (so far).
-
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
