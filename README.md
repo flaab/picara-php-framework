@@ -2,7 +2,9 @@
 
 A PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, images, email, file uploads, static pages and more. 
 
-PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API controllers and a comprehensive admin site. It uses with AdoDB as database abstraction layer.
+PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site. 
+
+It uses with AdoDB as database abstraction layer and PHPMailer for email deliveries.
 
 ## Supported Database Systems
 - SQLite
@@ -16,10 +18,10 @@ PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can
 - Apache Server > 2.2 + mod_rewrite
 - PHP > 7.0 + pcre + mbstring + curl + gd + Reflection + json + yaml + libxml3 + sqlite3 + pdo_sqlite + session + PDO
 
-
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Open a terminal and clone the git repository.
+git clone ttps://github.com/flaab/picara-php-framework.git
 
 ### Prerequisites
 
