@@ -88,10 +88,8 @@ Create and activate an Apache VirtualHost that points to the htdocs/ folder, and
 
 ## Authors
 
-* **Arturo Lopez Perez** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Arturo Lopez Perez** - The only developer so far.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
