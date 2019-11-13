@@ -44,10 +44,8 @@ class IndexWebController extends MyWebController
         $fix = array();
         
         // Get all apache and php modules
-        $apache_modules = array();
-        $php_modules    = array();
-        //$apache_modules = apache_get_modules();
-        //$php_modules    = get_loaded_extensions();
+        $apache_modules = apache_get_modules();
+        $php_modules    = get_loaded_extensions();
 
         // Check apache
         foreach($this->needed_apache_modules as $module)
