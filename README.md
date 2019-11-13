@@ -30,7 +30,8 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Implicit routing: there is no need to define routes for each method
 - Explicit routing is allowed if you wish to define your own routes
 - It can handle multiple and different database connections
-- Controllers have built-in session and IP controls
+- HTTP Controllers have built-in session and IP controls
+- Create as many logs as you need in your application
 
 
 ## Requirements
@@ -62,7 +63,6 @@ git clone https://github.com/flaab/picara-php-framework.git
 ```
 
 ### That's it!
-
 Point your browser to http://localhost/picara-php-framework/htdocs.
 
 
@@ -116,8 +116,13 @@ To serve the page via SSH, define your VirtualHosts as follows instead.
 </VirtualHost>
 
 ```
-Lastly, switch to the production environment before going public by running.
+## Test your deployment
+Switch to the development environment to test your application in the new server.
+```
+php scripts/picara environment change development
+```
 
+And finally, switch to the production environment before going public.
 ```
 php scripts/picara environment change production
 ```
