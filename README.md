@@ -1,5 +1,5 @@
 # Picara PHP Web Development Framework 
-A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
+A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed and used since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
  
 
 ### What makes it different?
@@ -150,7 +150,7 @@ Create an Apache VirtualHost that points to the htdocs/ folder of the framework 
 	ErrorLog /home/you/path/to/error.log
 </VirtualHost>
 ```
-To serve the page via HTTPS, define your VirtualHosts as follows instead.
+To serve the page via HTTPS, define your VirtualHost as follows instead.
 ```
 <VirtualHost _default_:443>
         ServerAdmin you@yourdomain.com
