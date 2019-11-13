@@ -56,18 +56,21 @@ It can be used to build anything. Simple relational websites such as as blogs or
 
 
 ## Install Instructions
-
 Open a terminal in your Apache DocumentRoot folder and clone the repository.
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
 
-### Check the installation
+### That's it!
 
 Point your browser to http://localhost/picara-php-framework/htdocs.
 
+
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
+
+## Develop your application
+Develop your application in the testing environment and when you are finished, go to the next step.
 
 ## Deployment
 
