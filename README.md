@@ -1,23 +1,58 @@
 # Picara PHP Web Development Framework 
-
-A PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
-
-PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site. 
+A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
 
 
-## Supported Database Systems
-- SQLite
-- MySql
-- MariaDB
-- PostgreSQL
-- Oracle8
+### What makes it different?
+Picara is a self-contained framework that can be installed simply by cloning a git repository. It requires no composer dependencies and uses no middleware, and yet, it is just as powerful and fast as other, full-blown and complex alternatives.
 
 
-## Requisites
+### What can it be used for?
+It can be used to build anything. Simple relational website such as a blog, complex relational RestFul API services or high-traffic relational websites such as online newspapers. The framework implements a comprehensive cache system that can serve static files generated from your routes, which allows it to handle mass-traffic website without raising the database layer.
 
-- Apache Server > 2.2 + mod_rewrite
-- PHP > 7.0 + pcre + mbstring + curl + gd + Reflection + json + yaml + libxml3 + sqlite3 + pdo_sqlite + session + PDO
 
+## Main Features
+- Strict MVC architecture
+- Supports SQLite, MySQL, MariaDB, PostgreSQL and Oci8
+- Supports has_one, has_many, belongs_to and has_and_belongs_to_many relationships
+- Model relationships are inferred from table names, or declared in the models
+- Lang file support for multi-language sites
+- Automatic and customizable Admin Site
+- Built-in full-text search engine
+- Model and Controller callbacks
+- Comprehensive scaffolding
+
+### Other features
+- You can create HTTP and CLI controllers that access the same resources
+- You can create RESTful API controllers and define acceptable request types
+- You can create administration tasks which are easily executed from the *Admin Site*
+- You can create model actions which are easily executed from the *Admin Site*
+- There is no need to define routes for each method: routing is implicit
+- However, if you wish to define routes explicitly, you can
+- It can handle multiple and different database connections
+- Controllers have built-in session and IP controls
+
+
+## Requirements
+
+- Apache Server > 2.2
+- PHP > 7.0 
+
+### Apache Modules required
+- mod_rewrite
+
+### PHP Modules required
+- pcre
+- mbstring
+- cur
+- gd
+- Reflection
+- json
+- yaml
+- libxml3
+- sqlite3
+- pdo_sqlite
+- session
+- PDO
 
 ## Install
 
@@ -77,8 +112,9 @@ If you are using HTTPS, define the Apache VirtualHost as follows instead.
 ```
 ## Built With
 
-* [ADODB](https://github.com/ADOdb/ADOdb) - Database Abstraction Layer 
+* [ADODB](https://github.com/ADOdb/ADOdb) - PHP Database Abstraction Layer 
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
+* [PhpLiteAdmin](https://www.phpliteadmin.org/) - PHP Admin tool to manage SQLite databases
 
 
 ## Authors
