@@ -129,7 +129,7 @@ php scripts/picara scaffold model modelname
 php scripts/picara scaffold all
 ```
 
-## Start your development
+## Develop your application
 Develop your application in the testing environment and when you are finished, go to the next step.
 
 
