@@ -70,7 +70,7 @@ Point your browser to http://localhost/picara-php-framework/htdocs.
 If some modules or libraries are missing, you'll be informed.
 
 
-## Develop your Application
+## Start your development
 Develop your application in the testing environment and when you are finished, go to the next step.
 
 
