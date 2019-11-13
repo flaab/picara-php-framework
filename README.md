@@ -65,9 +65,9 @@ No composer or package manager needed. Follow these simple steps.
 git clone https://github.com/flaab/picara-php-framework.git
 ```
 4. Point your browser to http://localhost/picara-php-framework/htdocs.
-5. Install any missing libraries of prompted
+5. Install any missing libraries if prompted
 
-That's it! You are ready to go.
+That's it. You are ready to start coding.
 
 
 ## The command line scripts
