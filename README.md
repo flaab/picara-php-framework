@@ -2,7 +2,8 @@
 
 A PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
 
-PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site.  
+PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site. 
+
 
 ## Supported Database Systems
 - SQLite
@@ -11,10 +12,12 @@ PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can
 - PostgreSQL
 - Oracle8
 
+
 ## Requisites
 
 - Apache Server > 2.2 + mod_rewrite
 - PHP > 7.0 + pcre + mbstring + curl + gd + Reflection + json + yaml + libxml3 + sqlite3 + pdo_sqlite + session + PDO
+
 
 ## Install
 
@@ -25,7 +28,7 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 ## Check Installation
 
-Point your browser to http://localhost/picara-php-framework/htdocs and check if it loads properly. 
+Point your browser to http://localhost/picara-php-framework/htdocs and check if it loads properly. If some required PHP or Apache modules are missing, you'll informed and asked to install or enabled them. 
 
 
 ## Deployment
