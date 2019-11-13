@@ -1,10 +1,8 @@
 # Picara PHP Web Development Framework 
 
-A PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, images, email, file uploads, static pages and more. 
+A PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
 
-PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site. 
-
-It uses with AdoDB as database abstraction layer and PHPMailer for email deliveries.
+PicaraPHP is fast, self-contained and has no dependencies nor middleware. It can be used to create applications with different access points: http, command-line, RestFUL API and the admin site.  
 
 ## Supported Database Systems
 - SQLite
@@ -20,15 +18,9 @@ It uses with AdoDB as database abstraction layer and PHPMailer for email deliver
 
 ## Getting Started
 
-Open a terminal and clone the git repository.
-git clone ttps://github.com/flaab/picara-php-framework.git
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
+Open a terminal in your apache document root folder and clone the repository.
 ```
-Give examples
+git clone https://github.com/flaab/picara-php-framework.git
 ```
 
 ### Installing
@@ -71,35 +63,35 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Create and activate an Apache VirtualHost that points to the htdocs/ folder, and you are ready to go.
+```
+<VirtualHost _default_:80>
+        ServerAdmin you@yourdomain.com
+        ServerName yourdomain.com
+        ServerAlias www.yourdomain.com
+        DocumentRoot /home/you/www/picara-php-framework/htdocs/
+        <Directory //home/you/www/picara-php-framework/htdocs/>
+                Options -Indexes +FollowSymLinks +MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+		          Require all granted
+        </Directory>
+</VirtualHost>
+```
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [ADODB](https://github.com/ADOdb/ADOdb) - Database Abstraction Layer 
+* [PHPMAILER](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Arturo Lopez Perez** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
