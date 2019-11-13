@@ -68,7 +68,7 @@ Point your browser to http://localhost/picara-php-framework/htdocs.
 
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
-![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png)
+![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png?token=ANMOIZRDH3A6MR7IWZ4OAYC5ZRLN4)
 
 ## Start your development
 Develop your application in the testing environment and when you are finished, go to the next step.
