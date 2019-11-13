@@ -15,7 +15,7 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Supports SQLite, MySQL, MariaDB, PostgreSQL and Oci8
 - Supports has_one, has_many, belongs_to and has_and_belongs_to_many relationships
 - Model relationships are inferred from table names, or declared in the models
-- Lang file support for multi-language sites
+- YAML Lang file support for multi-language sites
 - Automatic and customizable Admin Site
 - Built-in full-text search engine
 - Model and Controller callbacks
@@ -29,6 +29,7 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - You can create model actions which are easily executed from the *Admin Site*
 - Implicit routing: there is no need to define routes for each method
 - Explicit routing is allowed if you wish to define your own routes
+- Build-in recordset exportability to json, xml, yml and csv
 - It can handle multiple and different database connections
 - HTTP Controllers have built-in session and IP controls
 - Create as many logs as you need in your application
