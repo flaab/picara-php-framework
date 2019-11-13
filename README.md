@@ -75,12 +75,13 @@ If you are using HTTPS, define the Apache VirtualHost as follows instead.
 ## Built With
 
 * [ADODB](https://github.com/ADOdb/ADOdb) - Database Abstraction Layer 
-* [PHPMAILER](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
+* [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 
 
 ## Authors
 
 **Arturo Lopez Perez** - Main and sole developer (so far).
+
 
 ## License
 
