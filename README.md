@@ -69,8 +69,10 @@ Point your browser to http://localhost/picara-php-framework/htdocs.
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
 
-## Develop your application
+
+## Develop your Application
 Develop your application in the testing environment and when you are finished, go to the next step.
+
 
 ## Deployment
 
@@ -116,7 +118,7 @@ To serve the page via SSH, define your VirtualHosts as follows instead.
 </VirtualHost>
 
 ```
-## Test your deployment
+### Test your deployment
 Switch to the development environment to test your application in the new server.
 ```
 php scripts/picara environment change development
