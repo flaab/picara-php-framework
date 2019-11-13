@@ -98,10 +98,11 @@ php scripts/picara destroy shell controllername
 ```
 php scripts/picara create admincontroller controllername
 ```
-- Create or delete database connections
+- Create, test or destroy database connections
 ```
 php scripts/picara create connection main
 php scripts/picara create connection main -adapter=mysql -host=localhost -db=db_name -user=my_user -password=mypassword
+php scripts/picara test connectin main
 php scripts/picara destroy connection main
 ```
 - Get or change the execution environment
