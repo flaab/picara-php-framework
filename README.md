@@ -130,7 +130,7 @@ Develop your application in the testing environment and when you are finished, g
 
 
 ## Deployment
-### Create a VirtualHost in your production server
+### 1. Create a VirtualHost in your production server
 Create and activate an Apache VirtualHost that points to the htdocs/ folder in your server.
 ```
 <VirtualHost _default_:80>
@@ -173,17 +173,17 @@ To serve the page via HTTPS, define your VirtualHosts as follows instead.
 </VirtualHost>
 
 ```
-### Secure your deployment
+### 2. Secure your deployment
 - Delete the phpinfo.php file located at htdocs/webroot/phpinfo.php
 - Delete or rename the PhpLiteAdmin folder located at htdocs/webroot/phpliteadmin
 - Add a route to hide/rename your Admin Site URL at app/config/routes.yml
 
-### Test your deployment
+### 3. Test your deployment
 Switch to the development environment to test your application in the new server.
 ```
 php scripts/picara environment change development
 ```
-### Go public
+### 4. Go public
 Finally, switch to the production environment before going public.
 ```
 php scripts/picara environment change production
