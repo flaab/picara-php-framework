@@ -196,14 +196,16 @@ php scripts/picara environment change production
 ```
 
 ## Vendors and libraries used
+* [PhpLiteAdmin](https://www.phpliteadmin.org/) - PHP tool to manage SQLite databases
 * [ADODB](https://github.com/ADOdb/ADOdb) - PHP Database Abstraction Layer 
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
-* [PhpLiteAdmin](https://www.phpliteadmin.org/) - PHP Admin tool to manage SQLite databases
 
 These vendor libraries are included in this repository and shipped with the framework.
 
+
 ## Authors
 **Arturo Lopez Perez** - Main and sole developer (so far).
+
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
