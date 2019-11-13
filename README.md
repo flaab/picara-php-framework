@@ -64,7 +64,7 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 ### That's it!
 Point your browser to http://localhost/picara-php-framework/htdocs.
-![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png)
+![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZTLDEGIEDOKJ2S2GZC5ZRLGW)
 
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
