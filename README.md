@@ -21,19 +21,19 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Model and Controller callbacks
 - Comprehensive scaffolding
 
+
 ### Other features
 - You can create HTTP and CLI controllers that access the same resources
 - You can create RESTful API controllers and define acceptable request types
 - You can create administration tasks which are easily executed from the *Admin Site*
 - You can create model actions which are easily executed from the *Admin Site*
-- There is no need to define routes for each method: routing is implicit
-- However, if you wish to define routes explicitly, you can
+- Implicit routing: there is no need to define routes for each method
+- Explicit routing is allowed if you wish to define your own routes
 - It can handle multiple and different database connections
 - Controllers have built-in session and IP controls
 
 
 ## Requirements
-
 - Apache Server > 2.2
 - PHP > 7.0 
 
@@ -54,9 +54,10 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - session
 - PDO
 
-## Install
 
-Open a terminal in your apache document root folder and clone the repository.
+## Install Instructions
+
+Open a terminal in your Apache DocumentRoot folder and clone the repository.
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
@@ -110,6 +111,12 @@ If you are using HTTPS, define the Apache VirtualHost as follows instead.
 </VirtualHost>
 
 ```
+Lastly, don't forget to switch to the production environment.
+
+```
+php scripts/picara environment change production
+```
+
 ## Built With
 
 * [ADODB](https://github.com/ADOdb/ADOdb) - PHP Database Abstraction Layer 
