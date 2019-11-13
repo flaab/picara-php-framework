@@ -203,10 +203,12 @@ These vendor libraries are included in this repository and shipped with the fram
 
 ## Todo and Roadmap
 Next iterations of the framework will include:
-- Ability of grouping models, controllers and views into modules (or apps)
-- Migrations
+- Structural changes needed to group models, controllers and views into re-usable Apps or Modules
+- Improvements to the Admin Site implementing different permission groups
+- A native authentication library extending the session library
 
 Feel free to contribute on the development of this framework.
+
 
 ## Authors
 **Arturo Lopez Perez** - Main and sole developer (so far).
