@@ -7,7 +7,7 @@ Picara is a self-contained framework that can be installed simply by cloning a g
 
 
 ### What can it be used for?
-It can be used to build anything. Simple relational website such as a blog, complex relational RestFul API services or high-traffic relational websites such as online newspapers. The framework implements a comprehensive cache system that can serve static files generated from your routes, which allows it to handle mass-traffic website without raising the database layer.
+It can be used to build anything. Simple relational websites such as as blogs or stores, complex relational RestFul API services or high-traffic relational websites such as newspapers or online services. The framework implements a comprehensive cache system that can serve static files generated from your routes, which allows it to handle tons of requests without raising the database layer or loading the application libraries.
 
 
 ## Main Features
