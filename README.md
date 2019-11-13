@@ -72,8 +72,6 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 That's it. You are ready to start coding.
 
-![](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png?token=ANMOIZWGUGRD3EDFE7DHCSS5ZRQP4)
-
 
 ## The command line scripts
 The framework ships with command line scripts to perform the following tasks.
@@ -202,6 +200,14 @@ php scripts/picara environment change production
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 
 These vendor libraries are included in this repository and shipped with the framework.
+
+## Todo and Roadmap
+Next iterations of the framework will include:
+- Structural changes needed to group models, controllers and views into re-usable Apps or Modules
+- Improvements to the Admin Site implementing different permission groups
+- A native authentication library extending the session library
+
+Feel free to contribute on the development of this framework.
 
 
 ## Authors
