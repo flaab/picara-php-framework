@@ -1,6 +1,6 @@
 # Picara PHP Web Development Framework 
 A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed since 2007. It focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
-
+ 
 
 ### What makes it different?
 Picara is a self-contained framework that can be installed simply by cloning a git repository. It requires no composer dependencies and uses no middleware, and yet, it is just as powerful and fast as other, full-blown and complex alternatives.
@@ -64,11 +64,11 @@ git clone https://github.com/flaab/picara-php-framework.git
 
 ### That's it!
 Point your browser to http://localhost/picara-php-framework/htdocs.
-
+![It works!](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s01.png)
 
 ### Install any missing libraries
 If some modules or libraries are missing, you'll be informed.
-
+![Enable missing libraries](https://raw.githubusercontent.com/flaab/picara-php-framework/master/htdocs/webroot/screenshots/s02.png)
 
 ## Start your development
 Develop your application in the testing environment and when you are finished, go to the next step.
