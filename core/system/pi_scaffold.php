@@ -46,7 +46,47 @@ class Pi_scaffold
 
         // Scaffolding schema
         $scaffold = $metadata->read_scaffold_schema($model, $id);
-        
+
+        // Change local schema according to scaffold config for this model
+        if(isset($config->scaffold))
+        {
+            // Text Input
+            if(is_array($config->scaffold->text))
+            {
+                for($i = 0; $i < count($config->scaffold->text); $i++)
+                {
+                    if(isset($scaffold['Data'][$config->scaffold->text[$i]]))
+                    {
+                        $scaffold['Data'][$config->scaffold->text[$i]]['metatype'] = STRING; 
+                    }
+                }
+            }
+
+            // Text Area
+            if(is_array($config->scaffold->textarea))
+            {
+                for($i = 0; $i < count($config->scaffold->textarea); $i++)
+                {
+                    if(isset($scaffold['Data'][$config->scaffold->textarea[$i]]))
+                    {
+                        $scaffold['Data'][$config->scaffold->textarea[$i]]['metatype'] = TEXT; 
+                    }
+                }
+            }
+
+            // Fulltext
+            if(is_array($config->scaffold->fulltext))
+            {
+                for($i = 0; $i < count($config->scaffold->fulltext); $i++)
+                {
+                    if(isset($scaffold['Data'][$config->scaffold->fulltext[$i]]))
+                    {
+                        $scaffold['Data'][$config->scaffold->fulltext[$i]]['metatype'] = FULLTEXT; 
+                    }
+                }
+            }
+        }
+
         // Define POST action
         $post_url = 'scaffold-'. strtolower($model) .'/'. $action;
        
@@ -119,7 +159,9 @@ class Pi_scaffold
                                     case ENUM:  Form::createEnumMenu($value['enums'], "model[$field]", $data[$field]); print("\n"); break;                  
                                     // Text
                                     case TEXT:  Form::createTextArea("model[$field]", $data[$field]); print("\n"); break;    
-                                    
+
+                                    case FULLTEXT: Form::createFullTextArea("model[$field]", $data[$field]); print("\n"); break;
+
                                     // Date
                                     case DATE:  Form::createDateForm("model[$field]", $data[$field], false); print("\n"); break;
                                     

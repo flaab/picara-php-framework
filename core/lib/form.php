@@ -246,6 +246,38 @@
 
           echo("</select>");
       }
+      
+      //----------------------------------------------------------
+      
+      /**
+      * Creates a fulltext area using Quill (https://quilljs.com)
+      * 
+      * @param    string    $param    Name of the post var to be sent
+      * @param    mixed     $value    Default value to be shown
+      * @param    int       $cols
+      * @param    int       $rows
+      */
+      public static function createFullTextArea($param, $value = '', $cols = 30, $rows = 10, $class="form-control")
+      {
+          echo('<textarea class="'. $class .'" name="'. $param .'" cols="'. $cols .'" rows="'. $rows .'" 
+                 id="editor_'. str_replace(array('[',']'), '', $param) .'">'. stripslashes($value) .'</textarea>');
+          echo('
+            <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+            <script>
+            ClassicEditor
+            .create(document.querySelector("#editor_'. str_replace(array('[',']'), '', $param)  .'"), {
+                toolbar:["heading", "|", 
+                         "bold", "italic", "underline", "|", 
+                         "link", "mediaEmbed", "code", "bulletedList", "numberedList", "blockQuote", "|", 
+                         "insertTable", "tableColumn", "tableRow", "mergeTableCells", "|",
+                         "undo","redo"],
+            })
+            .catch( error => {
+            console.error( error );
+            });
+            </script>
+          ');
+      }    
 
       //----------------------------------------------------------
       

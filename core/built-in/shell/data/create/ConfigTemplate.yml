@@ -15,7 +15,7 @@
 ##
 
 #===================================================
-#   Basic information
+#  BASIC
 #===================================================
 #
 # > Connection
@@ -49,7 +49,7 @@ autoincrement: true
 population: true
 
 #========================================================
-#   Integrity information
+# INTEGRITY
 #========================================================
 #
 # > Ignored
@@ -83,7 +83,7 @@ integrity:
   hidden:
 
 #========================================================
-# Validation
+# VALIDATION
 #========================================================
 #
 # > Rules
@@ -131,7 +131,34 @@ validation:
   rules:
 
 #========================================================
-# Manual relationships
+# SCAFFOLDING
+#========================================================
+# 
+# Scaffolding is automatic but can be customized below.
+#
+# > Enabled: Enable or disable scaffolding for this model
+# > Text: Fields that use text inputs in forms
+# > Textarea: Fields that use textarea inputs in forms
+# > Fulltext: Fields that use fulltext inputs in forms
+#
+# Example:
+#
+# scaffold:
+#   enabled: true
+#   text: [first_name, last_name]
+#   textarea: [bio]
+#   fulltext: [content]
+#
+#========================================================
+
+scaffold:
+  enabled: true
+  text:
+  textarea:
+  fulltext:
+
+#========================================================
+# RELATIONSHIPS
 #========================================================
 #
 # The framework detects relationships using foreign
@@ -171,7 +198,7 @@ relationships:
   has_and_belongs_to_many:
 
 #========================================================
-# Search engine
+# SEARCH ENGINE
 #========================================================
 #
 # > Strict
@@ -215,7 +242,7 @@ search:
   related:
 
 #========================================================
-# Callbacks
+# CALLBACKS
 #========================================================
 #
 # Callbacks are application-level triggers that allows 
@@ -267,7 +294,7 @@ callbacks:
     construct:
 
 #========================================================
-#   Image association
+# IMAGES
 #========================================================
 #
 #   Models can have one or more associated images,
@@ -387,7 +414,7 @@ images:
     max_images: Too many extra images are already stored
 
 #========================================================
-#   File blocks
+# FILES
 #========================================================
 # 
 #   A file block is a set of files that can be associated to
@@ -458,7 +485,7 @@ files:
   blocks:
 
 #========================================================
-#   Default pagination settings
+# PAGINATION
 #========================================================
 #
 # > Elements

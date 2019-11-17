@@ -23,7 +23,7 @@ foreach($attributes as $var)
         // Short up some strings to a max lenght
         if(strlen($model->fields->{$var}) > $maxlen)
         {
-            $model->fields->$var = substr($model->fields->$var, 0, $maxlen) . "...";
+            $model->fields->$var = substr(strip_tags(stripslashes($model->fields->$var)), 0, $maxlen) . "...";
             
         //Process to follow foreign key propagations and show related value instead of just a number ;-)
         } else if(in_array($var, $fks)){
@@ -55,7 +55,7 @@ foreach($attributes as $var)
         { 
             echo('<th scope="row" class="align-middle">'. $model->fields->{$var} .'</th>');
         } else {
-            echo('<td class="align-middle">' . stripslashes($model->fields->{$var}) . '</td>');
+            echo('<td class="align-middle">' . $model->fields->{$var} . '</td>');
         }
     }
 }

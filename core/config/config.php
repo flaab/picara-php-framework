@@ -59,6 +59,11 @@ define('STRICT', true);
 //==============================================================
 
 /**
+ * String constant for fulltext input
+ */ 
+define('FULLTEXT', 'F');
+
+/**
  * String constant for metadata dictionary
  */ 
 define('STRING', 'C');
