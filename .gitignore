@@ -29,19 +29,19 @@
 **/*.new
 
 # Databases
-db/*
-!db/.gitkeep 
-!db/example.sqlite3 
+resources/db/*
+!resources/db/.gitkeep 
+!resources/db/example.sqlite3 
 
 # Cache
-cache/*
-!cache/.gitkeep
+resources/cache/*
+!resources/cache/.gitkeep
 
 # Temp files
-tmp/layout/*
-tmp/view/*
-!tmp/layout/.gitkeep
-!tmp/view/.gitkeep
+resources/tmp/layout/*
+resources/tmp/view/*
+!resources/tmp/layout/.gitkeep
+!resources/tmp/view/.gitkeep
 
 # Model images and files
 htdocs/webroot/model_files/*

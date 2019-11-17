@@ -35,10 +35,6 @@ define('USERCONFIG',    APP . 'config/');
 define('USERPAGES',     APP . 'pages/');
 define('LANG'      ,    APP . 'lang/');
 
-//==============================================================
-// SQLITE Databases folder
-//==============================================================
-define('DB', 'db/');
 
 //==============================================================
 // USER CONFIG
@@ -62,7 +58,7 @@ define('SYSTEM',     CORE . 'system/');
 // HTDOCS AND WEBROOT
 //==============================================================
 define('HTDOCS',       'htdocs/');
-define('WEBROOT',     HTDOCS  . 'webroot/');
+define('WEBROOT',      HTDOCS  . 'webroot/');
 define('CSS',          WEBROOT . 'css/');
 define('IMAGES',       WEBROOT . 'images/');
 define('FLASH',        WEBROOT . 'flash/');
@@ -84,15 +80,25 @@ define('BUILTIN_SHELL_HELP', 		BUILTIN_SHELL . 'help/');
 
 
 //==============================================================
+// RESOURCES
+//==============================================================
+define('RESOURCES', 'resources/');
+
+//==============================================================
+// SQLITE Databases folder
+//==============================================================
+define('DB', RESOURCES .'db/');
+
+//==============================================================
 // CACHE
 //==============================================================
-define('CACHE', 'cache/');
+define('CACHE', RESOURCES .'cache/');
 
 //==============================================================
 // TEMP DIR
 //==============================================================
-define('TMP'         ,'tmp/');
-define('TMP_LAYOUT'  ,'tmp/layout/');
-define('TMP_VIEW'    ,'tmp/view/');
+define('TMP'         , RESOURCES . 'tmp/');
+define('TMP_LAYOUT'  , TMP .'layout/');
+define('TMP_VIEW'    , TMP .'view/');
 
 ?>
