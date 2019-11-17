@@ -28,6 +28,11 @@
 **/*.old
 **/*.new
 
+# Ignore the user application
+# The app folder should be another git project
+app/cache/*
+!app/cache/.gitkeep
+
 # Databases
 resources/db/*
 !resources/db/.gitkeep 
