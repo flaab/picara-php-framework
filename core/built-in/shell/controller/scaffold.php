@@ -52,6 +52,17 @@ class scaffoldShellController extends Pi_shell_controller
         if(!Pi_loader::model_exists($model_name))
             $this->abort("Given model $model_name does not exist in the application");
         
+        // Config for this model
+        $this->config = Pi_config::singleton();
+        $config = $this->config->get($name);
+
+        // If it is forbidden, exit
+        if(!$config->scaffold->enabled)
+        {
+            $this->putline(" > Scaffolding for model '". $name ."' has been disabled in config file.");
+            return;
+        }     
+        
         // File name
         $file_name = strtolower('Scaffold_' . $model_name . '.php');
 
