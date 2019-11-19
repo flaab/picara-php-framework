@@ -79,7 +79,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
         
         // Set hidden fields
-        $this->set('hidden_fields', $this->config->integrity->hidden);
+        $this->set('hidden_fields', $this->config->scaffold->hidden);
 
 	    //===========================================================
         // Pagination is performed
@@ -269,7 +269,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
 
         // Set hidden fields
-        $this->set('hidden_fields', $this->config->integrity->hidden);
+        $this->set('hidden_fields', $this->config->scaffold->hidden);
         
         // Nice search to view
         $this->set('nice_search', $nice_search);
@@ -703,7 +703,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
 
         // Set hidden fields
-        $this->set('hidden_fields', $this->config->integrity->hidden);
+        $this->set('hidden_fields', $this->config->scaffold->hidden);
         
         // Foreign key for related model
         $fk = $this->metadata->get_relationship_fk($this->model, $model);
@@ -1243,6 +1243,15 @@ class Scaffold_<modelname>WebController extends MyAdminController
         }
 
     }
-
+    
+    //--------------------------------------------------------
+    
+    /**
+     * Finds out if this model is searchable and informs the view
+     */
+    protected function _is_searchable()
+    {
+        $this->set('is_searchable', $this->metadata->is_searchable($this->model));
+    }
 }
 ?>

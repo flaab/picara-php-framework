@@ -8,11 +8,13 @@
                 <a class="nav-link" href="<?= $link['controller'] ?>" title="Back" tabindex="-1">Back</a>
             </li>
         </ul>
+        <? if($is_searchable): ?>
         <form class="form-inline my-2 my-lg-0" action="<?= $link['controller'] ?>/search" method="POST">
         <input class="form-control mr-sm-2" type="search" value="<?= $nice_search  ?>" 
                     name="search" aria-label="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" name="search_button" type="submit">Search</button>
         </form>
+        <? endif; ?>
     </div>
 </nav>
 <!-- ==== End nabvar ==== -->

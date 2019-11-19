@@ -137,6 +137,7 @@ validation:
 # Scaffolding is automatic but can be customized below.
 #
 # > Enabled: Enable or disable scaffolding for this model
+# > Hidden: Fields to hide in scaffold list
 # > Text: Fields that use text inputs in forms
 # > Textarea: Fields that use textarea inputs in forms
 # > Fulltext: Fields that use fulltext inputs in forms
@@ -145,6 +146,7 @@ validation:
 #
 # scaffold:
 #   enabled: true
+#   hidden: [password, ip, last_logged]
 #   text: [first_name, last_name]
 #   textarea: [bio]
 #   fulltext: [content]
@@ -153,6 +155,7 @@ validation:
 
 scaffold:
   enabled: true
+  hidden: 
   text:
   textarea:
   fulltext:
