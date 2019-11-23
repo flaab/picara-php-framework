@@ -81,7 +81,7 @@ class AdminWebController extends MyAdminController
                 $this->core->redirect($this->request['controller'] .'/welcome');
 
             } else {
-                $this->flash->addDataError('Invalid username or password.');
+                $this->flash->validation_error('Invalid username or password.');
             }
         } 
     }
@@ -107,7 +107,7 @@ class AdminWebController extends MyAdminController
         // Kill it 
         $this->session->kill();
         $this->setTitle($this->project_title . CONNECTOR . 'Log out');  
-        $this->flash->addFlash("Goodbye, you are now logged out.");
+        $this->flash->success("Goodbye, you are now logged out.");
         $this->core->redirect($this->request['controller'] .'/login');
     }
     
@@ -175,21 +175,21 @@ class AdminWebController extends MyAdminController
         // Admin tasks array must be declared and contain this function name
         if(!isset($this->admin_tasks) || !is_array($this->admin_tasks) || !isset($this->admin_tasks[$taskname]))
         {
-            $this->flash->addDataError("The task <strong>". $taskname ."</strong> is not declared as a task at ". USERLIB ."mywebcontroller.php");
+            $this->flash->validation_error("The task <strong>". $taskname ."</strong> is not declared as a task at ". USERLIB ."mywebcontroller.php");
             $this->core->redirect($this->request['controller'] .'/tasks');
         }
         
         // Method must have name and description
         if(!is_string($this->admin_tasks[$taskname]['name']) || !is_string($this->admin_tasks[$taskname]['description']))
         {
-            $this->flash->addDataError("The task <strong>". $taskname ."</strong> does not have name or description. Add it at ". USERLIB ."mywebcontroller.php.");
+            $this->flash->validation_error("The task <strong>". $taskname ."</strong> does not have name or description. Add it at ". USERLIB ."mywebcontroller.php.");
             $this->core->redirect($this->request['controller'] .'/tasks');
         }
 
         // Method must exist
         if(!method_exists($this, $taskname))
         {
-            $this->flash->addDataError("The method <strong>". $taskname ."</strong> does not exist. Create it at ". USERLIB ."mywebcontroller.php");
+            $this->flash->validation_error("The method <strong>". $taskname ."</strong> does not exist. Create it at ". USERLIB ."mywebcontroller.php");
             $this->core->redirect($this->request['controller'] .'/tasks');
         }
 
@@ -283,7 +283,7 @@ class AdminWebController extends MyAdminController
                 if(!$res) return;
 
                 // OK
-                $this->flash->addFlash("The following task has been successfully executed.");
+                $this->flash->success("The following task has been successfully executed.");
                 $this->log->message("Task ". $taskname ." successfully executed.");
 
                 // Executed it is
@@ -292,7 +292,7 @@ class AdminWebController extends MyAdminController
                 // Set result if ok
                 $this->set('res', $res);
             } else {
-                $this->flash->addDataError("Parameters and inputs don't match");
+                $this->flash->validation_error("Parameters and inputs don't match");
             }
         } else {
             $this->set('executed', false);
@@ -324,7 +324,7 @@ class AdminWebController extends MyAdminController
         // If not found
         if(!isset($all_logs[$log]))
         {
-            $this->flash->addDataError("The log <strong>". $log ."</strong> was not found in the application.");
+            $this->flash->validation_error("The log <strong>". $log ."</strong> was not found in the application.");
             $this->core->redirect($this->request['controller'] .'/'. $this->request['action']);
             die;
         }

@@ -238,7 +238,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         // Check if model is searchable first
         if(!$this->metadata->is_searchable($this->model))
         {
-            $this->flash->addDataError('No searchable fields for model <strong>'. strtolower($this->model) .'</strong>. Add them at '. MODELCONFIG . strtolower($this->model) .'.yml', E_USER_ERROR);
+            $this->flash->validation_error('No searchable fields for model <strong>'. strtolower($this->model) .'</strong>. Add them at '. MODELCONFIG . strtolower($this->model) .'.yml', E_USER_ERROR);
             $this->core->redirect($this->link['controller']);
         }
         
@@ -248,7 +248,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         // Check for search string length
         if(strlen($search) < MIN_SEARCH_STRING_LENGTH)
         {
-            $this->flash->addDataError("The string '$search' is too short to make a search");
+            $this->flash->validation_error("The string '$search' is too short to make a search");
             $this->core->redirect($this->link['controller']);
         }
 
@@ -389,18 +389,18 @@ class Scaffold_<modelname>WebController extends MyAdminController
 			// Validation (including uploaded image)
 			if($object->validation_failed())
 			{
-				$this->flash->addDataError($object->get_validation_errors());
+				$this->flash->validation_error($object->get_validation_errors());
 				return;
 			}
 			
 			// If everything okay...the insert will pe performed
 			if($object->insert())
-			    $this->flash->addFlash("New <b>". strtolower($this->model) ."</b> was succesfully created");
+			    $this->flash->success("New <b>". strtolower($this->model) ."</b> was succesfully created");
 
 			// Check if insertion failed
 			if($object->failed())
 			{
-				$this->flash->addDataError($object->getErrorStore());
+				$this->flash->validation_error($object->getErrorStore());
 				return;
 			}
 
@@ -479,7 +479,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
 			// We check for validation errors
 			if($object->validation_failed())
 			{
-				$this->flash->addDataError($object->get_validation_errors());
+				$this->flash->validation_error($object->get_validation_errors());
 				
 				// It does. We now pass all of it's info to the view in an hash
 				foreach($object->getFields() as $field)
@@ -493,12 +493,12 @@ class Scaffold_<modelname>WebController extends MyAdminController
 			
 			// If everything okay...the insert will pe performed
 			if($object->update())
-			    $this->flash->addFlash("<b>". ucfirst($this->model) ."</b> was succesfully updated");
+			    $this->flash->success("<b>". ucfirst($this->model) ."</b> was succesfully updated");
 
 			// If the insertion failed, error
 			if($object->failed())
 			{
-				$this->flash->addDataError($object->getErrorStore());
+				$this->flash->validation_error($object->getErrorStore());
 				return;
 			}
 			
@@ -562,7 +562,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
 		// Check transaction failed
 		if($object->failed())
 		{
-			$this->flash->addError($object->getErrorStore());
+			$this->flash->error($object->getErrorStore());
 			return;
 		}
 
@@ -571,7 +571,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('modeldisplay', $this->config->display);
 		
 		// Everything ok
-        $this->flash->addFlash("<b>". ucfirst($this->model) ."</b> has been succesfully deleted.");
+        $this->flash->success("<b>". ucfirst($this->model) ."</b> has been succesfully deleted.");
 		
 		// Redirect to list
 		$this->core->redirect($this->link['controller']);
@@ -639,7 +639,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
             }
 
             // Msg
-            $this->flash->addFlash("Selected files has been successfully deleted.");
+            $this->flash->success("Selected files has been successfully deleted.");
 
             // Images list must be updated
             $files = $object->get_files($block);
@@ -661,13 +661,13 @@ class Scaffold_<modelname>WebController extends MyAdminController
             // If validation failed
             if($object->validation_failed())
             {
-                $this->flash->addDataError($object->get_validation_errors());
+                $this->flash->validation_error($object->get_validation_errors());
                 return;
             }
 
             // Validation ok
             if($object->add_file($block, $_FILES[UPLOAD_FILE_INPUT_NAME]))
-                $this->flash->addFlash('File successfully uploaded.');
+                $this->flash->success('File successfully uploaded.');
 
             // Images list must be updated
             $files = $object->get_files($block);
@@ -712,7 +712,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $related_obj = new $model($value);
         if($related_obj->failed())
         {
-            $this->flash->addDataError('Requested relationship does not exist (id = '. $value .')');
+            $this->flash->validation_error('Requested relationship does not exist (id = '. $value .')');
             $this->core->redirect($this->request['controller']);
         }
 
@@ -822,7 +822,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
             }
 
             // Msg
-            $this->flash->addFlash("Selected images have been successfully deleted.");
+            $this->flash->success("Selected images have been successfully deleted.");
 
             // Images list must be updated
             $images = $object->get_extra_images();
@@ -844,18 +844,18 @@ class Scaffold_<modelname>WebController extends MyAdminController
             // If validation failed
             if($object->validation_failed())
             {
-                $this->flash->addDataError($object->get_validation_errors());
+                $this->flash->validation_error($object->get_validation_errors());
                 return;
             }
 
             // Validation ok, upload
             if($object->add_extra_image($_FILES[UPLOAD_FILE_INPUT_NAME]))
             {
-                $this->flash->addFlash('Image successfully uploaded.');
+                $this->flash->success('Image successfully uploaded.');
             
             // Failed; probably limit reached
             } else {
-                $this->flash->addDataError($object->get_validation_errors());
+                $this->flash->validation_error($object->get_validation_errors());
                 return;
             }
 
@@ -1107,21 +1107,21 @@ class Scaffold_<modelname>WebController extends MyAdminController
         // Admin tasks array must be declared and contain this function name
         if(!isset($object->model_actions) || !is_array($object->model_actions) || !isset($object->model_actions[$actionname]))
         {
-            $this->flash->addDataError("The method <strong>". $actionname ."</strong> is not declared as a action at ". MODEL . strtolower($this->model) .".php");
+            $this->flash->validation_error("The method <strong>". $actionname ."</strong> is not declared as a action at ". MODEL . strtolower($this->model) .".php");
             $this->core->redirect($this->link['controller'] .'/view/'. $id);
         }
         
         // Method must have name and description
         if(!is_string($object->model_actions[$actionname]['name']) || !is_string($object->model_actions[$actionname]['description']))
         {
-            $this->flash->addDataError("The action <strong>". $actionname ."</strong> does not have name or description at ". MODEL . strtolower($this->model) .".php");
+            $this->flash->validation_error("The action <strong>". $actionname ."</strong> does not have name or description at ". MODEL . strtolower($this->model) .".php");
             $this->core->redirect($this->link['controller'] .'/view/'. $id);
         }
 
         // Method must exist
         if(!method_exists($object, $actionname))
         {
-            $this->flash->addDataError("The method <strong>". $actionname ."</strong> does not exist at ". MODEL . strtolower($this->model) .".php");
+            $this->flash->validation_error("The method <strong>". $actionname ."</strong> does not exist at ". MODEL . strtolower($this->model) .".php");
 
             $this->core->redirect($this->link['controller'] .'/view/'. $id);
         }
@@ -1220,14 +1220,14 @@ class Scaffold_<modelname>WebController extends MyAdminController
                 if($object->validation_failed())
                 {
                     $verr = $object->get_validation_errors();
-                    foreach($verr as $err) $this->flash->addDataError($err);
+                    foreach($verr as $err) $this->flash->validation_error($err);
                 }
 
                 // If false return
                 if(!$res) return;
 
                 // OK
-                $this->flash->addFlash("The following action has been successfully executed.");
+                $this->flash->success("The following action has been successfully executed.");
                 $this->log->message("Action ". $this->model ."::". $actionname ." has been successfully executed.");
 
                 // Executed it is
@@ -1236,7 +1236,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
                 // Set result if ok
                 $this->set('res', $res);
             } else {
-                $this->flash->addDataError("Parameters and inputs don't match");
+                $this->flash->validation_error("Parameters and inputs don't match");
             }
         } else {
             $this->set('executed', false);

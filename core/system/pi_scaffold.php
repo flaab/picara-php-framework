@@ -46,7 +46,7 @@ class Pi_scaffold
 
         // Scaffolding schema
         $scaffold = $metadata->read_scaffold_schema($model, $id);
-
+        
         // Change local schema according to scaffold config for this model
         if(isset($config->scaffold))
         {

@@ -59,7 +59,7 @@ class Pi_flash
     * @param    string|array    $msg 
     */
       
-    public final function addWarning($msg)
+    public final function warning($msg)
     {
        if(is_array($msg))
        {
@@ -83,7 +83,7 @@ class Pi_flash
     * @param    string|array    $msg 
     */
       
-    public final function addFlash($msg)
+    public final function success($msg)
     {
        if(is_array($msg))
        {
@@ -106,7 +106,7 @@ class Pi_flash
     * @param    string|array    $msg
     */
 
-    public final function addError($msg)
+    public final function error($msg)
     {
        if(is_array($msg))
        {
@@ -130,7 +130,7 @@ class Pi_flash
     * @param    string|array    $msg
     */
    
-    public final function addDataError($msg)
+    public final function validation_error($msg)
     {
        if(is_array($msg))
        {
