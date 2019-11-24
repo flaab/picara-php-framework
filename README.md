@@ -90,6 +90,58 @@ git clone https://github.com/flaab/picara-php-framework.git
  
 That's it. You are ready to start coding.
 
+## Directory Structure
+The directory structure of the framework is intented to be as follows.
+
+- **app/** -> This folder contains your application.
+    - **cache/** -> Contains user generated cache files, generated from templates.
+    - **config/** -> Contains application configuration files.
+    	- **connection/** -> Contains the database connections of the application.
+		- **model/** -> Contains config files of the models of the application.
+		- *adminusers.php* -> List of users for the admin panel.
+		- *application.php* -> Stores application constants and options.
+		- *environment.php* -> Stores the application execution environment.
+		- *langs.yml* -> Stores a list of activated languages for web application.
+		- *routes.yml* -> Stores additional/custom routes of the web application.
+    - **controller/** -> Contains the http/web controllers of the application.
+    - **lang/** -> Contains the YML lang-files for the web application, if multilang is enabled.
+    - **layout/** -> Contains the different layouts of the web application.
+    - **lib/** -> Contains libraries of the application. Place any third-party libraries here.
+    - **log/** -> Contains log-files of the application.
+    - **message/** -> code snippets to display errors, validation errors and success messages.
+    - **mod/** -> This folder is meant to store repetitive html snippets shared across the web application.
+    - **model/** -> Contains the models of the application.
+    - **modelsnap/** -> Contains the html snippet to display model records in the web applications.
+    - **pages/** -> Contains the static pages the framework can serve via the built-in static controller.   
+    - **searchsnap/** -> Contains the html snippets to display model records when using the search engine.
+    - **shell/** -> Contains the cli/shell controllers of the application.
+    - **templates/** -> Contains html templates to generage custom cache files.
+    - **view/** -> Contains views of the web application.
+- **core/** -> Contains the core of the framework.
+	- **actions/** -> Contains basic actions of the framework.
+	- **built-in/** -> Contains built-in cli/http controllers of the framework.
+	- **config/** -> Contains internal config files of the framework.
+	- **lib/** -> Contains libraries of the framework.
+	- **system/** -> Contains system libraries of the framework.
+	- **utils/** -> Contains utilities of the framework.
+	- **vendors/** -> Contains third-party libraries and dependencies.
+- **htdocs/** -> Contains the document root of the web application.
+	- **webroot/** -> Contains files that can be served via http request.
+		- **css/** -> Stores the css files of the web application.
+		- **images/** -> Stores the images of the web application.
+		- **js/** -> Stores the javascript files of the web application.
+		- **model_files/** ->  Stores public images and files associated to model records.
+		- **pages/** -> Stores 503, 405 404, 403, 401 and 400 error pages of the web application.
+		- **phpliteadmin/** -> This directory holds PHPLiteAdmin, to manage SQLite databases.
+		- *phpinfo.php* -> This is the PHPInfo page.
+	- *index.php* -> This file serves the web application from the http server.
+- **resources/** -> Contains application resources.
+	- **cache/** -> Contains files for the http cache system.
+	- **db/** -> Contains sqlite databases of the application.
+	- **tmp/** -> Contains temp files of the cache system.
+- **scripts/** -> Contains executable scripts to use during development.
+
+
 ## The command line scripts
 The framework ships with command line scripts to perform the following tasks.
 
@@ -144,10 +196,9 @@ php scripts/picara list logs
 php scripts/picara scaffold model modelname
 php scripts/picara scaffold all
 ```
-## Directory Structure
 
 ## Develop your application
-Develop your application in the testing environment and when you are finished, go to the next step.
+Develop your application in the testing environment. Use the scripts described above whenever possible.
 
 ## Deployment
 Deployment should be done using Apache Server.
