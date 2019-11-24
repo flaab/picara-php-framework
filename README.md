@@ -57,11 +57,10 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - session
 - PDO
 
-
 ## Installation
-No composer or package manager needed. 
+The framework is self-contained. No composer or package manager needed. 
 
-### A) Without Apache
+### a) Without Apache
 Follow these steps to install and run the framework in your machine, without Apache.
 1. Open a terminal
 2. Navigate to your projects folder
@@ -79,7 +78,7 @@ bash scripts/runserver.sh
 ```
 6. Point your browser to http://localhost:8000
 
-### B) Using Apache
+### b) Using Apache
 Follow these steps to install and run the framework in your Apache server.
 1. Open a terminal
 2. Go to your Apache DocumentRoot Directory
@@ -145,6 +144,7 @@ php scripts/picara list logs
 php scripts/picara scaffold model modelname
 php scripts/picara scaffold all
 ```
+## Directory Structure
 
 ## Develop your application
 Develop your application in the testing environment and when you are finished, go to the next step.

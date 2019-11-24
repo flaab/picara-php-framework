@@ -1,6 +1,5 @@
 ###
-#
-# Routes config file
+# Routes Config File
 #
 # Regular expressions can be used to redirect a request (fake or not)
 # to another request. This is specially useful to create nice 

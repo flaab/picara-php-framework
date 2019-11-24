@@ -19,6 +19,6 @@
             <div class="col-md-6 offset-md-4">
                 <button type="submit" name="submit" class="btn btn-primary">Login</button>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
