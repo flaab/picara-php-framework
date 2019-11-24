@@ -59,8 +59,28 @@ It can be used to build anything. Simple relational websites such as as blogs or
 
 
 ## Installation
-No composer or package manager needed. Follow these simple steps.
+No composer or package manager needed. 
 
+### A) Without Apache
+Follow these steps to install and run the framework in your machine, without Apache.
+1. Open a terminal
+2. Navigate to your projects folder
+3. Execute the following command to clone the repository
+```
+git clone https://github.com/flaab/picara-php-framework.git
+```
+4. Change to the working directory
+```
+cd picara-php-framework
+```
+5. Start the PHP Developer Server
+```
+bash scripts/runserver.sh
+```
+6. Point your browser to http://localhost:8000
+
+### B) Using Apache
+Follow these steps to install and run the framework in your Apache server.
 1. Open a terminal
 2. Go to your Apache DocumentRoot Directory
 3. Execute the following command to clone the repository
@@ -68,10 +88,8 @@ No composer or package manager needed. Follow these simple steps.
 git clone https://github.com/flaab/picara-php-framework.git
 ```
 4. Point your browser to http://localhost/picara-php-framework/htdocs.
-5. Install any missing libraries if prompted
-
+ 
 That's it. You are ready to start coding.
-
 
 ## The command line scripts
 The framework ships with command line scripts to perform the following tasks.
@@ -131,8 +149,9 @@ php scripts/picara scaffold all
 ## Develop your application
 Develop your application in the testing environment and when you are finished, go to the next step.
 
-
 ## Deployment
+Deployment should be done using Apache Server.
+
 ### 1. Create a VirtualHost in your production server
 Create an Apache VirtualHost that points to the htdocs/ folder of the framework project.
 ```
@@ -200,6 +219,7 @@ php scripts/picara environment change production
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 
 These vendor libraries are included in this repository and shipped with the framework.
+
 
 ## Todo and Roadmap
 Next iterations of the framework will include:
