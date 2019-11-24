@@ -72,11 +72,16 @@ git clone https://github.com/flaab/picara-php-framework.git
 ```
 cd picara-php-framework
 ```
-5. Start the PHP Developer Server
+5. Execute the script to set proper folder permissions
+```
+bash scripts/setup_permissions.sh
+```
+6. Start the PHP Developer Server
 ```
 bash scripts/runserver.sh
 ```
-6. Point your browser to http://localhost:8000
+
+That's it. Point your browser to http://localhost:8000.
 
 ### b) Using Apache
 Follow these steps to install and run the framework in your Apache server.
@@ -86,9 +91,15 @@ Follow these steps to install and run the framework in your Apache server.
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
-4. Point your browser to http://localhost/picara-php-framework/htdocs.
- 
-That's it. You are ready to start coding.
+4. Change to the working directory
+```
+cd picara-php-framework
+```
+5. Execute the script to set proper folder permissions
+```
+bash scripts/setup_permissions.sh
+```
+That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
 
 ## Directory Structure
 The directory structure of the repository is as follows.
