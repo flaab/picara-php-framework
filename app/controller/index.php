@@ -44,13 +44,16 @@ class IndexWebController extends MyWebController
         $fix = array();
         
         // Get all apache and php modules
-        $apache_modules = apache_get_modules();
+        if(function_exists('apache_get_modules'))
+            $apache_modules = apache_get_modules();
+        
+        // Read php modules
         $php_modules    = get_loaded_extensions();
 
         // Check apache
         foreach($this->needed_apache_modules as $module)
         {
-            if(!in_array(strtolower($module), $apache_modules))
+            if(isset($apache_modules) && !in_array(strtolower($module), $apache_modules))
             {
                 $fix[] = "The <strong>". $module ."</strong> module is not enabled in your web server.";
             } 

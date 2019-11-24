@@ -66,6 +66,7 @@ class Pi_uri extends Pi_error_store
     private $total;
     
     
+
     //----------------------------------------------------------
     
     /**
@@ -83,24 +84,25 @@ class Pi_uri extends Pi_error_store
             $this->request_string = strtolower($uri);
                
         } else {
-        
+             
             // Calculate from query string 
             // Always lower caps to make canonicals valid
-            $request = strtolower($_SERVER['QUERY_STRING']);
-            
-            // Remove get params, anchors and trailing slash
+            //$request = strtolower($_SERVER['QUERY_STRING']);
+            $request = strtolower($this->get_query_string());
+
+            // Remove get params, anchors, start and trailing slash
             $request = preg_replace('/\?.*$/', '', $request);
-            $request = preg_replace('/\/+$/', '', $request);
+            $request = preg_replace('/^\/|\/+$/', '', $request);
             $this->request_string = preg_replace('/#.*$/', '', $request);
         }    
 
         // Request received
         if($this->request_string != '')
-             $this->request_array = explode('/', $this->request_string); 
+             $this->request_array =array_values(array_filter(explode('/', $this->request_string), 'strlen'));
         
         // Count total arguments in query string
         $this->total = count($this->request_array);    
-
+        
         // Set controller
         $this->_setController();
         $this->_setAction();
@@ -115,16 +117,38 @@ class Pi_uri extends Pi_error_store
         // If routed, store original request
         $this->original_request = $original_request;
     }
-     
-     //----------------------------------------------------------
-     
-     /**
-     * Returns desired token
+    
+    //----------------------------------------------------------
+
+    /**
+     * Returns server query string if available.
+     * In Apache, query_string is present.
+     * In PHP Dev server, request_uri is present.
      *
-     * @param    int       $index
-     * @param    string    $default
-     * @return   string
+     * @return  string
      */
+    private function get_query_string() 
+    {
+        $res = "";
+        if(isset($_SERVER['QUERY_STRING'])) // Apache
+        {
+            $res = $_SERVER['QUERY_STRING'];
+        } elseif(isset($_SERVER['REQUEST_URI'])) {  // PHP Dev Server
+            $res = $_SERVER['REQUEST_URI'];
+        }
+        return($res);
+    }
+    
+     
+    //----------------------------------------------------------
+     
+    /**
+    * Returns desired token
+    *
+    * @param    int       $index
+    * @param    string    $default
+    * @return   string
+    */
      
      public function token($index, $default = false)
      {
