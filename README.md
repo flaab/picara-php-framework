@@ -91,9 +91,9 @@ git clone https://github.com/flaab/picara-php-framework.git
 That's it. You are ready to start coding.
 
 ## Directory Structure
-The directory structure of the framework is intented to be as follows.
+The directory structure of the repository is as follows.
 
-- **app/** -> This folder contains your application.
+- **app/** -> This folder contains your application code. You will never have to write or edit code outside this folder.
     - **cache/** -> Contains user generated cache files, generated from templates.
     - **config/** -> Contains application configuration files.
     	- **connection/** -> Contains the database connections of the application.
