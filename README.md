@@ -14,7 +14,7 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Strict MVC architecture
 - Supports SQLite, MySQL, MariaDB, PostgreSQL and Oci8
 - Supports has_one, has_many, belongs_to and has_and_belongs_to_many relationships
-- Model relationships are inferred from table names, or declared in the models
+- Model relationships are inferred from table names or declared in the model config files
 - YAML Lang file support for multi-language sites
 - Automatic and customizable Admin Site
 - Built-in full-text search engine
@@ -29,14 +29,14 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - You can create model actions which are easily executed from the *Admin Site*
 - Implicit routing: there is no need to define routes for each method
 - Explicit routing is allowed if you wish to define your own routes
-- Build-in recordset exportability to json, xml, yml and csv
+- Built-in recordset exportability to json, xml, yml and csv
 - It can handle multiple and different database connections
 - HTTP Controllers have built-in session and IP controls
 - Create as many logs as you need in your application
 - Rich and abundant model validation methods
 - Send emails via SMTP or Sendmail
 
-## Requirements for production
+## Requirements
 - Apache Server > 2.2 *(for production only)*
 - SQLite > 3.0
 - PHP > 7.0 
@@ -61,35 +61,34 @@ It can be used to build anything. Simple relational websites such as as blogs or
 ## Installation
 The framework is self-contained. No composer or package manager is needed. 
 
-Follow these steps to install and run the framework in your machine, without Apache.
+Follow these steps to install and run the framework in your machine.
 
-1. Open a terminal
-2. Navigate to your projects folder
-3. Execute the following command to clone the repository
+1. Open a terminal in your projects folder
+2. Execute the following command to clone the repository
 ```
 git clone https://github.com/flaab/picara-php-framework.git
 ```
-4. Change to the working directory
+3. Change to the working directory
 ```
 cd picara-php-framework
 ```
-5. Execute the script to set proper folder permissions
+4. Execute the script to set proper folder permissions
 ```
 bash scripts/setup_permissions.sh
 ```
-6. Start the PHP Developer Server
+5. Start the PHP Developer Server
 ```
 bash scripts/runserver.sh
 ```
-Now point your browser to http://localhost:8000 to see the homepage of the project.
+Now point your browser to http://localhost:8000 to be greeted.
 
 ![Picara running on PHP Development Server](https://www.dropbox.com/s/bxzev2731en9p1b/picara_welcome_php.png?raw=1)
 
 
-Optionally, you can serve the project using Apache in your localhost.
+Optionally, you can serve the project using Apache.
 
 1. Move the *picara-php-framework* folder to your Apache DocumentRoot directory.
-2. Start Apache in your computer.
+2. Start Apache Server in your computer.
 
 That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
 
