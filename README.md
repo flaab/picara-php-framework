@@ -36,8 +36,9 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Rich and abundant model validation methods
 - Send emails via SMTP or Sendmail
 
-## Requirements
-- Apache Server > 2.2
+## Requirements for production
+- Apache Server > 2.2 *(for production only)*
+- SQLite > 3.0
 - PHP > 7.0 
 
 ### Apache Modules required
@@ -58,10 +59,10 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - PDO
 
 ## Installation
-The framework is self-contained. No composer or package manager needed. 
+The framework is self-contained. No composer or package manager is needed. 
 
-### a) Without Apache
 Follow these steps to install and run the framework in your machine, without Apache.
+
 1. Open a terminal
 2. Navigate to your projects folder
 3. Execute the following command to clone the repository
@@ -80,26 +81,16 @@ bash scripts/setup_permissions.sh
 ```
 bash scripts/runserver.sh
 ```
+Now point your browser to http://localhost:8000 to see the homepage of the project.
+![Picara running on PHP Development Server](https://www.dropbox.com/s/27loxhicc0n55td/picara_welcome_php.png)
 
-That's it. Point your browser to http://localhost:8000.
+Optionally, you can serve the project using Apache in your localhost.
 
-### b) Using Apache
-Follow these steps to install and run the framework in your Apache server.
-1. Open a terminal
-2. Go to your Apache DocumentRoot Directory
-3. Execute the following command to clone the repository
-```
-git clone https://github.com/flaab/picara-php-framework.git
-```
-4. Change to the working directory
-```
-cd picara-php-framework
-```
-5. Execute the script to set proper folder permissions
-```
-bash scripts/setup_permissions.sh
-```
+1. Move the *picara-php-framework* folder to your Apache DocumentRoot directory.
+2. Start Apache in your computer.
+
 That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
+![Picara running on Apache Server](https://www.dropbox.com/s/w6hqsosh4v63oa2/picara_welcome_apache.png)
 
 ## Directory Structure
 The directory structure of the repository is as follows.
