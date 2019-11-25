@@ -82,7 +82,7 @@ bash scripts/setup_permissions.sh
 bash scripts/runserver.sh
 ```
 Now point your browser to http://localhost:8000 to see the homepage of the project.
-![Picara running on PHP Development Server](https://www.dropbox.com/s/27loxhicc0n55td/picara_welcome_php.png)
+![Picara running on PHP Development Server](https://www.dropbox.com/s/27loxhicc0n55td/picara_welcome_php.png?raw=1)
 
 Optionally, you can serve the project using Apache in your localhost.
 
@@ -90,7 +90,7 @@ Optionally, you can serve the project using Apache in your localhost.
 2. Start Apache in your computer.
 
 That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
-![Picara running on Apache Server](https://www.dropbox.com/s/w6hqsosh4v63oa2/picara_welcome_apache.png)
+![Picara running on Apache Server](https://www.dropbox.com/s/w6hqsosh4v63oa2/picara_welcome_apache.png?raw=1)
 
 ## Directory Structure
 The directory structure of the repository is as follows.
