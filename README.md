@@ -92,7 +92,7 @@ Optionally, you can serve the project using Apache.
 
 That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
 
-![Picara running on Apache Server](https://www.dropbox.com/s/bxzev2731en9p1b/picara_welcome_php.png?raw=1)
+![Picara running on Apache Server](https://www.dropbox.com/s/ikqywrcen2989z4/picara_welcome_apache.png?raw=1)
 
 
 ## Directory Structure
