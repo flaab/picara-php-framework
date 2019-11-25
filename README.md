@@ -21,7 +21,6 @@ It can be used to build anything. Simple relational websites such as as blogs or
 - Model and Controller callbacks
 - Comprehensive scaffolding
 
-
 ### Other features
 - You can create HTTP and CLI controllers that access the same resources
 - You can create RESTful API controllers and define acceptable request types
