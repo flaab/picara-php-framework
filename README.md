@@ -95,8 +95,6 @@ Optionally, you can serve the project using Apache.
 
 That's it. Point your browser to http://localhost/picara-php-framework/htdocs.
 
-![Picara running on Apache Server](https://www.dropbox.com/s/ikqywrcen2989z4/picara_welcome_apache.png?raw=1)
-
 
 ## Directory Structure
 The directory structure of the repository is as follows.
