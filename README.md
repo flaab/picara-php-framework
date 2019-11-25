@@ -3,11 +3,15 @@ A self-contained PHP rapid development framework for MVC http/rest/cli applicati
  
 
 ### What makes it different?
-Picara is a breeze of fresh air in a world of heavy and large frameworks. It is a self-contained framework that can be installed simply by cloning a git repository. It requires no composer dependencies and uses no middleware, and yet, it is just as powerful and fast as other, full-blown and complex alternatives.
+Picara is a breeze of fresh air in a world of heavy and large frameworks. It is a self-contained framework that can be installed simply by cloning a git repository. It requires no composer dependencies and uses no middleware, and yet, it is as capable and fast as other, full-blown, complex alternatives.
 
 
 ### What can it be used for?
 It can be used to build anything. Simple relational websites such as as blogs or stores, complex relational RestFul API services or high-traffic relational websites such as newspapers or online services. The framework implements a comprehensive cache system that can serve static files generated from your routes, which allows it to handle tons of requests without raising the database layer or loading the application libraries.
+
+
+### Fast development and deployment
+The framework is ready to rock right after cloning the repository, with SQLite activated as default relational database system. The project can be developed locally using the PHP Development Server and deployed to a standalone virtual host or a sub-directory inside an existing domain. 
 
 
 ## Main Features
