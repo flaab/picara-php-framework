@@ -7,10 +7,11 @@
             <a class="btn btn-primary btn-lg" href="admin/welcome" role="button">Site Administration</a>
             <a class="btn btn-info btn-lg ml-3" href="webroot/phpliteadmin/phpliteadmin.php" target="_blank" role="button">PHPLiteAdmin</a>
             <a class="btn btn-secondary btn-lg ml-3" href="webroot/phpinfo.php" target="_blank" role="button">PHPInfo</a>
+            <a class="btn btn-light btn-lg ml-3" href="https://github.com/flaab/picara-php-framework" target="_blank" role="button">GitHub</a>
         </p>
     <? else: ?>
         <h1 class="display-4">You're almost there!</h1>
-        <p class="lead">In order for the framework to by fully operative, these issues need your attention.</p>
+        <p class="lead">In order for the framework to be fully operative, these issues need your attention.</p>
         <hr class="my-4">
         <ul>
             <? foreach($fix as $f): ?>

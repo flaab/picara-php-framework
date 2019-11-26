@@ -101,7 +101,7 @@ abstract class MyAdminController extends MyWebController
     {
         if(!is_numeric($times) || $times < 1 || $times > 50)
         {
-            $this->flash->addDataError("The second parameter must be numeric, above 1 and below 50.");
+            $this->flash->validation_error("The second parameter must be numeric, above 1 and below 50.");
             return(false);
         }
 
@@ -124,7 +124,7 @@ abstract class MyAdminController extends MyWebController
         // Check parameters of errors to view
         if(!is_numeric($first_number) || !is_numeric($second_number) || !is_numeric($third_number))
         {
-            $this->flash->addDataError("Parameters must be numeric, try again.");
+            $this->flash->validation_error("Parameters must be numeric, try again.");
             return(false);  // False indicates to stop
         }
         return("The result is ". ($first_number+$second_number+$third_number) .".");
@@ -141,7 +141,7 @@ abstract class MyAdminController extends MyWebController
         {
             return("The homepage has been cached succesfully");
         } else {
-            $this->flash->addDataError("Creating the cache of the homepage failed");
+            $this->flash->validation_error("Creating the cache of the homepage failed");
             return(false);
         }
     }
@@ -157,7 +157,7 @@ abstract class MyAdminController extends MyWebController
         {
             return("The homepage has been purged succesfully.");
         } else {
-            $this->flash->addDataError("Purging the cache of the homepage failed.");
+            $this->flash->validation_error("Purging the cache of the homepage failed.");
             return(false);
         }
     }
