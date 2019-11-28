@@ -373,7 +373,7 @@ callbacks:
 # images:
 #   main:
 #     enabled: true
-#     default: webroot/images/category_no_image.gif
+#     default: assets/images/category_no_image.gif
 #   extra:
 #     enabled: true
 #     rename: true
