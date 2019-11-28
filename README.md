@@ -132,7 +132,7 @@ The directory structure of the repository is as follows.
 	- **utils/** -> Contains utilities of the framework.
 	- **vendors/** -> Contains third-party libraries and dependencies.
 - **htdocs/** -> Contains the document root of the web application.
-	- **webroot/** -> Contains files that can be served via http request.
+	- **assets/** -> Contains files that can be served via http request.
 		- **css/** -> Stores the css files of the web application.
 		- **images/** -> Stores the images of the web application.
 		- **js/** -> Stores the javascript files of the web application.
@@ -255,8 +255,8 @@ To serve the page via HTTPS, define your VirtualHost as follows instead.
 Make sure the VirtualHost is serving the htdocs folder and not the parent folder.
 
 ### 2. Secure your deployment
-- Delete the phpinfo.php file located at htdocs/webroot/phpinfo.php
-- Delete or rename the PhpLiteAdmin folder located at htdocs/webroot/phpliteadmin
+- Delete the phpinfo.php file located at htdocs/assets/phpinfo.php
+- Delete or rename the PhpLiteAdmin folder located at htdocs/assets/phpliteadmin
 - Add a route to hide/rename your Admin Site URL at app/config/routes.yml
 
 ### 3. Test your deployment

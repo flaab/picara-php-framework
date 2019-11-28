@@ -53,5 +53,5 @@ resources/tmp/view/*
 !resources/tmp/view/.gitkeep
 
 # Model images and files
-htdocs/webroot/model_files/*
-!htdocs/webroot/model_files/.gitkeep
+htdocs/assets/model_files/*
+!htdocs/assets/model_files/.gitkeep

@@ -5,8 +5,8 @@
         <hr class="my-4">
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="admin/welcome" role="button">Site Administration</a>
-            <a class="btn btn-info btn-lg ml-3" href="webroot/phpliteadmin/phpliteadmin.php" target="_blank" role="button">PHPLiteAdmin</a>
-            <a class="btn btn-secondary btn-lg ml-3" href="webroot/phpinfo.php" target="_blank" role="button">PHPInfo</a>
+            <a class="btn btn-info btn-lg ml-3" href="assets/phpliteadmin/phpliteadmin.php" target="_blank" role="button">PHPLiteAdmin</a>
+            <a class="btn btn-secondary btn-lg ml-3" href="assets/phpinfo.php" target="_blank" role="button">PHPInfo</a>
             <a class="btn btn-light btn-lg ml-3" href="https://github.com/flaab/picara-php-framework" target="_blank" role="button">GitHub</a>
         </p>
     <? else: ?>

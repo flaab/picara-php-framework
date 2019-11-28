@@ -34,7 +34,7 @@ abstract class MyAdminController extends MyWebController
 
         'Other' => array(
             'Visit site' => 'index/index',
-            'PhpLiteAdmin' => 'webroot/phpliteadmin/phpliteadmin.php',
+            'PhpLiteAdmin' => 'assets/phpliteadmin/phpliteadmin.php',
         ),
     );
 

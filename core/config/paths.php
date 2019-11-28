@@ -58,7 +58,8 @@ define('SYSTEM',     CORE . 'system/');
 // HTDOCS AND WEBROOT
 //==============================================================
 define('HTDOCS',       'htdocs/');
-define('WEBROOT',      HTDOCS  . 'webroot/');
+define('WEBROOT',      HTDOCS  . 'assets/');
+define('ASSETS ',      HTDOCS  . 'assets/');
 define('CSS',          WEBROOT . 'css/');
 define('IMAGES',       WEBROOT . 'images/');
 define('FLASH',        WEBROOT . 'flash/');

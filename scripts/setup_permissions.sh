@@ -9,4 +9,4 @@ chmod -R 777 resources/db/*
 chmod -R 777 resources/tmp/
 chmod -R 777 resources/tmp/layout
 chmod -R 777 resources/tmp/view
-chmod -R 777 htdocs/webroot/model_files
+chmod -R 777 htdocs/assets/model_files
