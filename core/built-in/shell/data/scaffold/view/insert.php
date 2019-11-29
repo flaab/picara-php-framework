@@ -19,6 +19,6 @@
 </nav>
 <!-- ==== End nabvar ==== -->
 
-<div class="container">
+<div class="container-fluid">
 <?php Pi_scaffold::createform($modelname, 'insert', NULL, NULL, $n_m); ?>
 </div>

@@ -23,7 +23,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
     /**
     * After action callbacks
     */
-    var $after_action = array('_other_scaffolds','_set_custom_menu');
+    var $after_action = array('_other_scaffolds','_set_custom_menu','_is_searchable');
 
     /**
     * Before action callbacks

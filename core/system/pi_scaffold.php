@@ -116,7 +116,7 @@ class Pi_scaffold
                 print("<fieldset class=\"border p-4\">\n");
                 
                 // Print legend
-                print('<legend  class="w-auto">'. $fieldset ."</legend>\n");
+                print('<legend class="w-auto">'. $fieldset ."</legend>\n");
 
                 // Foreach field
                 foreach($fields as $field => $value)
@@ -221,7 +221,7 @@ class Pi_scaffold
                 // Fieldset end
                 print("</fieldset>\n");
                 
-                }
+            }
         }
 
         //--------------------------------------------------------
