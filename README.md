@@ -210,21 +210,42 @@ The framework provides a built-in, authenticated site administration panel. From
 - Run model actions for any given record
 - Examine logs
 
-Point your browser to the admin panel, located at http://localhost:8000/admin/login and log in. The default username is *admin* and the default password is *mypassword*. You can add, edit or delete users by editing the file located at *app/config/adminusers.php*. This file holds the users that can log into the admin panel, and should not be confused with your website users, should you have any in the future.
+### Log-in
+Point your browser to the admin panel, located at http://localhost:8000/admin/login and log in. The default username is **admin** and the default password is **mypassword**. You can add, edit or delete users by editing the file located at *app/config/adminusers.php*. This file holds the users that can log into the admin panel, and should not be confused with your website users, should you have any in the future.
 
-![The Site Admin login page](https://www.dropbox.com/s/szsojmbpwwvk776/admin0.png?raw=1)
+![The Site Admin Login Page](https://www.dropbox.com/s/szsojmbpwwvk776/admin0.png?raw=1)
+
+Once logged-in, you'll be greeted with friendly how-tos and be able to navigate.
+
+![The Site Admin Welcome Page](https://www.dropbox.com/s/tlgaxsfpbx4rzya/%20admin1.png?raw=1)
 
 
 ### Administration Tasks
 The whole point of having a site administration panel is to perform routinary administration tasks, and this is made easy by the framework. Any custom administrative function can be called from the admin site, with customisable inputs and validation, without creating controllers or views. Administration tasks can be declared as methods in *app/config/myadmincontroller.php* and appended the method name to the *$admin_tasks* class property array. 
 
+To view all the available tasks, go to **Tools -> Tasks** or http://localhost:8000/admin/tasks.
+
+![The Site Admin Tasks Page](https://www.dropbox.com/s/hzp3upvpg1f6i1b/admin3.png?raw=1)
+
+The framework implements some example tasks for your examination such as *Hello World, Custom Greet and Simple Sum*.
 
 ### Logs
 Logs can be navigated from the admin panel as well. The framework can handle an unlimited number of log files.
 
+![The Site Admin Logs Page](https://www.dropbox.com/s/wemkhhjl9ee40qf/admin2.png?raw=1)
+
 
 ### More than scaffolding 
 The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers.
+
+The following are out-of-the-box scaffolding screenshots for a simple blog application with <i>authors, categories, tags and posts.</i>.
+
+![Scaffolding: Category List](https://www.dropbox.com/s/bc7oydtmq7z6j6t/admin5.png?raw=1)
+![Scaffolding: Insert a new Author with avatar](https://www.dropbox.com/s/28940dtm8w5zqke/admin4.png?raw=1)
+The scaffolding supports to assign a featured image to each record, and full-text editing.
+
+![Scaffolding: Insert a new Post with featured image] (https://www.dropbox.com/s/v302r72i0gxtff5/admin6.png?raw=1)
+The scaffolding supports and populates *has and belongs to many* relationships, as well as images and file uploads.
 
 
 ## Develop your application
