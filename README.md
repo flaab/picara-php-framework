@@ -236,8 +236,8 @@ To view all the available tasks, go to **Tools->Logs** or http://localhost:8000/
 ![The Site Admin Logs Page](https://www.dropbox.com/s/wemkhhjl9ee40qf/admin2.png?raw=1)
 
 
-### More than scaffolding 
-The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. Any recordset can be exported in JSON, CSV, YAML and XML formats, even those resulting from a search.
+### More than scaffolding
+This framework was developed for rapid development of content sites and implements the most comprehensive scaffolding that I am aware of, and it is also easily customizable. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs with CKEditor5, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. Any recordset can be exported in JSON, CSV, YAML and XML formats, even those resulting from a search.
 
 The following are out-of-the-box scaffolding screenshots for a sample blog application with just <i>authors, categories, tags and posts</i> models, without any addition, removal or customization of code in the generated scaffolding controllers.
 
@@ -318,19 +318,24 @@ Finally, switch to the production environment before going public.
 php scripts/picara environment change production
 ```
 
-## Vendors and libraries used
+## Vendors and libraries
+Special thanks to the authors of the following resources.
 * [PhpLiteAdmin](https://www.phpliteadmin.org/) - PHP tool to manage SQLite databases
 * [ADODB](https://github.com/ADOdb/ADOdb) - PHP Database Abstraction Layer 
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - PHP Email Client
 
 These vendor libraries are included in this repository and shipped with the framework.
 
+## Resources 
+Special thanks to the authors of the following resources.
+* [Bootstrap](https://getbootstrap.com/) - CSS, JS and component library.
+* [CKEditor5](https://ckeditor.com/ckeditor-5/) - WYSIWYG framework for rich html forms. 
 
 ## Todo and Roadmap
-Next iterations of the framework will include:
 - Structural changes needed to group models, controllers and views into re-usable Apps or Modules
 - Improvements to the Admin Site implementing different permission groups
 - A native authentication library extending the session library
+- A migration library
 
 Feel free to contribute on the development of this framework.
 
