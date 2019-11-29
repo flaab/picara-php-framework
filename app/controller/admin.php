@@ -230,7 +230,7 @@ class AdminWebController extends MyAdminController
         
         // All good. Set data to view.
         $this->set('function',      $taskname);
-        $this->set('name',          $this->admin_tasks[$taskname]['name']);
+        $this->set('taskname',          $this->admin_tasks[$taskname]['name']);
         $this->set('description',   $this->admin_tasks[$taskname]['description']);
         
         // Window title and noindex

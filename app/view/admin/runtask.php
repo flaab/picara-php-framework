@@ -1,6 +1,6 @@
 <? if(!$executed): ?>
     <div class="jumbotron" style="text-align: center;">
-    <h1 class="display-4"><?= ucwords($name); ?></h1>
+    <h1 class="display-4"><?= ucwords($taskname); ?></h1>
     <p class="lead"><?= $description ?></p>
     </div>
 <? endif; ?>
