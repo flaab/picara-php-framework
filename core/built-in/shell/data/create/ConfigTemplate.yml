@@ -59,9 +59,6 @@ population: true
 #   List of forbidden fields at construction time.
 #   Errors will arise if we try to set these.
 #
-# > Hidden
-#   List of ignored fields at scaffolding lists
-#
 # Example:
 # 
 # integrity:
@@ -395,10 +392,10 @@ callbacks:
 
 images:
   main:
-    enabled: true
+    enabled: false
     default: false
   extra:
-    enabled: true
+    enabled: false
     rename: true
     max_images: 0
   thumbnails:

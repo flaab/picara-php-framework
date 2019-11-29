@@ -54,7 +54,7 @@
     <div class="container mb-5">
         <div class="row"> 
             <!-- Begin order form -->
-            <div class="col">
+            <div class="col-7">
                 <form action="<?= $pagination['base_link'] ?>" method="post" class="form-inline">
                 <label class="my-1 mr-2" for="inlineFormElements">Show</label>
                 <select name="elements" class="custom-select my-1 mr-sm-2 " id="inlineFormElements">
@@ -81,7 +81,7 @@
             <!-- End order form -->
 
             <!-- Begin export form -->
-            <div class="col ml-auto text-right">
+            <div class="col-5 text-right">
                 <form action="<?= $pagination['base_link'] . $pagination['page'] ?>" method="post" target="_blank" class="form-inline ml-auto">
                     <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Export</label>
                     <select name="range" class="custom-select my-1 mr-sm-2" id="inlineFormRange">

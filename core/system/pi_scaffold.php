@@ -107,16 +107,19 @@ class Pi_scaffold
         // Multipart form header, cause main image can also be sent
         print('<form method="POST" action="'. $post_url .'" enctype="multipart/form-data">');
         
+        // Fieldset start
+        print("<fieldset class=\"border p-4\">\n");
+        
         // Foreach fieldset
         foreach($scaffold as $fieldset => $fields)
         {
             if(count($fields))
             {
                 // Fieldset start
-                print("<fieldset class=\"border p-4\">\n");
+                //print("<fieldset class=\"p-4\">\n");
                 
                 // Print legend
-                print('<legend class="w-auto">'. $fieldset ."</legend>\n");
+                //print('<legend class="w-auto">'. $fieldset ."</legend>\n");
 
                 // Foreach field
                 foreach($fields as $field => $value)
@@ -217,13 +220,11 @@ class Pi_scaffold
                     }
                     print("</div>");
                 }
-
                 // Fieldset end
-                print("</fieldset>\n");
-                
+                //print("</fieldset>\n");
             }
         }
-
+        
         //--------------------------------------------------------
         // Associated images processing
         //--------------------------------------------------------
@@ -232,8 +233,11 @@ class Pi_scaffold
         if($config->images->main->enabled == true)
         {
             // Fieldset
-            print("<fieldset class=\"border p-4\">\n");
-            print("<legend  class=\"w-auto\">Main Image</legend>\n");
+            print('<div class="form-group row">'); 
+            //print("<fieldset class=\"border p-4\">\n");
+            //print("<legend  class=\"w-auto\">Main Image</legend>\n");
+            print('<label for="main_image" class="col-sm-2 col-form-label">Main Image</label>');
+            print('<div class="col-sm-10">');
 
 
             // If object exists, thumb image should be displayed
@@ -248,7 +252,7 @@ class Pi_scaffold
                 // Display image and delete checkbox
                 if($img != false)
                 {
-                    print('<img src="'. $img['image'] .'" class="img-thumbnail" width="250"></a><br />');
+                    print('<img src="'. $img['thumb'] .'" class="img-thumbnail"></a><br />');
                     Form::createCheckbox(DELETE_MAIN_IMAGE);
                     print(' Delete');
                     print('<br />');
@@ -263,16 +267,15 @@ class Pi_scaffold
 
                 // Input output
                 Form::createFileInput(MAIN_IMAGE_INPUT_NAME);
-                print("<br />");
             }
 
-
-            print("</fieldset>\n");
+            print("</div>");
+            print("</div>");
+           // print("</fieldset>\n");
         }       
 
-
-        //------------------------------------------------------
-        
+        // Fieldset end
+        print("</fieldset>\n");
         print("<br />");
         Form::createSubmitButton('submit','Submit');
         print("</form>\n");

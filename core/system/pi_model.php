@@ -533,19 +533,22 @@ abstract class Pi_model extends Pi_record
     protected final function cascadingDelete()
     {
         // For each has many relationship declared
-        foreach($this->config->relationships['has_many'] as $local)
-        { 
-            // If depends index is declared 
-            if(isset($local['cascade']))
-            {
-                // If it's value it's true
-                if($local['cascade'] == true)
+        if(isset($this->config->relationships->has_many) && count($this->config->relationships->has_many) > 0)
+        {
+            foreach($this->config->relationships->has_many as $local)
+            { 
+                // If depends index is declared 
+                if(isset($local['cascade']))
                 {
-                    // We request all depending models
-                    $collection = $this->getRelated($local['class_name']);
-    
-                    // If is not null we delete all of their entries
-                    if($collection != NULL)  $collection->delete_all();
+                    // If it's value it's true
+                    if($local['cascade'] == true)
+                    {
+                        // We request all depending models
+                        $collection = $this->getRelated($local['class_name']);
+        
+                        // If is not null we delete all of their entries
+                        if($collection != NULL)  $collection->delete_all();
+                    }
                 }
             }
         }
