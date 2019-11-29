@@ -237,7 +237,9 @@ To view all the available tasks, go to **Tools->Logs** or http://localhost:8000/
 
 
 ### More than scaffolding 
-The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. The following are out-of-the-box scaffolding screenshots for a simple blog application with <i>authors, categories, tags and posts</i>.
+The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. Any recordset can be exported in JSON, CSV, YAML and XML formats, even those resulting from a search.
+
+The following are out-of-the-box scaffolding screenshots for a sample blog application with just <i>authors, categories, tags and posts</i> models, without any addition, removal or customization of code in the generated scaffolding controllers.
 
 Listing all categories in our sample blog.
 
