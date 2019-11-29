@@ -19,9 +19,9 @@ The framework is ready to rock right after cloning the repository, with SQLite a
 - Supports SQLite, MySQL, MariaDB, PostgreSQL and Oci8
 - Supports has_one, has_many, belongs_to and has_and_belongs_to_many relationships
 - Model relationships are inferred from table names or declared in the model config files
+- Built-in full-text search engine, capable of navigating relationships to produce results
 - YAML Lang file support for multi-language sites
 - Automatic and customizable Admin Site
-- Built-in full-text search engine
 - Model and Controller callbacks
 - Comprehensive scaffolding
 
