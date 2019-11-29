@@ -8,7 +8,7 @@
                 <a class="nav-link" href="<?= $link['controller'] ?>" title="Back to list">Back to list</a>
             </li>
         </ul>
-        <? if($is_searchable); ?>
+        <? if($is_searchable): ?>
         <form class="form-inline my-2 my-lg-0" action="<?= $link['controller'] ?>/search" method="POST">
         <input class="form-control mr-sm-2" type="search" value="<?= $nice_search  ?>" 
                     name="search" aria-label="Search">

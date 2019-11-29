@@ -17,7 +17,7 @@ class <modelname> extends MyModel
             // Example task
             'hello_world' => array(
                 'name'          => 'Hello World',
-                'description'   => 'This model returns a hello world.',
+                'description'   => 'This method returns a hello world.',
                 ),
     );
     
@@ -26,7 +26,7 @@ class <modelname> extends MyModel
     //--
     
     /**
-    * This task returns a hello world
+    * This model returns a hello world
     * @return  mixed   string
     */
     public final function hello_world()

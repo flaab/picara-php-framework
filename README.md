@@ -335,6 +335,7 @@ Special thanks to the authors of the following resources.
 - Structural changes needed to group models, controllers and views into re-usable Apps or Modules
 - Improvements to the Admin Site implementing different permission groups
 - A native authentication library extending the session library
+- A built-in restful api controller
 - A migration library
 
 Feel free to contribute on the development of this framework.
