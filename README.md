@@ -223,9 +223,7 @@ Once logged-in, you'll be greeted with friendly how-tos and be able to navigate.
 ### Administration Tasks
 The whole point of having a site administration panel is to perform routinary administration tasks, and this is made easy by the framework. Any custom administrative function can be called from the admin site, with customisable inputs and validation, without creating controllers or views. 
 
-Administration tasks must be declared as methods in *app/config/myadmincontroller.php* and append the method name to the *$admin_tasks* class property array. 
-
-To view all the available tasks, go to **Tools -> Tasks** or http://localhost:8000/admin/tasks. The framework implements some example tasks for your examination such as *Hello World, Custom Greet and Simple Sum*.
+Administration tasks must be declared as methods in **app/config/myadmincontroller.php** and append the method name to the **$admin_tasks** class property array. To view all the available tasks, go to **Tools->Tasks** or http://localhost:8000/admin/tasks. The framework implements some example tasks for your examination such as *Hello World, Custom Greet and Simple Sum*.
 
 ![The Site Admin Tasks Page](https://www.dropbox.com/s/hzp3upvpg1f6i1b/admin3.png?raw=1)
 
@@ -233,34 +231,28 @@ To view all the available tasks, go to **Tools -> Tasks** or http://localhost:80
 ### Logs
 Logs can be navigated from the admin panel as well. The framework can handle an unlimited number of log files.
 
-To view all the available tasks, go to **Tools -> Tasks** or http://localhost:8000/admin/logs.
+To view all the available tasks, go to **Tools->Logs** or http://localhost:8000/admin/logs.
 
 ![The Site Admin Logs Page](https://www.dropbox.com/s/wemkhhjl9ee40qf/admin2.png?raw=1)
 
 
 ### More than scaffolding 
-The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. The following are out-of-the-box scaffolding screenshots for a simple blog application with <i>authors, categories, tags and posts.</i>.
+The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers. The following are out-of-the-box scaffolding screenshots for a simple blog application with <i>authors, categories, tags and posts</i>.
 
-Listing all categories in our blog.
+Listing all categories in our sample blog.
 
 ![Scaffolding: Category List](https://www.dropbox.com/s/bc7oydtmq7z6j6t/admin5.png?raw=1)
 
-Creating a new author in our blog.
+Editing an author in our sample blog.
 
 ![Scaffolding: Insert a new Author with avatar](https://www.dropbox.com/s/28940dtm8w5zqke/admin4.png?raw=1)
 
-Creating a new post in our blog.
+Editing a post in our sample blog.
 
 ![Scaffolding: Insert a new Post with featured image](https://www.dropbox.com/s/v302r72i0gxtff5/admin6.png?raw=1)
 
 
-### Custom links in the admin panel
-You can add navigation links to the admin panel editing the file **app/lib/myadmincontroller.php**, adding them to the **$admin_navigation** variable.
-
-## Develop your application
-Develop your application in the testing environment. Use the scripts described above whenever possible.
-
-## Deployment
+## Deployment to production
 Deployment should be done using Apache Server.
 
 ### 1. Create a VirtualHost in your production server
