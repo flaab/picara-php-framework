@@ -203,6 +203,30 @@ php scripts/picara scaffold model modelname
 php scripts/picara scaffold all
 ```
 
+## The Site Administration Panel
+The framework provides a built-in, authenticated site administration panel. From it you can:
+- Navigate your scaffolded models and relationships
+- Run administration tasks for your project
+- Run model actions for any given record
+- Examine logs
+
+Point your browser to the admin panel, located at http://localhost:8000/admin/login and log in. The default username is *admin* and the default password is *mypassword*. You can add, edit or delete users by editing the file located at *app/config/adminusers.php*. This file holds the users that can log into the admin panel, and should not be confused with your website users, should you have any in the future.
+
+![The Site Admin login page](https://www.dropbox.com/s/szsojmbpwwvk776/admin0.png?raw=1)
+
+
+### Administration Tasks
+The whole point of having a site administration panel is to perform routinary administration tasks, and this is made easy by the framework. Any custom administrative function can be called from the admin site, with customisable inputs and validation, without creating controllers or views. Administration tasks can be declared as methods in *app/config/myadmincontroller.php* and appended the method name to the *$admin_tasks* class property array. 
+
+
+### Logs
+Logs can be navigated from the admin panel as well. The framework can handle an unlimited number of log files.
+
+
+### More than scaffolding 
+The scaffolding provided by the framework is actually a comprehensive and easily customizable administration interface. It implements a full-text search engine and relationships are navigatable. Insert and edition forms support full-text WYSIWYG inputs, image uploads and file uploads. Validation rules are read from the model config files. You must be logged-in to access the scaffolding controllers.
+
+
 ## Develop your application
 Develop your application in the testing environment. Use the scripts described above whenever possible.
 
