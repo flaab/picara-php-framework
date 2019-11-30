@@ -1,13 +1,8 @@
 ###
 # Connection:   main
-#
 # @note         Generated using create connection script
-# @note         Supported adapters are:
-#               - mysql: MySql
-#               - postgres: PostgreSql
-#               - oci8: Oracle
-#               - sqlite: SQLite3 
-###
+# @note         Connects to db/db.sqlite3             
+##
 
 ###
 # Production environment
@@ -15,11 +10,10 @@
 
 production: 
   host: localhost
-  user: 
-  db: 
+  user: root 
+  db:   db.sqlite3
   password: 
-  adapter: mysql
-  port: 3306
+  adapter: sqlite
 
 ###
 # Development environment
@@ -27,11 +21,10 @@ production:
 
 development: 
   host: localhost
-  user: 
-  db: 
+  user: root 
+  db:   db.sqlite3
   password: 
-  adapter: mysql
-  port: 3306 
+  adapter: sqlite
 
 ###
 # Testing environment
@@ -39,8 +32,7 @@ development:
 
 testing: 
   host: localhost
-  user: 
-  db:   
+  user: root 
+  db:   db.sqlite3
   password: 
-  adapter: mysql
-  port: 3306 
+  adapter: sqlite

@@ -37,11 +37,6 @@
 app/cache/*
 !app/cache/.gitkeep
 
-# Databases
-resources/db/*
-!resources/db/.gitkeep 
-!resources/db/example.sqlite3 
-
 # Cache
 resources/cache/*
 !resources/cache/.gitkeep
