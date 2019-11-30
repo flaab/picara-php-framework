@@ -28,13 +28,11 @@
 </ul>
 <h3 class="mt-5">Connect to a database</h3>
 <ol>
-    <li>Create a database connection
-        <pre><small>php scripts/picara create connection main -adapter=(mysql|postgres|oci8|sqlite) -host=localhost -db=db_name -user=my_user -password=mypassword</small></pre></li>
-    <li>Test the connection 
-        <pre>php scripts/picara test connection main</pre></li>
-    <li>Create additional connections if needed
-        <pre>php scripts/picara create connection connection_name</pre></li>
-        <li>Edit connection settings at <i><?= USERCONFIG ?>db/connection_name.yml</i></li>
+    <li>Test the default database connection</li>
+        <pre><small>php scripts/picara test connection main</small></pre></li>
+    <li>Create additional database connections
+        <pre><small>php scripts/picara create connection myconnectionname -adapter=(mysql|postgres|oci8|sqlite) -host=localhost -db=db_name -user=my_user -password=mypassword</small></pre></li>
+    <li>Edit the database connection settings at <i><?= USERCONFIG ?>/connection/myconnectionname.yml</i></li>
 </ol>
 
 <h3 class="mt-5">Handle database environments</h3>
