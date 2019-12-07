@@ -85,7 +85,7 @@ bash scripts/runserver.sh
 ```
 Now point your browser to http://localhost:8000 to be greeted.
 
-![Picara running on PHP Development Server](https://www.dropbox.com/s/bxzev2731en9p1b/picara_welcome_php.png?raw=1)
+![Picara running on PHP Development Server](https://www.dropbox.com/s/63u5g3jg4rn6xq8/picara_wecome.png?dl=0)
 
 
 Optionally, you can serve the project using Apache.

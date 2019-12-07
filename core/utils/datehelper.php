@@ -241,7 +241,7 @@ class Datehelper extends Pi_error_store
     
     private static function time_ago_in_words($datetime_string, $options = array(), $backwards = NULL)
     {
-		$in_seconds = $this->stamp_from_string($datetime_string);
+		$in_seconds = self::stamp_from_string($datetime_string);
 
 		if ($backwards === NULL && $in_seconds > time())
 		{
@@ -292,7 +292,7 @@ class Datehelper extends Pi_error_store
 
 		$relative_date = '';
 
-		if ($start > abs(time() - $this->stamp_from_string($end)))
+		if ($start > abs(time() - self::stamp_from_string($end)))
 		{
 			$relative_date = 'on ' . date($format, $in_seconds);
 			
