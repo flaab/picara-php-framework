@@ -70,7 +70,7 @@ class scaffoldShellController extends Pi_shell_controller
         $view_path = VIEW . strtolower('Scaffold_' . $model_name . '/');
         
         // Open scaffold template
-        $template = file_get_contents(BUILTIN_SHELL_DATA . 'scaffold/ScaffoldTemplate.php');
+        $template = file_get_contents(BUILTIN_SHELL_DATA . 'scaffold/ScaffoldTemplate.php.txt');
 
         // Replace modelname
         $template = str_replace('<modelname>', $model_name, $template);

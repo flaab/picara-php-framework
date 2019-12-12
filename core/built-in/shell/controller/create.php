@@ -132,7 +132,7 @@ class createShellController extends Pi_shell_controller
         }
 
         // Template read
-        $model_template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ModelTemplate.php');
+        $model_template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ModelTemplate.php.txt');
         
         // Modelname, table and displayname replacement
         $model_template = str_replace('<modelname>', $model_name, $model_template);
@@ -187,9 +187,9 @@ class createShellController extends Pi_shell_controller
 
         // Template read
         if($admin == 0)
-            $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ControllerTemplate.php');
+            $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ControllerTemplate.php.txt');
         else
-            $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/AdminControllerTemplate.php');
+            $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/AdminControllerTemplate.php.txt');
 
         // Modelname, table and displayname replacement
         $template = str_replace('<controllername>', $controller_name, $template);
@@ -263,7 +263,7 @@ class createShellController extends Pi_shell_controller
         $file_name = strtolower($controller_name) . '.php';
 
         // Template read
-        $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ShellTemplate.php');
+        $template = file_get_contents(BUILTIN_SHELL_DATA . 'create/ShellTemplate.php.txt');
         
         // Modelname, table and displayname replacement
         $template = str_replace('<controllername>', $controller_name, $template);
