@@ -37,7 +37,8 @@
             <thead>
                 <tr>
                     <? foreach($fields as $field): ?>
-                        <? if(!is_array($hidden_fields) || !in_array($field, $hidden_fields)): ?>
+                    <? if( (!is_array($list_fields) || in_array($field, $list_fields)) &&
+                           (!is_array($hidden_fields) || !in_array($field, $hidden_fields))): ?>
                             <th scope='col'><?= ucfirst($field) ?></th>
                         <? endif; ?>
                     <? endforeach; ?>

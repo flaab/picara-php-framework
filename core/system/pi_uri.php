@@ -89,7 +89,7 @@ class Pi_uri extends Pi_error_store
             // Always lower caps to make canonicals valid
             //$request = strtolower($_SERVER['QUERY_STRING']);
             $request = strtolower($this->get_query_string());
-
+            
             // Remove get params, anchors, start and trailing slash
             $request = preg_replace('/\?.*$/', '', $request);
             $request = preg_replace('/^\/|\/+$/', '', $request);

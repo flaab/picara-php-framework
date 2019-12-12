@@ -78,8 +78,9 @@ class Scaffold_<modelname>WebController extends MyAdminController
 	 	// Scaffolding needs the list of displayed fields
         $this->set('fields', $this->fields);
         
-        // Set hidden fields
+        // Set hidden and listed fields
         $this->set('hidden_fields', $this->config->scaffold->hidden);
+        $this->set('list_fields', $this->config->scaffold->list);
 
 	    //===========================================================
         // Pagination is performed
@@ -268,8 +269,9 @@ class Scaffold_<modelname>WebController extends MyAdminController
 	 	// Scaffolding needs the list of displayed fields
         $this->set('fields', $this->fields);
 
-        // Set hidden fields
+        // Set hidden and listed fields
         $this->set('hidden_fields', $this->config->scaffold->hidden);
+        $this->set('list_fields', $this->config->scaffold->list);
         
         // Nice search to view
         $this->set('nice_search', $nice_search);
@@ -702,8 +704,9 @@ class Scaffold_<modelname>WebController extends MyAdminController
 	 	// Scaffolding needs the list of displayed fields
         $this->set('fields', $this->fields);
 
-        // Set hidden fields
+        // Set hidden and listed fields
         $this->set('hidden_fields', $this->config->scaffold->hidden);
+        $this->set('list_fields', $this->config->scaffold->list);
         
         // Foreign key for related model
         $fk = $this->metadata->get_relationship_fk($this->model, $model);

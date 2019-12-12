@@ -7,10 +7,11 @@
 * This is the "scaffolding modelsnap". His duty is to display the row for the represented object,
 * following foreign key propagations to show human-understandable relationship values.
 *
-* (!) Override it with yours, it will execute much much faster
+* (!) If you override it with yours, it will execute much much faster.
 */
 
 $attributes = $model->getFields();
+if(isset($list_fields) && count($list_fields) > 0) $attributes = $list_fields;
 $fks = $model->getForeignFields();
 $maxlen = 80;
 $metadata = Pi_metadata::singleton();
