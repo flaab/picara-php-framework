@@ -111,18 +111,19 @@ The directory structure of the repository is as follows.
 		- *routes.yml* -> Stores additional/custom routes of the web application.
     - **controller/** -> Contains the http/web controllers of the application.
     - **lang/** -> Contains the YML lang-files for the web application, if multilang is enabled.
-    - **layout/** -> Contains the different layouts of the web application.
     - **lib/** -> Contains libraries of the application. Place any third-party libraries here.
     - **log/** -> Contains log-files of the application.
-    - **message/** -> code snippets to display errors, validation errors and success messages.
     - **mod/** -> This folder is meant to store repetitive html snippets shared across the web application.
     - **model/** -> Contains the models of the application.
-    - **modelsnap/** -> Contains the html snippet to display model records in the web applications.
-    - **pages/** -> Contains the static pages the framework can serve via the built-in static controller.   
-    - **searchsnap/** -> Contains the html snippets to display model records when using the search engine.
     - **shell/** -> Contains the cli/shell controllers of the application.
-    - **templates/** -> Contains html templates to generage custom cache files.
-    - **view/** -> Contains views of the web application.
+    - **html/** -> Contains all html files of the application.
+        - **message/** -> code snippets to display errors, validation errors and success messages.
+        - **modelsnap/** -> Contains the html snippet to display model records in the web applications.
+        - **layout/** -> Contains the different layouts of the web application.
+        - **pages/** -> Contains the static pages the framework can serve via the built-in static controller.   
+        - **templates/** -> Contains html templates to generage custom cache files.
+        - **searchsnap/** -> Contains the html snippets to display model records when using the search engine.
+        - **view/** -> Contains views of the web application.
 - **core/** -> Contains the core of the framework.
 	- **actions/** -> Contains basic actions of the framework.
 	- **built-in/** -> Contains built-in cli/http controllers of the framework.
