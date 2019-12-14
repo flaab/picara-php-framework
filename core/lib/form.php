@@ -328,7 +328,22 @@
       {
           echo("<input type='file' name='$name'>");
       }
-
+      
+      //----------------------------------------------------------
+        
+      /**
+      * Creates a radio button for a boolean input
+      *
+      * @param    string    $name    Name of the post var to be sent
+      */
+      public static function createBooleanInput($name, $value)
+      {
+        if(!is_null($value) && $value == 0) { $selected = "checked"; } else { $selected = ""; }
+        echo('<label class="radio-inline"><input type="radio" name="'. $name .'" '. $selected .' value="0">&nbsp;True</label> &nbsp;&nbsp;');
+        if(!is_null($value) && $value == 1) { $selected = "checked"; } else { $selected = ""; }
+        echo('<label class="radio-inline"><input type="radio" name="'. $name .'" '. $selected .' value="1">&nbsp;False</label> &nbsp;&nbsp;');
+      }
+      
       //----------------------------------------------------------
       
       /**

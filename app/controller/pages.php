@@ -49,8 +49,9 @@ class PagesWebController extends MyWebController
     //--------------------------------------------------------
     
     /**
-    * Default controller function. Start here!
-    */
+     * Loads a static page.
+     * @param   string  $page
+     */
    
     public function view(string $page)
     {

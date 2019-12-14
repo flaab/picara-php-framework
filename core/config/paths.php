@@ -18,21 +18,22 @@
 // APP
 //==============================================================
 define('APP',           'app/');
-define('APP_CACHE',     APP . 'cache/');
-define('APP_TEMPLATES', APP . 'templates/');
+define('APP_HTML',      APP . 'html/');
+define('APP_CACHE',     APP_HTML . 'cache/');
+define('APP_TEMPLATES', APP_HTML . 'templates/');
 define('CONTROLLER',    APP . 'controller/');
 define('SHELL',         APP . 'shell/');
 define('MODEL',         APP . 'model/');
-define('VIEW',          APP . 'view/');
-define('MOD',           APP . 'mod/');
-define('LAYOUT',        APP . 'layout/');
-define('MODELSNAP',     APP . 'modelsnap/');
-define('SEARCHSNAP',    APP . 'searchsnap/');
-define('MESSAGE',       APP . 'message/');
+define('VIEW',          APP_HTML . 'view/');
+define('MOD',           APP_HTML . 'mod/');
+define('LAYOUT',        APP_HTML . 'layout/');
+define('MODELSNAP',     APP_HTML . 'modelsnap/');
+define('SEARCHSNAP',    APP_HTML . 'searchsnap/');
+define('MESSAGE',       APP_HTML . 'message/');
 define('LOG',           APP . 'log/');
 define('USERLIB',       APP . 'lib/');
 define('USERCONFIG',    APP . 'config/');
-define('USERPAGES',     APP . 'pages/');
+define('USERPAGES',     APP_HTML . 'pages/');
 define('LANG'      ,    APP . 'lang/');
 
 

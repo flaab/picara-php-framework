@@ -138,6 +138,7 @@ validation:
 # > Text:       Fields that use text inputs in forms
 # > Textarea:   Fields that use textarea inputs in forms
 # > Fulltext:   Fields that use fulltext inputs in forms
+# > Enums:      Enumerated values for model fields
 #
 # Example:
 #
@@ -145,19 +146,25 @@ validation:
 #   enabled: true
 #   list:   [author_id, category_id, title, date_created]
 #   hidden: [password, ip, last_logged]
-#   text: [first_name, last_name]
-#   textarea: [bio]
-#   fulltext: [content]
-#
+#   editor:
+#     text: [first_name, last_name]
+#     textarea: [bio]
+#     fulltext: [content]
+#   enums:
+#     type: ["article","post","howto"]
+#     status: ["Published","Draft"]
 #========================================================
 
 scaffold:
   enabled: true
-  list: 
-  hidden: 
-  text:
-  textarea:
-  fulltext:
+  list:
+  hidden:
+  editor: 
+    text:
+    textarea:
+    fulltext:
+  enums:
+    type:
 
 #========================================================
 # RELATIONSHIPS

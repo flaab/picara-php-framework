@@ -48,6 +48,22 @@ define('ERROR_TITLE', 'An error has ocurred');
 define('ERROR_REDIRECT', NULL);
 
 //==============================================================
+// ENCRYPTION AND SALT
+//==============================================================
+
+/**
+*  Function to encode passwords
+*  @default    sha1
+*/
+define('ENCFUNCTION', 'sha1');
+
+/**
+*  Salt to encode passwords
+*  @default    sha1
+*/
+define('SALT', 'pmig^jl58bd^#jaxqvzqke3udr=a^5_qa_b1(t3#lgil&%*!0y');
+
+//==============================================================
 // SESSION NAMES
 //==============================================================
 

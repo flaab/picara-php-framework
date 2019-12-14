@@ -48,40 +48,40 @@ class Pi_scaffold
         $scaffold = $metadata->read_scaffold_schema($model, $id);
         
         // Change local schema according to scaffold config for this model
-        if(isset($config->scaffold))
+        if(isset($config->scaffold->editor))
         {
             // Text Input
-            if(is_array($config->scaffold->text))
+            if(is_array($config->scaffold->editor->text))
             {
-                for($i = 0; $i < count($config->scaffold->text); $i++)
+                for($i = 0; $i < count($config->scaffold->editor->text); $i++)
                 {
-                    if(isset($scaffold['Data'][$config->scaffold->text[$i]]))
+                    if(isset($scaffold['Data'][$config->scaffold->editor->text[$i]]))
                     {
-                        $scaffold['Data'][$config->scaffold->text[$i]]['metatype'] = STRING; 
+                        $scaffold['Data'][$config->scaffold->editor->text[$i]]['metatype'] = STRING; 
                     }
                 }
             }
 
             // Text Area
-            if(is_array($config->scaffold->textarea))
+            if(is_array($config->scaffold->editor->textarea))
             {
-                for($i = 0; $i < count($config->scaffold->textarea); $i++)
+                for($i = 0; $i < count($config->scaffold->editor->textarea); $i++)
                 {
-                    if(isset($scaffold['Data'][$config->scaffold->textarea[$i]]))
+                    if(isset($scaffold['Data'][$config->scaffold->editor->textarea[$i]]))
                     {
-                        $scaffold['Data'][$config->scaffold->textarea[$i]]['metatype'] = TEXT; 
+                        $scaffold['Data'][$config->scaffold->editor->textarea[$i]]['metatype'] = TEXT; 
                     }
                 }
             }
 
             // Fulltext
-            if(is_array($config->scaffold->fulltext))
+            if(is_array($config->scaffold->editor->fulltext))
             {
-                for($i = 0; $i < count($config->scaffold->fulltext); $i++)
+                for($i = 0; $i < count($config->scaffold->editor->fulltext); $i++)
                 {
-                    if(isset($scaffold['Data'][$config->scaffold->fulltext[$i]]))
+                    if(isset($scaffold['Data'][$config->scaffold->editor->fulltext[$i]]))
                     {
-                        $scaffold['Data'][$config->scaffold->fulltext[$i]]['metatype'] = FULLTEXT; 
+                        $scaffold['Data'][$config->scaffold->editor->fulltext[$i]]['metatype'] = FULLTEXT; 
                     }
                 }
             }
@@ -123,7 +123,14 @@ class Pi_scaffold
 
                 // Foreach field
                 foreach($fields as $field => $value)
-                {  
+                { 
+                    // Assing scaffold values if specified in model file
+                    if(isset($config->scaffold->enums->{$field}) && count($config->scaffold->enums->{$field}) > 0)
+                    {
+                        $value['metatype'] = ENUM;
+                        $value['enums'] = $config->scaffold->enums->{$field};
+                    }
+
                     // Contained data must not be empty
                     if(isset($value) > 0 && !is_null($value))
                     {
@@ -186,6 +193,9 @@ class Pi_scaffold
                                         }
                                     
                                     break;
+                                        
+                                    // Boolean
+                                    case BOOLEAN: Form::createBooleanInput("model[$field]", $data[$field]); print("\n"); break;
 
                                     // String and all other type
                                     default: Form::createTextInput("model[$field]",$data[$field], $value['max_length']); print("\n");                

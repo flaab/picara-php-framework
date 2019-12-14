@@ -34,8 +34,8 @@
 
 # Ignore the user application
 # The app folder should be another git project
-app/cache/*
-!app/cache/.gitkeep
+app/html/cache/*
+!app/html/cache/.gitkeep
 
 # Cache
 resources/cache/*

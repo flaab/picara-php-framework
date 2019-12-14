@@ -1,6 +1,6 @@
 #!/bin/bash
 # Gives permissions to apache writing folders
-chmod -R 777 app/cache
+chmod -R 777 app/html/cache
 chmod -R 777 app/log
 chmod -R 777 app/log/*
 chmod -R 777 resources/cache/
