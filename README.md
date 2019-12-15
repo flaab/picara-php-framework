@@ -201,6 +201,7 @@ php scripts/picara list controllers
 php scripts/picara list shells
 php scripts/picara list connections
 php scripts/picara list logs
+php scripts/picara list users (superuser|staff|regular)
 ```
 - Scaffold one or all models
 ```
@@ -216,7 +217,7 @@ The framework provides a built-in, authenticated site administration panel. From
 - Examine logs
 
 ### Create a superuser
-Beforing proceeding to the Admin Site, it is advisable to create a superuser.
+Beforing proceeding to the Admin Site, it is advisable to create a superuser. You'll be prompted for user details.
 ```
 php scripts/picara create user superuser
 ```
