@@ -166,9 +166,11 @@ class Pi_scaffold
                                 switch($value['metatype'])
                                 {
                                     // Enum    
-                                    case ENUM:  Form::createEnumMenu($value['enums'], "model[$field]", $data[$field]); print("\n"); break;                  
+                                    case ENUM:  Form::createEnumMenu($value['enums'], "model[$field]", $data[$field]); print("\n"); break; 
+
                                     // Text
-                                    case TEXT:  Form::createTextArea("model[$field]", $data[$field]); print("\n"); break;    
+                                    case TEXT:  
+                                        Form::createTextArea("model[$field]", $data[$field]); print("\n"); break;    
 
                                     case FULLTEXT: Form::createFullTextArea("model[$field]", $data[$field]); print("\n"); break;
 
@@ -198,7 +200,11 @@ class Pi_scaffold
                                     case BOOLEAN: Form::createBooleanInput("model[$field]", $data[$field]); print("\n"); break;
 
                                     // String and all other type
-                                    default: Form::createTextInput("model[$field]",$data[$field], $value['max_length']); print("\n");                
+                                    default: 
+                                    
+                                        $pwd_fields = array('password','pwd','passwd');
+                                        $is_password = in_array($field, $pwd_fields);
+                                        Form::createTextInput("model[$field]",$data[$field], $value['max_length'], $is_password); print("\n");                
                                 }
                                 print('</div>');
                                 

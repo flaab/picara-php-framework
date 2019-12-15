@@ -11,7 +11,7 @@
 ################################################################
 
 /**
-* Creates models, controllers, shells, databases, logs...etc
+* Creates models, controllers, shells, databases, logs and superusers.
 *
 * @package    Scripts 
 * @author     Arturo Lopez
@@ -33,6 +33,50 @@ class createShellController extends Pi_shell_controller
     public function index()
     {
         $this->help();
+    }
+    
+    //--------------------------------------------------------
+
+    /**
+    * Creates a super user.
+    */
+
+    public function user($type = 'superuser')
+    {
+        // User must exist
+        if(!Pi_loader::model_exists("User")) $this->abort("The model 'user' does not exist in the application.");
+
+        // Valid types
+        $valid_types = array('superuser','staff','regular');
+
+        // Type must be one of these three
+        if(!in_array($type, $valid_types))
+            $this->abort("Type ". $type ." is not a valid user type.");    
+        
+        // Read the needed information
+        $model['name']        = $this->input("Full Name: ");
+        $model['mail']        = $this->input("E-Mail: ");
+        $model['password']    = $this->input("Password: ");
+        $confirmation = $this->input("Confirm Password: ");
+
+        // Assuming api access
+        $model['api_access'] = 1;
+
+        // This is a superuser
+        $model['type'] = $type;
+
+        // Check password matches
+        if($model['password'] == $confirmation)
+            $model['password'] = $model['password'];
+
+        // Create model
+        $user = new User($model);
+        if($user->insert())
+        {
+            $this->putline(" > User of type '". $type ."' successfully created.");
+        } else {
+            $this->abort("Insertion of model User failed. See logs.");
+        }
     }
 
     //--------------------------------------------------------

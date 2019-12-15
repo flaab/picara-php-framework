@@ -218,9 +218,10 @@
       * @param    int       $size
       */
 
-      public static function createTextInput($param, $value = "", $maxlength = NULL, $size = 40, $class="form-control")
+      public static function createTextInput($param, $value = "", $maxlength = NULL, $password = false, $size = 40, $class="form-control")
       {
-          echo('<input type="text" class ="'. $class .'" name="'. $param .'" value="'. stripslashes($value) .'" maxlength="'. $maxlength .'" size="'. $size .'">');
+          if($password) $type = "password"; else $type = "text";
+          echo('<input type="'. $type .'" class ="'. $class .'" name="'. $param .'" value="'. stripslashes($value) .'" maxlength="'. $maxlength .'" size="'. $size .'">');
       }    
       
       //----------------------------------------------------------

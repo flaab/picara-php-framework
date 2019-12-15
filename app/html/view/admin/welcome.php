@@ -63,7 +63,7 @@
             <pre>Edit the file <i><?= USERCONFIG ?>model/model_name.yml</i></li>
             
             <li>Scaffold a model
-            <pre>php scripts/picara scaffold generate <i>model_name</i></pre></li>
+            <pre>php scripts/picara scaffold model <i>model_name</i></pre></li>
             
             <li>Scaffold all models
             <pre>php scripts/picara scaffold all</pre>

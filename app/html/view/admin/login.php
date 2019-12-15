@@ -3,7 +3,7 @@
     <div class="card-body">
         <form action="<?= $link['controller'] ?>/login" method="POST">
             <div class="form-group row">
-                <label for="email_address" class="col-md-4 col-form-label text-md-right">Username</label>
+                <label for="email_address" class="col-md-4 col-form-label text-md-right">Username or E-Mail</label>
                 <div class="col-md-6">
                 <input type="text" id="username" value="<?= $_POST['username'] ?>" class="form-control" name="username" required autofocus>
                 </div>

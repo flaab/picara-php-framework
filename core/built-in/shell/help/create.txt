@@ -1,4 +1,4 @@
-usage: php scripts/picara create (model|controller|shell|connection|log) name [options] [assertions]
+usage: php scripts/picara create (model|controller|shell|connection|log|user) name [options] [assertions]
 
 This script allows you to create or replace complex framework elements.
 
@@ -47,3 +47,8 @@ Creating a shell controller
 Creating a log
 --------------
  - php scripts/picara create log clients
+
+
+Creating a user
+---------------
+ - php scripts/picara create user (superuser|staff|regular)

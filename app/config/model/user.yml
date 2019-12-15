@@ -1,5 +1,5 @@
 ###
-# Config file for model:    <modelname>
+# Config file for model:    User
 #
 # All properties are available inside the model
 #
@@ -42,9 +42,9 @@
 # population: true
 #===================================================
 
-connection: <connection>
-table: <table>
-display: <displayname>
+connection: main
+table: user
+display: User
 autoincrement: true
 population: true
 
@@ -72,12 +72,13 @@ population: true
 
 integrity:
   ignored:
+    - token
   forbidden: 
     - date_created
     - date_modified
     - datetime_created
     - datetime_modified
-
+    - token
 #========================================================
 # VALIDATION
 #========================================================
@@ -125,6 +126,8 @@ integrity:
 validation:
   auto: true
   rules:
+    mail: ["valid_mail", "Provided email address is not valid"]
+    name: ["not_empty", "User name cannot be empty"] 
 
 #========================================================
 # SCAFFOLDING
@@ -157,13 +160,14 @@ validation:
 
 scaffold:
   enabled: true
-  list:
-  hidden:
+  list: [id, type, name, mail, token]
+  hidden: [password, token]
   editor: 
-    text:
+    text: [name, mail, password, token]
     textarea:
     fulltext:
   enums:
+    type: ["superuser","staff","regular"]
 
 #========================================================
 # RELATIONSHIPS
@@ -245,8 +249,8 @@ relationships:
 
 search: 
   fields:
-    strict:
-    non_strict:
+    strict: [id, token, type]
+    non_strict: [name, mail]
   related:
 
 #========================================================
@@ -290,13 +294,13 @@ search:
 
 callbacks:
   before:
-    insert:
-    update:
+    insert: [assign_token, check_unique_email, encrypt_password]
+    update: [check_unique_email, encrypt_password]
     delete:
     validate:
   after:
     insert:
-    update:
+    update: 
     delete:
     validate:
     construct:
@@ -400,8 +404,8 @@ callbacks:
 
 images:
   main:
-    enabled: false
-    default: false
+    enabled: true
+    default: true
   extra:
     enabled: false
     rename: true

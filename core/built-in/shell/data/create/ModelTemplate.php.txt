@@ -26,7 +26,7 @@ class <modelname> extends MyModel
     //--
     
     /**
-    * This model returns a hello world
+    * This action returns a hello world
     * @return  mixed   string
     */
     public final function hello_world()

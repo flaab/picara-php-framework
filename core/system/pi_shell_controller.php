@@ -75,7 +75,7 @@ abstract class Pi_shell_controller extends MyController
     protected final function input($message = 'Please type: ')
     {
         $var = readline($message ." ");
-        return($var);
+        return(trim($var));
     }
     
 

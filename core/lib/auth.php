@@ -30,11 +30,11 @@ class Auth
      * @param   string  $string 
      * @return  string  
      */
-    public static function password_encrypt($string)
+    public static function encrypt($string)
     {
         $encf = ENCFUNCTION;
         $res = $encf(SALT . $string);
-        return(res);
+        return($res);
     }
     
     //----------------------------------------------------------  

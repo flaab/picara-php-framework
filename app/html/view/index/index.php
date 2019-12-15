@@ -53,7 +53,7 @@
     <pre>php scripts/picara create model model_name --connection="main" --table="table_name"</pre></li>
     
     <li>Scaffold a model
-    <pre>php scripts/picara scaffold generate model_name</pre></li>
+    <pre>php scripts/picara scaffold model model_name</pre></li>
     
     <li>Scaffold all models
     <pre>php scripts/picara scaffold all</pre>

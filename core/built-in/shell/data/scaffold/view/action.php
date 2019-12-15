@@ -7,7 +7,7 @@
         <div class="card-body pt-4">
             <dl class="row">
                 <dt class="col-sm-3">Name</dt>
-                <dd class="col-sm-9"><?= $name ?></dd>
+                <dd class="col-sm-9"><?= $actionname ?></dd>
                 <dt class="col-sm-3">Description</dt>
                 <dd class="col-sm-9"><?= $description ?></dd>
             </dl>
@@ -56,7 +56,7 @@
         <div class="card-body">
             <dl class="row">
                 <dt class="col-sm-3">Name</dt>
-                <dd class="col-sm-9"><?= $name ?></dd>
+                <dd class="col-sm-9"><?= $actionname ?></dd>
                 <dt class="col-sm-3">Description</dt>
                 <dd class="col-sm-9"><?= $description ?></dd>
             </dl>

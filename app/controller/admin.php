@@ -1,11 +1,5 @@
 <?php
 
-// Require admin users
-if(!require_once(USERCONFIG . 'adminusers.php'))
-{
-    trigger_error("I can't find the administration file.", E_USER_ERROR);
-    die;
-}
 
 /**
  * Controller: 	Admin
@@ -65,24 +59,80 @@ class AdminWebController extends MyAdminController
             // Sanitized data
             $l_user = trim(strip_tags($_POST['username']));
             $l_pwd  = trim(strip_tags($_POST['password']));
+            
+            // Type
+            $l_su   = array();
 
-            // Check login
-            if(is_array($GLOBALS['picara_admin_users'][$l_user]) && $l_pwd == $GLOBALS['picara_admin_users'][$l_user]['pwd'])
+            // Should we user user model or adminusers file?
+            $superuser_exists = $this->_superuser_exists();
+            
+            //--
+            //-- Log-in using the adminusers.php admin file
+            //-- Used if this application has no users model
+            //--
+            if(!$superuser_exists)
             {
-                // Session is started
-                $this->session->name(ADMIN_SESSION);
-                $this->session->store("user", $l_user);
-                $this->session->store("name", $GLOBALS['picara_admin_users'][$l_user]['name']);
+                if(!require_once(USERCONFIG . 'adminusers.php'))
+                {
+                    trigger_error("I can't find the adminusers file at". USERCONFIG . 'adminusers.php', E_USER_ERROR);
+                    die;
+                }
                 
-                // Log
-                $this->log->message("User ". $l_user ." logged to the Admin Site.");
+                // Check login
+                if(is_array($GLOBALS['picara_admin_users'][$l_user]) && $l_pwd == $GLOBALS['picara_admin_users'][$l_user]['pwd'])
+                {
+                    // Session is started
+                    $this->session->name(ADMIN_SESSION);
+                    $this->session->store("user", $l_user);
+                    $this->session->store("name", $GLOBALS['picara_admin_users'][$l_user]['name']);
+                    $this->session->store("type", 'superuser');
+                    
+                    // Log
+                    $this->log->message("User ". $l_user ." logged to the Admin Site.");
 
-                // Set to welcome
-                $this->core->redirect($this->request['controller'] .'/welcome');
+                    // Set to welcome
+                    $this->core->redirect($this->request['controller'] .'/welcome');
 
+                } else {
+                    $this->flash->validation_error('Invalid username or password.');
+                }
+
+            //--
+            //-- Log-in using the user model
+            //-- Used if this application has user model
+            //--
             } else {
-                $this->flash->validation_error('Invalid username or password.');
+                
+                // Create user object
+                $users = $this->db->query->objects->getUserWhere("mail = '". $l_user ."' AND (type = 'superuser' OR type = 'staff') ORDER BY id ASC LIMIT 0,1");
+                if(is_null($users))
+                {
+                    $this->flash->validation_error("Entered email does not exist.");
+                    return;
+                }
+                
+                // Check login
+                if(Auth::encrypt($l_pwd) == $users[0]->fields->password && $l_user == $users[0]->fields->mail)
+                {
+                    // Session is started
+                    $this->session->name(ADMIN_SESSION);
+                    $this->session->store("user", $l_user);
+                    $this->session->store("name", $users[0]->fields->name);
+                    $this->session->store("type", $users[0]->fields->type);
+                    
+                    // Log
+                    $this->log->message("User ". $l_user ." logged to the Admin Site.");
+
+                    // Set to welcome
+                    $this->core->redirect($this->request['controller'] .'/welcome');
+
+                } else {
+                    $this->flash->validation_error('Invalid mail or password.');
+                }
+                
+
             }
+                
         } 
     }
     
@@ -392,6 +442,22 @@ class AdminWebController extends MyAdminController
 
         // To view
         $this->set('other_scaffolds', $res);
+    }
+    
+    //--------------------------------------------------------
+    
+    /**
+     * Finds out if the user model exits and wether or not a superuser exists.
+     * @return  bool
+     */
+    private function _superuser_exists()
+    {
+        if(Pi_loader::model_exists("User"))
+        {
+            $suc = $this->db->query->cardinality->getUserWhere('type = "superuser"');
+            if($suc > 0) return(true);
+        }
+        return(false);
     }
 }
 

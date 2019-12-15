@@ -1,32 +1,37 @@
-usage: php scripts/picara destroy (model|controller|shell|connection|log) name
+usage: php scripts/picara destroy (model|controller|shell|connection|log|user) (name|id)
 
 This script allows you to cleanly destroy framework elements and all related files. Its usage is
 encouraged in order to avoid leaving junk files in the application tree.
 
 Destroying models
 ---------------
-- php scripts/picara destroy model Article
+- php scripts/picara destroy model article
 
- Related modelsnap, searchsnap and configuration files are related as well.
+ Related modelsnap, searchsnap and configuration files are deleted as well.
 
 
 Destroying a database connection
 ---------------------------------
-- php scripts/picara destroy connection admin
+- php scripts/picara destroy connection conn_name
 
 
 Destroying a controller
 ---------------------
- - php scripts/picara destroy controller Articles
+ - php scripts/picara destroy controller posts
 
  Related view directory is deleted recursively.
 
 
 Destroying a shell controller
 ---------------------------
- - php scripts/picara destroy shell Test
+ - php scripts/picara destroy shell accounting
 
 
 Destroying a log
---------------
- - php scripts/picara destroy log client
+----------------
+ - php scripts/picara destroy log users
+
+
+Destroying a user
+-----------------
+ - php scripts/picara destroy user 2
