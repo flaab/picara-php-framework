@@ -13,8 +13,7 @@
 /**
 * This file stores admin users for the admin backend.
 * This method is has been selected to avoid depending on sqlite.
-* You can edit the admin logic in the admin controller and use
-* your database instead. 
+* If you create a superuser, this file is not used.
 */
 
 $GLOBALS['picara_admin_users'] = array(
