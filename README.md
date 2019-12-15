@@ -221,7 +221,8 @@ Beforing proceeding to the Admin Site, it is advisable to create a superuser.
 php scripts/picara create user superuser
 ```
 ### Login
-Point your browser to the admin panel, located at http://localhost:8000/admin/login and log-in using the superuser credentials you created in the last step. If you did not create a superuuser, the default username is **admin** and the default password is **mypassword**. You can add, edit or delete users by editing the file located at *app/config/adminusers.php*. This file holds the users that can log into the admin panel, in absence of an existing user model with superusers.
+Point your browser to the admin panel, located at http://localhost:8000/admin/login and log-in using the superuser credentials you created in the last step. If you did not create a superuser, the default username is **admin** and the default password is **mypassword**. You can add, edit or delete users by editing the file located at *app/config/adminusers.php*. This file holds the users that can log into the admin panel, in absence of superusers or if you chose to delete the user model in your application.
+
 ![The Site Admin Login Page](https://www.dropbox.com/s/szsojmbpwwvk776/admin0.png?raw=1)
 
 Once logged-in, you'll be greeted with friendly how-tos and be able to navigate.
