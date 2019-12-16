@@ -99,15 +99,3 @@ users:
     name:       "Administrator"
     password:   "mypassword"
     type:       "superuser"
-
-  # Staff User -example-
-  # Username is "staff" and password is "mypassword"
-  staff:
-    name:       "Staff Member"
-    password:   "mypassword"
-    type:       "staff"
-    menus:      ["app"]
-    tasks:      ["hello_world","custom_greet","example_sum"] 
-    permissions:
-      category: ["list","view","insert","update","actions"] 
-      tag:      ["list","view","insert","update","actions"] 
