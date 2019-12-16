@@ -4,15 +4,21 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="navbar-collapse" id="navbarModel">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['controller'] ?>" title="Back" tabindex="-1">Back</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['controller'] ?>/update/<?= $model['Data']['id'] ?>" title="Edit" tabindex="-1">Edit</a>
-            </li>
-            <li class="nav-item">
-                <a data-toggle="modal" data-target="#exampleModalCenter<?= $model['Data']['id'] ?>" class="nav-link" href="#" title="Delete" tabindex="-1">Delete</a>
-            </li>
+            <? if(Pi_session::check_permission($modelname,'list')): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link['controller'] ?>" title="Back" tabindex="-1">Back</a>
+                </li>
+            <? endif; ?>
+            <? if(Pi_session::check_permission($modelname,'update')): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link['controller'] ?>/update/<?= $model['Data']['id'] ?>" title="Edit" tabindex="-1">Edit</a>
+                </li>
+            <? endif; ?>
+            <? if(Pi_session::check_permission($modelname,'delete')): ?>
+                <li class="nav-item">
+                    <a data-toggle="modal" data-target="#exampleModalCenter<?= $model['Data']['id'] ?>" class="nav-link" href="#" title="Delete" tabindex="-1">Delete</a>
+                </li>
+            <? endif; ?>
             <? if(isset($navigate_has_many) && count($navigate_has_many) > 0): ?>
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle nav-link" 
@@ -28,20 +34,22 @@
                     </div>
                 </li>
             <? endif; ?>
-            <? if(isset($model_actions) && is_array($model_actions) && count($model_actions)): ?>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle nav-link" 
-                   href="#" title="Delete" 
-                   role="button" id="dropdownActionMenu"
-                   data-toggle="dropdown" 
-                   aria-haspopup="true" 
-                   aria-expanded="false">Actions</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownActionMenu">
-                        <? foreach($model_actions as $function => $data): ?>
-                            <a class="dropdown-item" href="<?= $link['controller'] ?>/action/<?= $model['Data']['id'] ?>/<?= $function ?>"><?= ucwords($data['name']) ?></a>
-                        <? endforeach; ?>
-                    </div>
-                </li>
+            <? if(Pi_session::check_permission($modelname,'actions')): ?>
+                <? if(isset($model_actions) && is_array($model_actions) && count($model_actions)): ?>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle nav-link" 
+                       href="#" title="Delete" 
+                       role="button" id="dropdownActionMenu"
+                       data-toggle="dropdown" 
+                       aria-haspopup="true" 
+                       aria-expanded="false">Actions</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownActionMenu">
+                            <? foreach($model_actions as $function => $data): ?>
+                                <a class="dropdown-item" href="<?= $link['controller'] ?>/action/<?= $model['Data']['id'] ?>/<?= $function ?>"><?= ucwords($data['name']) ?></a>
+                            <? endforeach; ?>
+                        </div>
+                    </li>
+                <? endif; ?>
             <? endif; ?>
         </ul>
         <? if($is_searchable): ?>

@@ -248,33 +248,6 @@ class destroyShellController extends Pi_shell_controller
     //--------------------------------------------------------
     
     /**
-     * Destroys and user
-     *
-     * @param   int $id
-     */
-    public function user($id)
-    {
-        // User must exist
-        if(!Pi_loader::model_exists("User")) $this->abort("The model 'user' does not exist in the application.");
-        
-        // Existing super users
-        $cardinality = $this->db->query->cardinality->getUserWhere("type = 'superuser'");
-        if($cardinality < 1) $this->abort("No Super Users found. Please create one.");
-
-        $user = new User($id);
-        if($user->failed()) $this->abort("User with id = ". $id ." does not exist.");
-        
-        if($user->delete())
-        {
-            $this->putline(" > User with id = ". $id ." deleted successfully.");
-        } else {
-            $this->abort("User cannot be deleted. Please see logs.");
-        }
-    }
-
-    //--------------------------------------------------------
-    
-    /**
     * Deletes given path or explodes
     *
     * @param    string    $path

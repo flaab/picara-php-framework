@@ -15,6 +15,15 @@ class <controllername>ShellController extends MyShellController
 
     // Array to libraries to be autoloaded
     var $load = array();
+    
+    // Callbacks to execute before action is called
+    var $before_action = array();                  
+
+    // Callbacks to execute after action is called    
+    var $after_action = array();                  
+
+    // Config file to load (optional)
+    var $config_file = '';
 
     /**
     * Index function. Start Here!

@@ -28,12 +28,12 @@ class Scaffold_<modelname>WebController extends MyAdminController
     /**
     * Before action callbacks
     */ 
-    var $before_action = array('load_config');
+    var $before_action = array('load_model_config');
 
     /**
     * Config object for scaffolded model
     */
-    var $config;
+    var $model_config;
 
     /**
     * Fields of represented table
@@ -54,6 +54,11 @@ class Scaffold_<modelname>WebController extends MyAdminController
     * List of allowed IPs (else 403 is raised)
     */
     var $ips_allowed = array();
+    
+    /**
+    * Config file of the adminsite
+    */
+    var $config_file = 'adminsite.yml';
 
     //--------------------------------------------------------
 	
@@ -65,11 +70,18 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
 	public function index($page = 1)
     {
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'list'))
+        {
+            $this->flash->validation_error("You don't have permission to view the <strong>". strtolower($this->model) ."</strong> list.");
+            $this->core->redirect('admin/welcome');
+        }
+
         // Order interaction
         $this->_interact_order();
 
 	 	// Put window title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display ." list");
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display ." list");
 	    $this->set('noindex', true);
 
 	 	// Scaffolding has a different modelsnap
@@ -79,8 +91,8 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
         
         // Set hidden and listed fields
-        $this->set('hidden_fields', $this->config->scaffold->hidden);
-        $this->set('list_fields', $this->config->scaffold->list);
+        $this->set('hidden_fields', $this->model_config->scaffold->hidden);
+        $this->set('list_fields', $this->model_config->scaffold->list);
 
 	    //===========================================================
         // Pagination is performed
@@ -106,7 +118,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         
         // Modelname
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 
         //===========================================================
         // Export result to other formats if requested
@@ -159,10 +171,17 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     public function view($id)
     {
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'view'))
+        {
+            $this->flash->validation_error("You don't have permission to view <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+
 		// Window title and modelname
-        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->config->display . CONNECTOR . "View");
+        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->model_config->display . CONNECTOR . "View");
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 	    $this->set('noindex', true);
 		
 		// Attemp to create the object
@@ -233,6 +252,13 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     public function search($search = NULL, $page = 1)
     {
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'list'))
+        {
+            $this->flash->validation_error("You don't have permission to view the <strong>". strtolower($this->model) ."</strong> list.");
+            $this->core->redirect('admin/welcome');
+        }
+        
         // If search parameter is null, post search will be tried to fetch
         if(isset($_POST['search'])) $search = $_POST['search'];
 
@@ -244,7 +270,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         }
         
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 
         // Check for search string length
         if(strlen($search) < MIN_SEARCH_STRING_LENGTH)
@@ -260,7 +286,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->_interact_order();
 
 	 	// Put window title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display . CONNECTOR . 'Searching "'. $nice_search .'"');
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display . CONNECTOR . 'Searching "'. $nice_search .'"');
 	    $this->set('noindex', true);
 	 	
 	 	// Scaffolding has a different modelsnap
@@ -270,8 +296,8 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
 
         // Set hidden and listed fields
-        $this->set('hidden_fields', $this->config->scaffold->hidden);
-        $this->set('list_fields', $this->config->scaffold->list);
+        $this->set('hidden_fields', $this->model_config->scaffold->hidden);
+        $this->set('list_fields', $this->model_config->scaffold->list);
         
         // Nice search to view
         $this->set('nice_search', $nice_search);
@@ -354,13 +380,20 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
 	public function insert()
 	{
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'insert'))
+        {
+            $this->flash->validation_error("You don't have permission to insert <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
         // Sets window title
-		$this->setTitle(TITLE . CONNECTOR . "Scaffold " . CONNECTOR . $this->config->display . CONNECTOR . "Create");
+		$this->setTitle(TITLE . CONNECTOR . "Scaffold " . CONNECTOR . $this->model_config->display . CONNECTOR . "Create");
 	    $this->set('noindex', true);
 		
         // Modelname to view
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 		
         // Obtain n-m relationships and set them to the view
         $n_m = $this->metadata->get_n_m_list($this->model);
@@ -430,10 +463,17 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
 	public function update($id)
 	{
-		// Window title and modelname
-        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->config->display . CONNECTOR . "Edit");
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'update'))
+        {
+            $this->flash->validation_error("You don't have permission to update <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
+        // Window title and modelname
+        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->model_config->display . CONNECTOR . "Edit");
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 	    $this->set('noindex', true);
 		
 		// Attemp to create the object
@@ -451,7 +491,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('n_m', $n_m);
 	    	
         //  Let the view know if this model has extra images enabled
-        $this->set('extra_images', $this->config->images->extra->enabled);
+        $this->set('extra_images', $this->model_config->images->extra->enabled);
 
         // Append file blocks
         $this->set('blocks', $object->get_blocks());
@@ -548,7 +588,14 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
 	public function delete($id)
 	{
-		// Attempt to create the object
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'delete'))
+        {
+            $this->flash->validation_error("You don't have permission to delete <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
+        // Attempt to create the object
 		$object = new $this->model($id);
 		
 		// Check if it exists
@@ -570,7 +617,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
         // Name
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 		
 		// Everything ok
         $this->flash->success("<b>". ucfirst($this->model) ."</b> has been succesfully deleted.");
@@ -590,12 +637,19 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     public function block($id, $block)
     {
-	 	// Put window title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display . CONNECTOR . 'File blocks' . CONNECTOR . ucfirst($block));
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'update'))
+        {
+            $this->flash->validation_error("You don't have permission to update <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
+        // Put window title
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display . CONNECTOR . 'File blocks' . CONNECTOR . ucfirst($block));
 	    $this->set('noindex', true);
 
         // If no extra images allowed
-        if($this->config->files->enabled != true)
+        if($this->model_config->files->enabled != true)
             trigger_error('The model '. strtolower($this->model) .' does not have file blocks enabled', E_USER_ERROR);
 
         // Got here means its enabled
@@ -603,7 +657,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
 		
         // Name
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
         
         // Check if it exists
 		if($object->failed())
@@ -691,11 +745,18 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     public function by($model, $value, $page = 1)
     {
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'list'))
+        {
+            $this->flash->validation_error("You don't have permission to list <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
         // Order interaction
         $this->_interact_order();
 
 	 	// Put window title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display . CONNECTOR . 'By '. ucfirst($model));
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display . CONNECTOR . 'By '. ucfirst($model));
 	    $this->set('noindex', true);
 	 	
 	 	// Scaffolding has a different modelsnap
@@ -705,8 +766,8 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('fields', $this->fields);
 
         // Set hidden and listed fields
-        $this->set('hidden_fields', $this->config->scaffold->hidden);
-        $this->set('list_fields', $this->config->scaffold->list);
+        $this->set('hidden_fields', $this->model_config->scaffold->hidden);
+        $this->set('list_fields', $this->model_config->scaffold->list);
         
         // Foreign key for related model
         $fk = $this->metadata->get_relationship_fk($this->model, $model);
@@ -778,12 +839,19 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     public function extra_images($id)
     {
-	 	// Put window title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display . CONNECTOR . 'Extra images');
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'update'))
+        {
+            $this->flash->validation_error("You don't have permission to update <strong>". strtolower($this->model) ."</strong> records.");
+            $this->core->redirect('admin/welcome');
+        }
+        
+        // Put window title
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display . CONNECTOR . 'Extra images');
 	    $this->set('noindex', true);
 
         // If no extra images allowed
-        if($this->config->images->extra->enabled != true)
+        if($this->model_config->images->extra->enabled != true)
             trigger_error('The model '. strtolower($this->model) .' does not have extra images feature enabled', E_USER_ERROR);
 
         // Got here means its enabled
@@ -799,7 +867,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         // Modelname and values
         $this->set('model', $object->toArray());
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
 
         // Loads all extra images
         $images = $object->get_extra_images();
@@ -876,9 +944,9 @@ class Scaffold_<modelname>WebController extends MyAdminController
     * Loads model configuration into the object (Callback)
     */
 
-    protected function load_config()
+    protected function load_model_config()
     {
-        $this->config = $this->metadata->config->get($this->model);
+        $this->model_config = $this->metadata->config->get($this->model);
         $this->fields = $this->metadata->read_columns($this->model);
     }
 
@@ -908,11 +976,15 @@ class Scaffold_<modelname>WebController extends MyAdminController
                 $model = $class;
                 $connection = $config->connection;
                 
-                // Store
-                $res[$connection][$model] = array(
-                    'controller' => str_replace("_",'-',$controller),
-                    'display'    => $config->display
-                );
+                // Check permissions
+                if(Pi_session::check_permission($model, 'list'))
+                { 
+                    // Store
+                    $res[$connection][$model] = array(
+                        'controller' => str_replace("_",'-',$controller),
+                        'display'    => $config->display
+                    );
+                }
             }
         }
 
@@ -945,7 +1017,19 @@ class Scaffold_<modelname>WebController extends MyAdminController
 
     protected function _set_custom_menu()
     {
-        $this->set("custom_menu", $this->admin_navigation);
+        // Get logged users menu
+        if(Pi_session::check(ADMIN_SESSION))
+        {
+            $menu_allowed = $this->session->read('menus');
+            $user_type = $this->session->read('type');
+            if($user_type != 'superuser') // superuser access all menus
+            {
+                foreach($this->config['navigation'] as $menu => $content)
+                    if(!in_array($menu, $menu_allowed))
+                        unset($this->config['navigation'][$menu]);
+            }
+            $this->set("custom_menu", $this->config['navigation']);
+        }
     }
 
     //--------------------------------------------------------
@@ -959,9 +1043,9 @@ class Scaffold_<modelname>WebController extends MyAdminController
         // If pagination stuff must be changed
         if(isset($_POST['change_elements']))
         {
-            $this->config->pagination->direction = $_POST['orientation'];
-            $this->config->pagination->elements = $_POST['elements'];
-            if(isset($_POST['order']))  $this->config->pagination->order = $_POST['order'];
+            $this->model_config->pagination->direction = $_POST['orientation'];
+            $this->model_config->pagination->elements = $_POST['elements'];
+            if(isset($_POST['order']))  $this->model_config->pagination->order = $_POST['order'];
             $this->metadata->config->permanent_for_session($this->model);
         }
     }
@@ -991,7 +1075,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
         $this->set('format', $format);
 
         // View and title
-	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->config->display . CONNECTOR . 'Export');
+	 	$this->appendTitle('Scaffold ' . CONNECTOR . $this->model_config->display . CONNECTOR . 'Export');
     }
 
     //--------------------------------------------------------
@@ -1100,7 +1184,14 @@ class Scaffold_<modelname>WebController extends MyAdminController
     */
     public function action($id, $actionname)
     {
-		// Attemp to create the object
+        // Check permission
+        if(!Pi_session::check_permission($this->model, 'actions'))
+        {
+            $this->flash->validation_error("You don't have permission to run <strong>". strtolower($this->model) ."</strong> actions.");
+            $this->core->redirect('admin/welcome');
+        }
+        
+        // Attemp to create the object
         $object = new $this->model($id);
 
 		// Check if it exists
@@ -1166,16 +1257,16 @@ class Scaffold_<modelname>WebController extends MyAdminController
         
         // All good. Set data to view.
         $this->set('function',      $actionname);
-        $this->set('name',          $object->model_actions[$actionname]['name']);
+        $this->set('actionname',    $object->model_actions[$actionname]['name']);
         $this->set('description',   $object->model_actions[$actionname]['description']);
         
         // Window title and modelname
-        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->config->display . CONNECTOR . 
+        $this->setTitle(TITLE . CONNECTOR . "Scaffold ". CONNECTOR . $this->model_config->display . CONNECTOR . 
             "Actions ". CONNECTOR . ucwords($object->model_actions[$actionname]['name']));
         
         // Data to view
         $this->set('modelname', $this->model);
-        $this->set('modeldisplay', $this->config->display);
+        $this->set('modeldisplay', $this->model_config->display);
         $this->set('model', $object->toArray());
         
         //--

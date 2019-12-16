@@ -19,7 +19,8 @@ class <controllername>WebController extends MyWebController
     //var $ips_allowed      = array();	                // Allowed ips to run this controller (else 403 Error)
     //var $before_action    = array();                  // Callbacks executed before the action is called
     //var $after_action     = array();                  // Callbacks executed after the action is called
-    
+    //var $config_file      = '';                       // YML config file to load (optional)
+
     //--
     //-- RESTful API: Map your methods to valid HTTP requests below
     //--              Methods must exist in this controller as public

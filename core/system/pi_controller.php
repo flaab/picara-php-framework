@@ -31,6 +31,16 @@ abstract class Pi_controller extends Pi_callbacks
     * After render callbacks
     */
     var $after_action = array();
+
+    /**
+    * Config file for this controller (optional)
+    */
+    var $config_file = '';
+
+    /**
+    * Config object for this controller (optional)
+    */
+    var $config;
     
     /**
     * Request array to hold controller and action name
@@ -76,6 +86,22 @@ abstract class Pi_controller extends Pi_callbacks
 
         // Execution
         $this->execute_callbacks($functions);
+    }
+    
+    //--------------------------------------------------------
+
+    /**
+    * Loads the config file
+    */
+    
+    protected final function load_config()
+    {
+        if(isset($this->config_file) && is_string($this->config_file) && strlen($this->config_file) > 3)
+        {
+            $cf = USERCONFIG . $this->config_file;
+            if(file_exists($cf))
+                $this->config = yaml_parse(file_get_contents($cf)); 
+        }
     }
 }
 

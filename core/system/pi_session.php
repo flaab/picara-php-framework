@@ -235,6 +235,61 @@ class Pi_session
     }
     
     //----------------------------------------------------------
+
+    /**
+     * Checks for a specific permission to run a certain task.
+     *
+     * @param   door    $item           Example: hello_world
+     */
+    public static function check_task($item)
+    {
+        // Set to lower!
+        $item = strtolower($item);
+    
+        // Read session type
+        $type = Pi_session::read("type");
+        if(!$type) return(false);               // No type
+        if($type == "superuser") return(true);  // Superuser ok
+
+        // Check if this item is set
+        $tasks = Pi_session::read('tasks');
+        if(!$tasks) return(false);  // No tasks for this user
+
+        // If it is set
+        if(in_array($item, $tasks)) return(true);
+    }
+    
+    //----------------------------------------------------------
+
+    /**
+     * Checks for a specific permission in the current session
+     *
+     * @param   string  $category       Example: category
+     * @param   door    $item           Example: edit
+     */
+    public static function check_permission($category, $item)
+    {
+        // Set to lower!
+        $category = strtolower($category);
+
+        // Read session type
+        $type = Pi_session::read("type");
+        if(!$type) return(false);               // No type
+        if($type == "superuser") return(true);  // Superuser ok
+
+        // Check if this item is set
+        $permission_array = Pi_session::read('permissions');
+        if(!$permission_array) return(false);
+        
+        // If this category is not set
+        if(!isset($permission_array[$category])) return(false);
+
+        // If it is set
+        if(in_array($item, $permission_array[$category])) return(true);
+
+    }
+    
+    //----------------------------------------------------------
     
     /**
     * Destroys session and stored session variables, leaving controller messages intact.

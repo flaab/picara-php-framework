@@ -302,6 +302,9 @@ abstract class Pi_shell_controller extends MyController
 
         // If any errors stored
         if($this->failed()) $this->abort();
+        
+        // Load config file if needed before action
+        $this->load_config();
 
         // Before action callbacks
         $this->controller_callbacks($this->before_action);

@@ -317,9 +317,9 @@ class Pi_metadata extends Pi_error_store
 
         // Not stored yet
         $schema = $this->read_schema($model);
+        if(is_null($schema)) return(array());
 
         $this->columns[$model] = array_keys($schema);
-
         return $this->columns[$model];
     }
 
@@ -417,10 +417,14 @@ class Pi_metadata extends Pi_error_store
     {
         // Fields
         $fields = array();             
-         
+        
+        // Check if model exists
+        if(!Pi_loader::model_exists($model)) return($fields); 
+        
         // We get the field list
         $schema = $this->read_columns($model);
-         
+        if(is_null($schema)) return($fields);
+
         // Check if any follows the foreign key pattern and check if model exists
         foreach($schema as $field)
         {

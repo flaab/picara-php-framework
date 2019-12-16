@@ -1,0 +1,113 @@
+###
+# Config file for: Admin Site
+#
+# Handles the content and options for the Admin Site.
+#
+# @note       Comments are self-explanatory
+# @note       Don't forget you can also add your own stuff
+# @warning    Do not delete any built-in property
+##
+
+#===================================================
+#  NAVIGATION
+#===================================================
+#
+# Stores the navigation links of the header of the
+# admin site. These links can point anywhere, per
+# your decision. This is useful if you create more
+# admin controllers to integrate into your app.
+#
+#===================================================
+
+navigation:
+  system:
+    Logs:  "admin/logs"
+    PHPLiteAdmin: "assets/phpliteadmin/phpliteadmin.php"
+  app:
+    Admin Tasks: "admin/tasks"
+    Visit Site: "index/index"
+
+#===================================================
+#  ADMIN SITE USERS
+#===================================================
+#
+# The following list stores users that can log to the
+# Admin Site, with types and user groups which later
+# can be called via the auth library. 
+#
+# While this is not ideal for a fully fledged 
+# application with many users, it is fast and simple
+# to deploy, without the need of migrations or dbs.
+#
+# For each user, you can display different menus
+# and give permissions to insert, update and/or delete
+# models.
+#  
+# Prototype is:
+#
+# username:
+#   - name: "Full name of this user"
+#   - password: "password"
+#   - type: "superuser" or "staff". 
+#   - menus: list of menus the user can access to
+#   - tasks: list of admin tasks this user can run
+#   - permissions: models and crud operations this user can access.
+#       modelname: ["list","insert","update","delete","actions"]
+#
+# Superusers have full permissions.
+# No permissions are assumed for unlisted models.
+# No menus are displayed if no menus are listed.
+#
+# Example:
+#
+#  # Admin User
+#  john:
+#    - name:     "John Doe"
+#    - password: "mypassword"
+#    - type:     "superuser"
+#  
+#  # Staff User
+#  cristina:
+#    name:     "Cristina"
+#    password: "mypassword"
+#    type:     "staff"
+#    menus:    ["tools"]
+#    tasks:    ["hello_world","custom_greet","simple_sum"]
+#    permissions:
+#      author:   ["list","view"]
+#      category: ["list","view","insert"]
+#      article:  ["list","view","insert","update"]
+#      comments: ["list","view","insert","update","delete","actions"]
+#
+#  # Read-Only user
+#  harvey:
+#    name:     "Harvey"
+#    password: "mypassword"
+#    type:     "staff"
+#    permissions:
+#      category: ["list","view"]
+#      article:  ["list","view"]
+#      comments: ["list","view"]
+#  
+#===================================================
+
+users:
+
+  # Admin User -do not delete-
+  # Username is "admin" and password is "mypassword"
+  admin:
+    name:       "Administrator"
+    password:   "mypassword"
+    type:       "superuser"
+
+  # Staff User -example-
+  # Username is "staff" and password is "mypassword"
+  staff:
+    name:       "Staff Member"
+    password:   "mypassword"
+    type:       "staff"
+    menus:      ["app"]
+    tasks:      ["hello_world","custom_greet","example_sum"] 
+    permissions:
+      category: ["list","view","insert","update","actions"] 
+      tag:      ["list","view","insert","update","actions"] 

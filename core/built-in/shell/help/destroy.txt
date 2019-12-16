@@ -1,4 +1,4 @@
-usage: php scripts/picara destroy (model|controller|shell|connection|log|user) (name|id)
+usage: php scripts/picara destroy (model|controller|shell|connection|log) name
 
 This script allows you to cleanly destroy framework elements and all related files. Its usage is
 encouraged in order to avoid leaving junk files in the application tree.
@@ -30,8 +30,3 @@ Destroying a shell controller
 Destroying a log
 ----------------
  - php scripts/picara destroy log users
-
-
-Destroying a user
------------------
- - php scripts/picara destroy user 2

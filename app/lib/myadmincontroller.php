@@ -21,23 +21,6 @@
  
 abstract class MyAdminController extends MyWebController
 {
-    /**
-     * Custom navigation menus displayed in the admin site.
-     * @var array
-     */
-    var $admin_navigation = array(
-            
-        'Tools' => array(
-            'Tasks' => 'admin/tasks',
-            'Logs'  => 'admin/logs',
-        ),
-
-        'Other' => array(
-            'Visit site' => 'index/index',
-            'PhpLiteAdmin' => 'assets/phpliteadmin/phpliteadmin.php',
-        ),
-    );
-
     //--
     //-- Admin Tasks
     //-- 
@@ -59,7 +42,7 @@ abstract class MyAdminController extends MyWebController
             
             // Example task
             'example_sum' => array(
-                'name'          => 'Simple Sum',
+                'name'          => 'Example Sum',
                 'description'   => 'This task sums three numbers received as parameters and returns the result.',
                 ),
             

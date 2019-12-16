@@ -4,12 +4,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="navbar-collapse" id="navbarModel">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['controller'] ?>" title="Back" tabindex="-1">Back</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['controller'] ?>/insert" title="Create new record" tabindex="-1">Create</a>
-            </li>
+            <? if(Pi_session::check_permission($modelname,'list')): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link['controller'] ?>" title="Back" tabindex="-1">Back</a>
+                </li>
+            <? endif; ?>
+            <? if(Pi_session::check_permission($modelname,'insert')): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link['controller'] ?>/insert" title="Create new record" tabindex="-1">Create</a>
+                </li>
+            <? endif; ?>
         </ul>
         <? if($is_searchable): ?>
         <form class="form-inline my-2 my-lg-0" action="<?= $link['controller'] ?>/search" method="POST">
@@ -61,7 +65,7 @@
         <div class="container mb-5">
             <div class="row"> 
                 <!-- Begin order form -->
-                <div class="col">
+                <div class="col-7">
                     <form action="<?= $pagination['base_link'] ?>" method="post" class="form-inline">
                     <label class="my-1 mr-2" for="inlineFormElements">Show</label>
                     <select name="elements" class="custom-select my-1 mr-sm-2 " id="inlineFormElements">
@@ -88,7 +92,7 @@
                 <!-- End order form -->
 
                 <!-- Begin export form -->
-                <div class="col ml-auto text-right">
+                <div class="col-5">
                     <form action="<?= $pagination['base_link'] . $pagination['page'] ?>" target="_blank" method="post" class="form-inline ml-auto">
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Export</label>
                         <select name="range" class="custom-select my-1 mr-sm-2" id="inlineFormRange">

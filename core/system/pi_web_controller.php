@@ -281,6 +281,9 @@ abstract class Pi_web_controller extends Pi_paginator
               $this->link['action']            = strtolower(str_replace("_",'-',$this->uri->action()));
               $this->request['controller']     = strtolower($this->uri->controller());
               $this->request['action']         = strtolower($this->uri->action());
+                
+              // Load config file if needed before action
+              $this->load_config();
 
               // Before action callbacks
               $this->controller_callbacks($this->before_action);

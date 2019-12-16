@@ -4,9 +4,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="navbar-collapse" id="navbarModel">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['controller'] ?>/update/<?= $model['id'] ?>">Back</a>
-            </li>
+            <? if(Pi_session::check_permission($modelname,'update')): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $link['controller'] ?>/update/<?= $model['id'] ?>">Back</a>
+                </li>
+            <? endif; ?>
         </ul>
         <? if($is_searchable): ?>
         <form class="form-inline my-2 my-lg-0" action="<?= $link['controller'] ?>/search" method="POST">
