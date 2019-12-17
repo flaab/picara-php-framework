@@ -100,7 +100,11 @@ abstract class Pi_controller extends Pi_callbacks
         {
             $cf = USERCONFIG . $this->config_file;
             if(file_exists($cf))
+            {
                 $this->config = yaml_parse(file_get_contents($cf)); 
+            } else {
+                $this->core->abort("I cannot load config file ". $cf ." Check the path and filename.");
+            }
         }
     }
 }

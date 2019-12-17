@@ -17,7 +17,7 @@ class AdminWebController extends MyAdminController
     var $before_action = array('_find_title');  // Callback methods before controller execution
     var $after_action = array('_set_custom_menu', '_other_scaffolds');   // Callback methods after controller execution
     var $layout = 'admin';	                    // Set another layout for this controller
-    var $config_file = 'adminsite.yml';         // Config file to load for this controller
+    var $config_file = 'siteadmin.yml';         // Config file to load for this controller
 
     // Valid user types
     var $valid_user_types = array('superuser','staff');

@@ -58,7 +58,7 @@ class Scaffold_<modelname>WebController extends MyAdminController
     /**
     * Config file of the adminsite
     */
-    var $config_file = 'adminsite.yml';
+    var $config_file = 'siteadmin.yml';
 
     //--------------------------------------------------------
 	

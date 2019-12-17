@@ -104,7 +104,7 @@ The directory structure of the repository is as follows.
     - **config/** -> Contains application configuration files.
     	- **connection/** -> Contains the database connections of the application.
 		- **model/** -> Contains config files of the models of the application.
-		- *adminusers.php* -> List of users for the admin panel.
+		- *adminsite.yml* -> Config file for the administration site, including menus and users.
 		- *application.php* -> Stores application constants and options.
 		- *environment.php* -> Stores the application execution environment.
 		- *langs.yml* -> Stores a list of activated languages for web application.
