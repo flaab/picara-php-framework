@@ -26,16 +26,40 @@
 ###
 # Shortcut for the built-in static pages controller
 #
-# Request: 		Pages / {page}
-# Redirect: 	Pages / view / {page}
-# Example:		Pages/foo -> Pages/view/foo
+# Request: 		pages / {page}
+# Redirect: 	pages / view / {page}
+# Example:		pages/foo -> pages/view/foo
 ##
-# /^(Pages)\/[^\/]+$/i: Pages/view/:action
+# /^(pages)\/[^\/]+$/i: "pages/view/:action"
 
 ###
-# Shuts down all website controllers, making the whole website unavailable
+# Shuts down all website controllers, making the whole website unavailable.
 #
 # Request: All requests
 # Redirect: Down for maintenance page
+##
+# /^.*$/: "pages/view/down-for-maintenance"
+
 ###
-# /^.*$/: Pages/view/down-for-maintenance
+# Hide the admin site using other controller url for all requests.
+# If enabled, change the menu links in app/config/siteadmin.yml
+#
+# Request:      myadminsite/:action/:p1/:p2/:p3
+# Redirect:     admin/:action/:p1/:p2/:p3
+##
+# /^myadminsite$/i: "admin/login"
+# /^myadminsite\/[^\/]+/i: "admin/:action"
+# /^myadminsite\/[^\/]+\/[^\/]+/i: "admin/:action/:p1"
+# /^myadminsite\/[^\/]+\/[^\/]+\/[^\/]+/i: "admin/:action/:p1/:p2"
+# /^myadminsite\/[^\/]+\/[^\/]+\/[^\/]+\/[^\/]+/i: "admin/:action/:p1/:p2/:p3"
+
+###
+# Disable original admin site urls.
+# Don't enable without creating an entry point above.
+#
+# Request: admin/:action/:p1:/:p2
+# Redirect: index/index
+##
+# /^admin\/[^\/]+/i: "index/index"
+# /^admin\/[^\/]+\/[^\/]+/i: "index/index"
+# /^admin\/[^\/]+\/[^\/]+\/[^\/]+/i: "index/index"

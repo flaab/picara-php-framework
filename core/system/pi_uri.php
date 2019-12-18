@@ -29,16 +29,23 @@ class Pi_uri extends Pi_error_store
     * Array containing request
     */
     private $request_array = array();
+
+    /**
+     * Original request array
+     */
+    private $original_request_array = array();
     
     /**
     * Controller requested
     */
     private $controller      = DEFAULT_CONTROLLER;
-    
+    public  $controller_link = DEFAULT_CONTROLLER;
+
     /**
     * Action requested
     */
-    private $action      = DEFAULT_ACTION;
+    private $action       = DEFAULT_ACTION;
+    public  $action_link  = DEFAULT_ACTION;
     
     /**
     * Website base href
@@ -100,6 +107,10 @@ class Pi_uri extends Pi_error_store
         if($this->request_string != '')
              $this->request_array =array_values(array_filter(explode('/', $this->request_string), 'strlen'));
         
+        // Original request received
+        if($original_request != '')
+             $this->original_request_array = array_values(array_filter(explode('/', strtolower($original_request)), 'strlen'));
+       
         // Count total arguments in query string
         $this->total = count($this->request_array);    
         
@@ -308,7 +319,13 @@ class Pi_uri extends Pi_error_store
         {
             // To lowercase again just in case
             // Objects and functions in php are case insensitive
-            $this->controller     = strtolower(str_replace("-","_",$this->request_array[0]));
+            $this->controller       = strtolower(str_replace("-","_",$this->request_array[0]));
+            $this->controller_link  = strtolower(str_replace("-","_",$this->request_array[0]));
+
+            if(isset($this->original_request_array[0]) > 0 && strlen($this->original_request_array[0]) >= 1)
+                $this->controller_link  = strtolower(str_replace("-","_",$this->original_request_array[0]));
+
+
         }
     }
      
@@ -322,7 +339,12 @@ class Pi_uri extends Pi_error_store
     {
         if($this->total > 1)
         {
+            // Set to lowercase
             $this->action     = strtolower(str_replace("-","_",$this->request_array[1]));
+            $this->action_link= strtolower(str_replace("-","_",$this->request_array[1]));
+            
+            if(isset($this->original_request_array[1]) && strlen($this->original_request_array[1]) >= 1)
+                $this->action_link  = strtolower(str_replace("-","_",$this->original_request_array[1]));
         }
     }
      

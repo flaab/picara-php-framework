@@ -90,7 +90,7 @@ class AdminWebController extends MyAdminController
                 $this->log->message("User ". $l_user ." (". $this->config['users'][$l_user]['type'] .") logged to the Admin Site.");
 
                 // Set to welcome
-                $this->core->redirect($this->request['controller'] .'/welcome');
+                $this->core->redirect($this->link['controller'] .'/welcome');
 
             } else {
                 $this->flash->validation_error('Invalid username or password.');
@@ -110,7 +110,7 @@ class AdminWebController extends MyAdminController
         if(!Pi_session::check(ADMIN_SESSION)) 
         {
             $this->session->kill();
-            $this->core->redirect($this->request['controller'] .'/login');
+            $this->core->redirect($this->link['controller'] .'/login');
         }
         
         // Log
@@ -120,7 +120,7 @@ class AdminWebController extends MyAdminController
         $this->session->kill();
         $this->setTitle($this->project_title . CONNECTOR . 'Log out');  
         $this->flash->success("Goodbye, you are now logged out.");
-        $this->core->redirect($this->request['controller'] .'/login');
+        $this->core->redirect($this->link['controller'] .'/login');
     }
     
     //--------------------------------------------------------
@@ -135,7 +135,7 @@ class AdminWebController extends MyAdminController
         if(!Pi_session::check(ADMIN_SESSION)) 
         {
             $this->session->kill();
-            $this->core->redirect($this->request['controller'] .'/login');
+            $this->core->redirect($this->link['controller'] .'/login');
         }
         
         // Set title and noindex
@@ -158,7 +158,7 @@ class AdminWebController extends MyAdminController
         if(!Pi_session::check(ADMIN_SESSION)) 
         {
             $this->session->kill();
-            $this->core->redirect($this->request['controller'] .'/login');
+            $this->core->redirect($this->link['controller'] .'/login');
         }
 
         // Title
@@ -188,35 +188,35 @@ class AdminWebController extends MyAdminController
         if(!Pi_session::check_task($taskname))
         {
             $this->flash->validation_error("You don't have permission to run the task <strong>". $taskname ."</strong>.");
-            $this->core->redirect($this->request['controller'] .'/welcome');
+            $this->core->redirect($this->link['controller'] .'/welcome');
         }
 
         // Admin session must be created
         if(!Pi_session::check(ADMIN_SESSION)) 
         {
             $this->session->kill();
-            $this->core->redirect($this->request['controller'] .'/login');
+            $this->core->redirect($this->link['controller'] .'/login');
         }
         
         // Admin tasks array must be declared and contain this function name
         if(!isset($this->admin_tasks) || !is_array($this->admin_tasks) || !isset($this->admin_tasks[$taskname]))
         {
             $this->flash->validation_error("The task <strong>". $taskname ."</strong> is not declared as a task at ". USERLIB ."mywebcontroller.php");
-            $this->core->redirect($this->request['controller'] .'/tasks');
+            $this->core->redirect($this->link['controller'] .'/tasks');
         }
         
         // Method must have name and description
         if(!is_string($this->admin_tasks[$taskname]['name']) || !is_string($this->admin_tasks[$taskname]['description']))
         {
             $this->flash->validation_error("The task <strong>". $taskname ."</strong> does not have name or description. Add it at ". USERLIB ."mywebcontroller.php.");
-            $this->core->redirect($this->request['controller'] .'/tasks');
+            $this->core->redirect($this->link['controller'] .'/tasks');
         }
 
         // Method must exist
         if(!method_exists($this, $taskname))
         {
             $this->flash->validation_error("The method <strong>". $taskname ."</strong> does not exist. Create it at ". USERLIB ."mywebcontroller.php");
-            $this->core->redirect($this->request['controller'] .'/tasks');
+            $this->core->redirect($this->link['controller'] .'/tasks');
         }
 
         // Get parameters
@@ -256,7 +256,7 @@ class AdminWebController extends MyAdminController
         
         // All good. Set data to view.
         $this->set('function',      $taskname);
-        $this->set('taskname',          $this->admin_tasks[$taskname]['name']);
+        $this->set('taskname',      $this->admin_tasks[$taskname]['name']);
         $this->set('description',   $this->admin_tasks[$taskname]['description']);
         
         // Window title and noindex
@@ -341,7 +341,7 @@ class AdminWebController extends MyAdminController
         if(!Pi_session::check(ADMIN_SESSION)) 
         {
             $this->session->kill();
-            $this->core->redirect($this->request['controller'] .'/login');
+            $this->core->redirect($this->link['controller'] .'/login');
         }
         
         // Read all logs
@@ -351,7 +351,7 @@ class AdminWebController extends MyAdminController
         if(!isset($all_logs[$log]))
         {
             $this->flash->validation_error("The log <strong>". $log ."</strong> was not found in the application.");
-            $this->core->redirect($this->request['controller'] .'/'. $this->request['action']);
+            $this->core->redirect($this->link['controller'] .'/'. $this->request['action']);
             die;
         }
 

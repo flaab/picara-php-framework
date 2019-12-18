@@ -277,8 +277,12 @@ abstract class Pi_web_controller extends Pi_paginator
               // The url parameters are stored, not actual class and function called
               // Underscores are converted to hyphens to keep links clean
               // The controller has both values at its disposal
-              $this->link['controller']        = strtolower(str_replace("_",'-',$this->uri->controller()));
-              $this->link['action']            = strtolower(str_replace("_",'-',$this->uri->action()));
+
+              // Controller and action (for urls) delivered
+              $this->link['controller']        = strtolower(str_replace("_",'-',$this->uri->controller_link));
+              $this->link['action']            = strtolower(str_replace("_",'-',$this->uri->action_link));
+              
+              // Controller and action being called
               $this->request['controller']     = strtolower($this->uri->controller());
               $this->request['action']         = strtolower($this->uri->action());
                 
