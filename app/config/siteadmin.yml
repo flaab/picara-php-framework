@@ -61,13 +61,13 @@ navigation:
 # Example:
 #
 #  # Admin User
-#  john:
-#    - name:     "John Doe"
+#  admin:
+#    - name:     "John"
 #    - password: "mypassword"
 #    - type:     "superuser"
 #  
 #  # Staff User
-#  cristina:
+#  staff:
 #    name:     "Cristina"
 #    password: "mypassword"
 #    type:     "staff"
@@ -80,7 +80,7 @@ navigation:
 #      comments: ["list","view","insert","update","delete","actions"]
 #
 #  # Read-Only user
-#  harvey:
+#  readonly:
 #    name:     "Harvey"
 #    password: "mypassword"
 #    type:     "staff"
@@ -88,6 +88,14 @@ navigation:
 #      category: ["list","view"]
 #      article:  ["list","view"]
 #      comments: ["list","view"]
+#
+#  #  Example of a moderator user
+#  john_doe:
+#    name:     "John Doe"
+#    password: "a6xl/jj33jt"
+#    type:     "staff"
+#    permissions:
+#      comments: ["list","update","delete","actions"]
 #  
 #===================================================
 
