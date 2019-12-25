@@ -21,6 +21,7 @@ The framework is ready to rock right after cloning the repository, with SQLite a
 - Model relationships are inferred from table names or declared in the model config files
 - Built-in full-text search engine, capable of navigating relationships to produce results
 - Built-in and customisable Admin Site with super users, staff and read-only users
+- Permissions for each user and model (list, insert, update, delete, actions)
 - YAML Lang file support for multi-language sites
 - Model and Controller callbacks
 - Comprehensive scaffolding
