@@ -20,8 +20,8 @@ The framework is ready to rock right after cloning the repository, with SQLite a
 - Supports has_one, has_many, belongs_to and has_and_belongs_to_many relationships
 - Model relationships are inferred from table names or declared in the model config files
 - Built-in full-text search engine, capable of navigating relationships to produce results
+- Built-in and customisable Admin Site with super users, staff and read-only users
 - YAML Lang file support for multi-language sites
-- Automatic and customizable Admin Site
 - Model and Controller callbacks
 - Comprehensive scaffolding
 
@@ -334,13 +334,10 @@ Special thanks to the authors of the following resources.
 
 ## Todo and Roadmap
 - Structural changes needed to group models, controllers and views into re-usable Apps or Modules
-- Improvements to the Admin Site implementing different permission groups
-- A native authentication library extending the session library
 - A built-in restful api controller
 - A migration library
 
 Feel free to contribute on the development of this framework.
-
 
 ## Authors
 **Arturo Lopez Perez** - Main and sole developer (so far).
