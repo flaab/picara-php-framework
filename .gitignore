@@ -32,6 +32,9 @@
 **/*.old
 **/*.new
 
+# Ignore
+locales/en/.gitkeep
+
 # Ignore the user application
 # The app folder should be another git project
 app/html/cache/*
