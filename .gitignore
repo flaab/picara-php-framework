@@ -34,6 +34,7 @@
 
 # Ignore
 locales/en/.gitkeep
+locales/es/.gitkeep
 
 # Ignore the user application
 # The app folder should be another git project
