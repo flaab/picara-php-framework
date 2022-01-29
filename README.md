@@ -49,6 +49,7 @@ The framework is ready to rock right after cloning the repository, with SQLite a
 - mod_rewrite
 
 ### PHP Modules required
+- gettext
 - pcre
 - mbstring
 - cur
