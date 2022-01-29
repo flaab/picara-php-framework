@@ -17,7 +17,7 @@ class IndexWebController extends MyWebController
     
     // Required apache modules
     var $needed_apache_modules = array('mod_rewrite');
-    var $needed_php_modules    = array('pcre','mbstring','curl','gd','Reflection','json','yaml','libxml','sqlite3','pdo_sqlite','session','PDO');
+    var $needed_php_modules    = array('gettext','pcre','mbstring','curl','gd','Reflection','json','yaml','libxml','sqlite3','pdo_sqlite','session','PDO');
     
     // Writable folders 
     var $needed_writable = array(
