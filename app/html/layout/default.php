@@ -26,13 +26,13 @@
             <? else: ?>
                 <b><?= TITLE ?></b>
             <? endif; ?>
-            <? if($link['controller'] == 'admin'): ?>Administration<? endif; ?>
+            <? if($link['controller'] == 'admin'): ?><?= _('Administration') ?><? endif; ?>
         </a>
         
         <? if(TITLE == DEFAULT_TITLE): ?>
             <ul class="navbar-nav ml-1">
                 <li class="nav-item active">
-                    <span class="navbar-text" title="Administration"><?= _('A Rapid PHP Development Framework') ?></a>
+                    <span class="navbar-text"><?= _('A Rapid PHP Development Framework') ?></a>
                 </li>
             </ul>
         <? endif; ?>

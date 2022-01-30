@@ -1,5 +1,5 @@
 # Picara PHP Web Development Framework 
-A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed and used since 2007. Heavily opinionated, it focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, static pages and more. 
+A self-contained PHP rapid development framework for MVC http/rest/cli applications, developed and used since 2007. Heavily opinionated, it focuses on convention over configuration and implements implicit routing. It offers a flexible admin site from scratch, rich scaffolding and libraries for cache generation, queries, lang files, pagination, sessions, validation, forms, email, logs, images, file uploads, internationalization, static pages and more. 
  
 
 ### What makes it different?
@@ -25,6 +25,7 @@ The framework is ready to rock right after cloning the repository, with SQLite a
 - YAML Lang file support for multi-language sites
 - Model and Controller callbacks
 - Comprehensive scaffolding
+- Gettext translation ready
 
 ### Other features
 - You can create HTTP and CLI controllers that access the same resources

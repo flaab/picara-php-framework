@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2022-01-30 18:13+0100\n"
-"PO-Revision-Date: 2022-01-30 18:13+0100\n"
+"POT-Creation-Date: 2022-01-30 18:52+0100\n"
+"PO-Revision-Date: 2022-01-30 18:53+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -14,15 +14,40 @@ msgstr ""
 "X-Poedit-Basepath: ../../../app\n"
 "X-Poedit-SearchPath-0: .\n"
 
+#: controller/admin.php:96
+msgid "Invalid username or password."
+msgstr "Usuario o contraseña incorrectos."
+
+#: controller/admin.php:122
+msgid "Goodbye, you are now logged out."
+msgstr "Adiós, has cerrado la sesión con éxito."
+
+#: controller/admin.php:312
+msgid "The following task has been successfully executed."
+msgstr "La siguiente tarea se ha ejecutado correctamente."
+
+#: controller/admin.php:321
+msgid "Parameters and inputs don't match"
+msgstr "Los parámetros y las entradas no coinciden"
+
 #: controller/index.php:41
 msgid "It works!"
 msgstr "¡Funciona!"
+
+#: html/layout/admin.php:25 html/view/index/index.php:7
+msgid "Site Administration"
+msgstr "Administración"
+
+#: html/layout/admin.php:39
+msgid "Welcome"
+msgstr "Bienvenido"
 
 #: html/layout/admin.php:77
 msgid "Logout"
 msgstr "Salir"
 
-#: html/layout/admin.php:81
+#: html/layout/admin.php:81 html/view/admin/login.php:2
+#: html/view/admin/login.php:20
 msgid "Login"
 msgstr "Iniciar sesión"
 
@@ -33,6 +58,10 @@ msgstr "Volver al sitio"
 #: html/layout/admin.php:104 html/layout/default.php:68
 msgid "Distributed under MIT License."
 msgstr "Distribuido bajo Licencia MIT."
+
+#: html/layout/default.php:29
+msgid "Administration"
+msgstr "Administración"
 
 #: html/layout/default.php:35
 msgid "A Rapid PHP Development Framework"
@@ -46,13 +75,69 @@ msgstr "Términos y Condiciones"
 msgid "Privacy Policy"
 msgstr "Política de privacidad"
 
+#: html/view/admin/login.php:6
+msgid "Username"
+msgstr "Nombre de Usuario"
+
+#: html/view/admin/login.php:13
+msgid "Password"
+msgstr "Contraseña"
+
+#: html/view/admin/runtask.php:12
+msgid "Are you sure you want to run this task?"
+msgstr "¿Está seguro de que desea ejecutar esta tarea?"
+
+#: html/view/admin/runtask.php:33
+msgid "No, go back"
+msgstr "No, volver"
+
+#: html/view/admin/runtask.php:34
+msgid "Yes, run this task"
+msgstr "Sí, ejecutar tarea"
+
+#: html/view/admin/runtask.php:44
+msgid "Task"
+msgstr "Tarea"
+
+#: html/view/admin/runtask.php:48
+msgid "Name"
+msgstr "Nombre"
+
+#: html/view/admin/runtask.php:50
+msgid "Description"
+msgstr "Descripción"
+
+#: html/view/admin/runtask.php:53
+msgid "Back to Tasks"
+msgstr "Volver a Tareas"
+
+#: html/view/admin/runtask.php:54
+msgid "Back to Admin Site"
+msgstr "Volver al panel de administración"
+
+#: html/view/admin/runtask.php:61
+msgid "Inputs"
+msgstr "Parámetros de entrada"
+
+#: html/view/admin/runtask.php:72
+msgid "The task has no inputs."
+msgstr "La tarea no tiene parámetros de entrada."
+
+#: html/view/admin/runtask.php:80
+msgid "Output"
+msgstr "Resultado"
+
+#: html/view/admin/tasks.php:2
+msgid "Administration Tasks"
+msgstr "Tareas de Administración"
+
+#: html/view/admin/tasks.php:11
+msgid "RUN TASK"
+msgstr "EJECUTAR TAREA"
+
 #: html/view/index/index.php:3
 msgid "It works, you are running!"
 msgstr "¡Todo listo y funcionando!"
-
-#: html/view/index/index.php:7
-msgid "Site Administration"
-msgstr "Panel de Administración"
 
 #: html/view/index/index.php:13
 msgid "You're almost there!"

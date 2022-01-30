@@ -22,7 +22,7 @@
             <? else: ?>
                 <b><?= TITLE ?></b>
             <? endif; ?>
-            Site Administration
+            <?= _('Site Administration') ?>
         </a>
         <button class="navbar-toggler" type="button" 
                 data-toggle="collapse" data-target="#navbarSupportedContent" 
@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <? if(Pi_session::check(ADMIN_SESSION)): ?>
-                    <li class="navbar-text text-white mr-2">Welcome, <?= Pi_session::read("name"); ?></li>
+                    <li class="navbar-text text-white mr-2"><?= _('Welcome') ?>, <?= Pi_session::read("name"); ?></li>
                     <!-- ==== Scaffold Start ==== -->
                     <? if(isset($other_scaffolds) && count($other_scaffolds) > 0): ?>
                         <li class="nav-item dropdown">

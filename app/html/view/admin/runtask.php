@@ -9,7 +9,7 @@
     <!-- === Task not executed ==== -->
     <div class="card">
         <div class="card-header">
-            Are you sure you want to run this task?
+            <? _('Are you sure you want to run this task?') ?>
         </div>
         <div class="card-body pt-4">
             <form action="<?= $link['controller'] ?>/<?= $link['action'] ?>/<?= $function ?>" method="POST" class="sm">
@@ -30,8 +30,8 @@
                 <? endforeach; ?>
             <? endif; ?>
             <div class="col-md-6 offset-md-4">
-                <a role="button" href="admin/tasks" class="btn btn-primary">No, go back</a>
-                <button type="submit" name="submit" class="btn btn-danger" name="submit">Yes, run this task</button>
+                <a role="button" href="admin/tasks" class="btn btn-primary"><? _('No, go back') ?></a>
+                <button type="submit" name="submit" class="btn btn-danger" name="submit"><?= _('Yes, run this task') ?></button>
             </div>
             </form>
         </div>
@@ -41,24 +41,24 @@
     <!-- === Task Executed ==== -->
     <div class="card mt-4">
         <div class="card-header">
-            Task
+            <?= _('Task') ?>
         </div>
         <div class="card-body">
             <dl class="row">
-                <dt class="col-sm-3">Name</dt>
+                <dt class="col-sm-3"><?= _('Name') ?></dt>
                 <dd class="col-sm-9"><?= $name ?></dd>
-                <dt class="col-sm-3">Description</dt>
+                <dt class="col-sm-3"><?= _('Description') ?></dt>
                 <dd class="col-sm-9"><?= $description ?></dd>
             </dl>
-            <a href="admin/tasks" class="btn btn-primary">Back to Tasks</a>
-            <a href="admin/welcome" class="btn btn-secondary">Back to Admin Site</a>
+            <a href="admin/tasks" class="btn btn-primary"><?= _('Back to Tasks') ?></a>
+            <a href="admin/welcome" class="btn btn-secondary"><?= _('Back to Admin Site') ?></a>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-sm-5">
             <div class="card mt-3">
                 <div class="card-header">
-                    Inputs
+                    <?= _('Inputs') ?>
                 </div>
                 <div class="card-body">
                     <? if(count($params) > 0): ?>
@@ -69,7 +69,7 @@
                         <? endforeach; ?>
                     </dl>
                     <? else: ?>
-                    <p>The task has no inputs.</p>
+                    <p><?= _('The task has no inputs.') ?></p>
                     <? endif; ?>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         <div class="col-sm-7">
             <div class="card mt-3">
                 <div class="card-header">
-                    Output
+                    <?= _('Output') ?>
                 </div>
                 <div class="card-body">
                     <p><samp><?= nl2br($res) ?></samp></p>

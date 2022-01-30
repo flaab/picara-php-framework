@@ -93,7 +93,7 @@ class AdminWebController extends MyAdminController
                 $this->core->redirect($this->link['controller'] .'/welcome');
 
             } else {
-                $this->flash->validation_error('Invalid username or password.');
+                $this->flash->validation_error(_('Invalid username or password.'));
             }
         } 
     }
@@ -119,7 +119,7 @@ class AdminWebController extends MyAdminController
         // Kill it 
         $this->session->kill();
         $this->setTitle($this->project_title . CONNECTOR . 'Log out');  
-        $this->flash->success("Goodbye, you are now logged out.");
+        $this->flash->success(_('Goodbye, you are now logged out.'));
         $this->core->redirect($this->link['controller'] .'/login');
     }
     
@@ -309,7 +309,7 @@ class AdminWebController extends MyAdminController
                 if(!$res) return;
 
                 // OK
-                $this->flash->success("The following task has been successfully executed.");
+                $this->flash->success(_("The following task has been successfully executed."));
                 $this->log->message("Task ". $taskname ." successfully executed.");
 
                 // Executed it is
@@ -318,7 +318,7 @@ class AdminWebController extends MyAdminController
                 // Set result if ok
                 $this->set('res', $res);
             } else {
-                $this->flash->validation_error("Parameters and inputs don't match");
+                $this->flash->validation_error(_("Parameters and inputs don't match"));
             }
         } else {
             $this->set('executed', false);
