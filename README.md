@@ -144,6 +144,7 @@ The directory structure of the repository is as follows.
 		- **phpliteadmin/** -> This directory holds PHPLiteAdmin, to manage SQLite databases.
 		- *phpinfo.php* -> This is the PHPInfo page.
 	- *index.php* -> This file serves the web application from the http server.
+- **locales/** -> Contains gettext translation directory structure and files.
 - **resources/** -> Contains application resources.
 	- **cache/** -> Contains files for the http cache system.
 	- **db/** -> Contains sqlite databases of the application.
