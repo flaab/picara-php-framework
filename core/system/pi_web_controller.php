@@ -238,6 +238,9 @@ abstract class Pi_web_controller extends Pi_paginator
           // Save uri object into controller
           $this->uri = $uri;
           
+          // Save l18n to make it available in controllers
+          $this->l18n = $uri->l18n;
+          
           // Arguments 
           $args = $this->uri->parameters();
 
@@ -285,7 +288,12 @@ abstract class Pi_web_controller extends Pi_paginator
               // Controller and action being called
               $this->request['controller']     = strtolower($this->uri->controller());
               $this->request['action']         = strtolower($this->uri->action());
-                
+
+              // Lang used
+              $this->set('picara_lang', $this->l18n->lang);
+              $this->set('picara_language', $this->l18n->language);
+              $this->set('picara_lang_change', $this->uri->l18n_change_links);
+             
               // Load config file if needed before action
               $this->load_config();
 
@@ -298,6 +306,7 @@ abstract class Pi_web_controller extends Pi_paginator
               // Deliver context information if this is not an api call
               if(!isset($this->api_settings[$this->uri->action()]))
               {
+                  $this->set('request_array', $this->uri->uri_array());
                   $this->set('request', $this->request);
                   $this->set('link',    $this->link);
               }

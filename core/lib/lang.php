@@ -108,8 +108,8 @@ class Lang extends Pi_error_store
             trigger_error("Lang '". $this->lang ."' is not enabled in the application", E_USER_ERROR);
 
         // Loads default lang messages if necessary
-        if($lang != DEFAULT_LANG && MESSAGES_CONSISTENCY == true)
-            $this->_load(DEFAULT_LANG);
+        //if($lang != DEFAULT_LANG && MESSAGES_CONSISTENCY == true)
+        //    $this->_load(DEFAULT_LANG);
 
         // Loads desired lang files
         $this->_load($this->lang);

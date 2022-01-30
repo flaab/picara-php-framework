@@ -133,9 +133,9 @@ define('CURL_BASE_URL', '');
 * @default    .phtml
 */
 define('STATIC_EXT', '.phtml');
- 
+
 //==============================================================
-// LANG SUPPORT
+// GETTEXT LOCALES SUPPORT
 //==============================================================
 
 /**
@@ -143,21 +143,88 @@ define('STATIC_EXT', '.phtml');
 *
 * @default    false
 */
-define('LANG_SUPPORT', false);
+define('LANG_SUPPORT', true);
 
 /**
 * Default language for lang support
 *
-* @default    en
+* @default    en    Always must have a value
 */
 define('DEFAULT_LANG', 'en');
 
 /**
-* Message consistency causes unexistant messages to be added from default lang files
+* Force a specific language to be loaded.
+* Used for development purposes.
 *
-* @default    true
+* @default  false   No lang forced 
 */
-define('MESSAGES_CONSISTENCY', true);
+define('FORCED_LANG', false);
+
+/**
+* Require lang string in urls parser.
+* If not, redirect will be made.
+*
+* @default  false 
+*/
+define('LANG_IN_URLS', false);
+
+/**
+* Supported languages. 
+* Edit at will.
+*/
+$_LANGUAGES = array(
+    //'ar' => 'عربى',            // Arabic
+    'en' => 'English',           // English
+    'es' => 'Español',           // Spanish
+    //'fr' => 'Français',        // French
+    //'hi' => 'हिंदी',             /// Hindi
+    //'it' => 'Italiano',        // Italian
+    //'de' => 'Deutsche',        // German
+    //'pt' => 'Português',       // Portuguese
+    //'ru' => 'Pусский',         // Russian
+    //'ja' => '日本',            // Japanese
+    //'zh' => '中文',            // Chinese
+    //'th' => 'ไทย',             // Thai
+    //'id' => 'Indonesia',       
+    //'af' => _('Afrikaanse'),
+    //'be' => _('Belarusian'),
+    //'bg' => _('Bulgarian'),
+    //'bn' => _('Bengali'),
+    //'bs' => _('Bosnian'),
+    //'bo' => _('Tibetan'),
+    //'ca' => _('Catalan'),
+    //'cs' => _('Czech'),
+    //'da' => _('Danish'),
+    //'el' => _('Greek'),
+    //'eu' => _('Euskera'),
+    //'et' => _('Estonian'),
+    //'fi' => _('Finnish'),
+    //'gl' => _('Galician'),
+    //'he' => _('Hebrew'),
+    //'hu' => _('Hungarian'),
+    //'is' => _('Islandic'),
+    //'ko' => _('Korean'),
+    //'lv' => _('Latvian'),
+    //'lt' => _('Lithuanian'),
+    //'ml' => _('Malayam'),
+    //'mr' => _('Marathi'),
+    //'nl' => _('Dutch'),
+    //'no' => _('Norwegian'),
+    //'pl' => _('Polish'),
+    //'pa' => _('Punjabi'),
+    //'ro' => _('Romanian'),
+    //'sr' => _('Serbian'),
+    //'sk' => _('Slovakian'),
+    //'sq' => _('Albanian'),
+    //'sv' => _('Swedish'),
+    //'ta' => _('Tamil'),
+    //'te' => _('Telugu'),
+    //'uk' => _('Ukranian'),
+    //'ur' => _('Urdu'),
+    //'sl' => _('Slovenian'),
+    //'vi' => 'Tiếng Việt',
+    //'yi' => _('Yiddish'),
+);
 
 //==============================================================
 // LOGS

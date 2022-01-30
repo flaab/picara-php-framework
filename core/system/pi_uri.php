@@ -72,6 +72,15 @@ class Pi_uri extends Pi_error_store
     */
     private $total;
     
+    /**
+     * Public l18n instance
+     */
+    public $l18n;
+
+    /**
+     * Array with lang change links
+     */
+    public $l18n_change_links;
     
 
     //----------------------------------------------------------
@@ -110,7 +119,65 @@ class Pi_uri extends Pi_error_store
         // Original request received
         if($original_request != '')
              $this->original_request_array = array_values(array_filter(explode('/', strtolower($original_request)), 'strlen'));
-       
+        
+        // Save base href once
+        $this->base_href = Pi_core::get_base_href();
+        
+        // Create i18n instance
+        $this->l18n = new Pi_l18n();
+        
+        // If lang enabled, must be in urls and no lang is hardcoded
+        if(LANG_SUPPORT && LANG_IN_URLS)
+        {
+            // Supported lang in URL
+            if($this->l18n->is_supported($this->request_array[0]))
+            {
+                if($this->l18n->change_lang($this->request_array[0]))
+                {
+                    array_shift($this->request_array);
+                    $this->url_lang = $this->l18n->lang;
+                }
+            
+            // No supported lang in URL
+            // We need to redirect in a 301 manner
+            // Only in live browsing.
+            } else if(is_null($uri)) {
+
+                // If post received
+                // do not redirect.
+                if(count($_POST) == 0)
+                {
+                    header("Location: ". $this->base_href . $this->l18n->lang .'/'. $this->request_string);
+                    die;
+                }
+            }
+            
+            // Here, we define the L18N constant!
+            if(strlen(CURL_BASE_URL) > 0)
+                define('CURL_BASE_URL_L18N', CURL_BASE_URL . $this->l18n->lang .'/');
+            else            
+                define('CURL_BASE_URL_L18N', $this->base_href . $this->l18n->lang .'/');
+
+            // Define base href as constant for lang changes
+            define('PICARA_BASE_HREF', $this->base_href);
+            
+            // Edit base href to hold lang in templates
+            $this->base_href = $this->base_href . $this->l18n->lang .'/';
+
+        } else {
+            
+            // No lang support, define normal curl base url to avoid from failing
+            if(strlen(CURL_BASE_URL) > 0)
+            {
+                define('CURL_BASE_URL_L18N', CURL_BASE_URL);
+            } else {
+                define('CURL_BASE_URL_L18N', $this->base_href);
+            }
+        }
+
+        // Change links for l18n
+        $this->l18n_change_links = $this->l18n->get_change_lang_links($this->request_array);
+        
         // Count total arguments in query string
         $this->total = count($this->request_array);    
         
@@ -119,9 +186,6 @@ class Pi_uri extends Pi_error_store
         $this->_setAction();
         $this->_setParameters();
 
-        // Save base href once
-        $this->base_href = Pi_core::get_base_href();
-        
         // Saves canonical url getting rid of trailing index/index string that might or not be there
         $this->canonical = preg_replace("/(\/index){0,2}\/*$/", '', $this->base_href . $this->controller .'/'. $this->action .'/'. implode('/', $this->parameters));
         

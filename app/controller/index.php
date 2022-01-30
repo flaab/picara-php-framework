@@ -38,7 +38,9 @@ class IndexWebController extends MyWebController
     public function index()
     {
         // Title
-        $this->setTitle("It works!");
+        $this->setTitle(_("It works!"));
+        
+        //Debug::dump($this->l18n);
 
         // Things to fix
         $fix = array();

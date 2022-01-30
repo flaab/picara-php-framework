@@ -153,11 +153,11 @@ class Cache extends Pi_cache
              // If a lang has been forced, we must check it is enabled
              if($lang != NULL && LANG_SUPPORT == true)
              {
-                 if(!$this->metadata->is_enabled_lang($lang))
+                 if(!$this->uri->l18n->is_supported($lang))
                      trigger_error("Lang '$lang' is not enabled in the application and I cannot generate cache files for it.", E_USER_ERROR);
 
                  // Save it
-                 $this->lang = $lang;
+                 $this->lang = strtolower($lang);
              }
 
              // Parent sets up all paths

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?= $picara_lang ?>">
   <head>
     <meta charset="utf-8">
     <base href="<?= $base_href ?>" />
@@ -74,17 +74,18 @@
                     <? endif; ?>
                     <!-- ==== Custom admin menu end ==== -->
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/logout" title="Logout">Logout</a>
+                        <a class="nav-link" href="admin/logout" title="<?= _('Logout') ?>"><?= _('Logout') ?></a>
                     </li>
                 <? elseif($link['action'] != 'login'): ?> 
                     <li class="nav-item">
-                        <a class="nav-link" href="admin/login" title="Login">Login</a>
+                        <a class="nav-link" href="admin/login" title="<?= _('Login') ?>"><?= _('Login') ?></a>
                     </li>
                 <? else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index" title="Visit Site">Back to site</a>
+                        <a class="nav-link" href="index" title="<?= _('Back to site') ?>"><?= _('Back to site') ?></a>
                     </li>
                 <? endif; ?>
+                <? require(MOD . 'l18n_navlinks.php'); ?>
             </ul>
         </div>
         <!-- ==== Navbar end ==== -->
@@ -100,7 +101,7 @@
     <!-- ==== Footer ==== -->
     <footer class="footer page-footer font-small mt-5 bg-light">
         <div class="footer-copyright text-center py-3">
-            &copy; 2008-<?= date('Y') ?> Arturo Lopez Perez. Distributed under MIT License.&nbsp;
+            &copy; 2008-<?= date('Y') ?> Arturo Lopez Perez. <?= _('Distributed under MIT License.') ?> &nbsp;
             <? if($link['action'] != 'login'): ?>
                 <? if(ENVIRONMENT == 'production'): ?>
                     <span class="badge badge-danger">

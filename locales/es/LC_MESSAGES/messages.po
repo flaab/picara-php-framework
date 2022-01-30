@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2022-01-30 18:13+0100\n"
+"PO-Revision-Date: 2022-01-30 18:13+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ../../../app\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: controller/index.php:41
+msgid "It works!"
+msgstr "¡Funciona!"
+
+#: html/layout/admin.php:77
+msgid "Logout"
+msgstr "Salir"
+
+#: html/layout/admin.php:81
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: html/layout/admin.php:85
+msgid "Back to site"
+msgstr "Volver al sitio"
+
+#: html/layout/admin.php:104 html/layout/default.php:68
+msgid "Distributed under MIT License."
+msgstr "Distribuido bajo Licencia MIT."
+
+#: html/layout/default.php:35
+msgid "A Rapid PHP Development Framework"
+msgstr "Un framework rápido de desarrollo web"
+
+#: html/layout/default.php:69
+msgid "Terms and Conditions"
+msgstr "Términos y Condiciones"
+
+#: html/layout/default.php:70
+msgid "Privacy Policy"
+msgstr "Política de privacidad"
+
+#: html/view/index/index.php:3
+msgid "It works, you are running!"
+msgstr "¡Todo listo y funcionando!"
+
+#: html/view/index/index.php:7
+msgid "Site Administration"
+msgstr "Panel de Administración"
+
+#: html/view/index/index.php:13
+msgid "You're almost there!"
+msgstr "¡Ya queda menos!"
+
+#: html/view/index/index.php:14
+msgid ""
+"In order for the framework to be fully operative, these issues need your "
+"attention."
+msgstr ""
+"Para que el framework esté completamente operativo, algunos problemas "
+"requieren tu atención."

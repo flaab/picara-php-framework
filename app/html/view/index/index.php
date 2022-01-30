@@ -1,17 +1,17 @@
 <div class="jumbotron pt-5 pb-5 pl-5 pr-5" style="text-align: left;">
     <? if(count($fix) == 0): ?>
-        <h1 class="display-4">It works, you are running!</h1>
+        <h1 class="display-4"><?= _('It works, you are running!') ?></h1>
         <p class="lead">This project is named <strong><?= TITLE ?></strong>. Edit app name and settings at <strong><?= USERCONFIG ?>application.php</strong>.</p>
         <hr class="my-4">
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="admin/welcome" role="button">Site Administration</a>
+            <a class="btn btn-primary btn-lg" href="admin/welcome" role="button"><?= _('Site Administration') ?></a>
             <a class="btn btn-info btn-lg ml-3" href="assets/phpliteadmin/phpliteadmin.php" target="_blank" role="button">PHPLiteAdmin</a>
             <a class="btn btn-secondary btn-lg ml-3" href="assets/phpinfo.php" target="_blank" role="button">PHPInfo</a>
             <a class="btn btn-light btn-lg ml-3" href="https://github.com/flaab/picara-php-framework" target="_blank" role="button">GitHub</a>
         </p>
     <? else: ?>
-        <h1 class="display-4">You're almost there!</h1>
-        <p class="lead">In order for the framework to be fully operative, these issues need your attention.</p>
+        <h1 class="display-4"><?= _("You're almost there!") ?></h1>
+        <p class="lead"><?= _('In order for the framework to be fully operative, these issues need your attention.') ?></p>
         <hr class="my-4">
         <ul>
             <? foreach($fix as $f): ?>

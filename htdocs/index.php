@@ -34,6 +34,7 @@ require_once(SYSTEM . 'pi_web_error_handler.php');
 * Basic system libraries
 */
 require_once(SYSTEM  . 'pi_error_store.php');
+require_once(SYSTEM  . 'pi_l18n.php');
 require_once(SYSTEM  . 'pi_uri.php');
 require_once(SYSTEM  . 'pi_web_dispatcher.php');
 require_once(SYSTEM  . 'pi_overloadable.php');

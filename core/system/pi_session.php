@@ -69,6 +69,7 @@ class Pi_session
     */
     public static function keepAlive()
     { 
+        //session_save_path("/tmp");
         session_name(SESSION_NAME);
         session_start();
     } 

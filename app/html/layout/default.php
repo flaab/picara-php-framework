@@ -1,12 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="<?= $picara_lang ?>">
   <head>
     <meta charset="utf-8">
     <base href="<?= $base_href ?>" />
     <title><?= $meta_title ?></title>
     <meta name="keywords" content="<?= $meta_keywords ?>" />
     <meta name="description" content="<?= $meta_description ?>" />
+    <meta http-equiv=”content-language” content=”<?= $picara_lang ?>”/>
+    <? if(!LANG_IN_URLS): ?>
     <link rel="canonical" href="<?= $canonical ?>" />
+    <? endif; ?>
+    <? require(MOD . 'hreflang.php'); ?>
     <? if($noindex): ?>
     <meta name="robots" content="noindex" />
     <? endif; ?>
@@ -28,9 +32,26 @@
         <? if(TITLE == DEFAULT_TITLE): ?>
             <ul class="navbar-nav ml-1">
                 <li class="nav-item active">
-                    <span class="navbar-text" title="Administration">A Rapid PHP Development Framework</a>
+                    <span class="navbar-text" title="Administration"><?= _('A Rapid PHP Development Framework') ?></a>
                 </li>
             </ul>
+        <? endif; ?>
+        
+        <? if(LANG_IN_URLS && is_array($picara_lang_change) && count($picara_lang_change) > 1): ?>
+        <button class="navbar-toggler" type="button" 
+                data-toggle="collapse" data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- ==== Navbar ==== --> 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <? require(MOD . 'l18n_navlinks.php'); ?>
+            </ul>
+        </div>
+        <!-- ==== Navbar end ==== -->
         <? endif; ?>
     </nav>
     <!-- ==== End Nav ==== -->
@@ -44,9 +65,9 @@
     <!-- ==== Footer ==== -->
     <footer class="footer page-footer font-small mt-5 bg-light">
         <div class="footer-copyright text-center py-3">
-            &copy; 2008-<?= date('Y') ?> Arturo Lopez Perez. Distributed under MIT License.&nbsp;&nbsp; 
-            <a href="pages/view/terms-and-conditions" title="Terms and Conditions">Terms and Conditions</a>&nbsp;&nbsp;
-            <a href="pages/view/privacy-policy" title="Privacy Policy">Privacy Policy</a>
+            &copy; 2008-<?= date('Y') ?> Arturo Lopez Perez. <?= _('Distributed under MIT License.') ?>&nbsp;&nbsp; 
+            <a href="pages/view/terms-and-conditions" title="Terms and Conditions"><?= _('Terms and Conditions') ?></a>&nbsp;&nbsp;
+            <a href="pages/view/privacy-policy" title="Privacy Policy"><?= _('Privacy Policy') ?></a>
         </div>
     </footer>
     <!-- ==== Footer ==== -->

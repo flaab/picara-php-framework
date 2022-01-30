@@ -100,24 +100,27 @@ class Pi_metadata extends Pi_error_store
     public function get_enabled_langs()
     {
         // If already included
-        if(is_array($this->langs))
+        if(is_array($this->langs) && count($this->langs) > 0)
             return $this->langs;
 
         // Includes it and saves it
-        $enabled_file = USERCONFIG . 'langs.yml';
+        //$enabled_file = USERCONFIG . 'langs.yml';
 
         // Include it
-        if(!file_exists($enabled_file))
-            trigger_error("Config file '$enabled_file' does not exist, please create it first", E_USER_ERROR);
+        //if(!file_exists($enabled_file))
+        //    trigger_error("Config file '$enabled_file' does not exist, please create it first", E_USER_ERROR);
 
-        // Load natively
-        $enabled = yaml_parse(file_get_contents($enabled_file)); 
-        if(is_null($enabled)) $enabled = array();
+        // Loads yml file with connection information
+        //require_once(VENDORS . 'spyc/spyc.php5');
+
+        // Returns array
+        //$enabled = Spyc::YAMLLoad($enabled_file);
 
         // Assign
-        $this->langs = $enabled;
+        global $_LANGUAGES;
+        $this->langs = $_LANGUAGES;
 
-        return $enabled;
+        return $this->langs;
     }
 
     //--------------------------------------------------------
