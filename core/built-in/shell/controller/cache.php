@@ -16,7 +16,7 @@
 * @package    Scripts 
 * @author     Arturo Lopez
 * @copyright  Copyright (c) 2008-2019, Arturo Lopez
-* @version    0.1
+* @version    0.2
 */
  
 class cacheShellController extends Pi_shell_controller
@@ -64,15 +64,15 @@ class cacheShellController extends Pi_shell_controller
         {
             // If lang option has been received
             if($this->options->lang)
-            {
+            {   
                 // Cache generation without for this lang
-                $this->_perform($requests, $action);   
+                $this->_perform($requests, $action, $this->options->lang);   
             
             } else {
-
+            
                 // Cache process must be done verbosely for all enabled langs
                 $enabled_langs = $this->metadata->get_enabled_langs();
-
+                
                 // Abort if no langs
                 if(count($enabled_langs) == 0)
                     $this->abort("No lang is enabled yet, please edit '". USERCONFIG . "langs_enabled.php'");
@@ -80,14 +80,11 @@ class cacheShellController extends Pi_shell_controller
                 // Execute operation
                 foreach($enabled_langs as $lang => $name)
                 {
-                    // Set lang option
-                    $this->options->lang = $lang;
-
                     // Title
                     $this->putunderlined(ucfirst($name) .' ('. $lang .')');
 
                     // Generation
-                    $this->_perform($requests, $action);
+                    $this->_perform($requests, $action, $lang);
                     $this->putline();
                 }
             }
@@ -150,11 +147,11 @@ class cacheShellController extends Pi_shell_controller
     * @param    string    $requests
     */
 
-    private function _perform($requests, $action)
+    private function _perform($requests, $action, $lang)
     {
         // Requests collection
         $collection = $this->_get_requests($requests);
-
+        
         // Elements ok
         $ok = 0;
 
@@ -165,8 +162,8 @@ class cacheShellController extends Pi_shell_controller
         foreach($collection as $request)
         {
             // New cache element for desired lang (NULL if not received)
-            $cache = new Cache($request, $this->options->lang);
-
+            $cache = new Cache($request, $lang);
+            
             // Execution
             $result = $cache->{$action}();
             
@@ -285,13 +282,8 @@ class cacheShellController extends Pi_shell_controller
 
     private function _add_combination($param, $combinations)
     {
-        // total iterations
-        if(!empty($combinations))
-            $tot = count($combinations);
-        else
-            $tot = 0;
-
-        // Proceed
+        $tot = count($combinations);
+    
         if(is_array($param))
         {
             for($it=0; $it < $tot; $it++)
@@ -307,7 +299,7 @@ class cacheShellController extends Pi_shell_controller
     
         } else {
     
-            for($it=0; $it < $tot; $it++)
+            for($it=0; $it < count($tot); $it++)
             {
             	if(empty($combinations[$it])) { $slash = ''; } else { $slash = '/';}
                 $combinations[$it] .= $slash . $param;
