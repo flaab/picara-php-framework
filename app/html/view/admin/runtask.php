@@ -30,7 +30,7 @@
                 <? endforeach; ?>
             <? endif; ?>
             <div class="col-md-6 offset-md-4">
-                <a role="button" href="admin/tasks" class="btn btn-primary"><? _('No, go back') ?></a>
+                <a role="button" href="admin/tasks" class="btn btn-primary"><?= _('No, go back') ?></a>
                 <button type="submit" name="submit" class="btn btn-danger" name="submit"><?= _('Yes, run this task') ?></button>
             </div>
             </form>

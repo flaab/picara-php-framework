@@ -489,7 +489,12 @@ class Cache extends Pi_cache
         curl_setopt($ch, CURLOPT_URL, $this->url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-                
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        
+        // Lang
+        if($lang)
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Accept-Language: '. $lang]);
+        
         // Execution and save result
         $data = curl_exec($ch);             
         $data = $this->unparseCode($data); 
